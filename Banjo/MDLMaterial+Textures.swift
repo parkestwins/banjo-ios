@@ -9,12 +9,12 @@
 import ModelIO
 
 extension MDLMaterial {
-    func setTextureProperties(textures: [MDLMaterialSemantic:String]) -> Void {
+    func setTextureProperties(_ textures: [MDLMaterialSemantic:String]) -> Void {
         for (key,value) in textures {
-            guard let url = NSBundle.mainBundle().URLForResource(value, withExtension: "") else {
+            guard let url = Bundle.main.url(forResource: value, withExtension: "") else {
                 fatalError("Failed to find URL for resource \(value).")
             }
-            let property = MDLMaterialProperty(name:value, semantic: key, URL: url)
+            let property = MDLMaterialProperty(name:value, semantic: key, url: url)
             self.setProperty(property)
         }
     }

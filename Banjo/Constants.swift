@@ -13,24 +13,24 @@ class Constants {
     
     struct Models {
         
-        static let testModel = shipModel
-        static let testTextures = shipTextures
+        static let testModel = fighterModel
+        static let testTextures = fighterTextures
         
         static let shipModel = "realship"
         static let shipTextures: [MDLMaterialSemantic: String] = [
-            .BaseColor:"shipDiffuse.png"
+            .baseColor:"shipDiffuse.png"
         ]
         
         static let fighterModel = "Fighter"
         static let fighterTextures: [MDLMaterialSemantic: String] = [
-            .BaseColor:"Fighter_Diffuse_25.jpg",
-            .Specular:"Fighter_Specular_25.jpg",
-            .Emission:"Fighter_Illumination_25.jpg"
+            .baseColor:"Fighter_Diffuse_25.jpg",
+            .specular:"Fighter_Specular_25.jpg",
+            .emission:"Fighter_Illumination_25.jpg"
         ]
         
         static let crateModel = "crate"
         static let crateTexture1: [MDLMaterialSemantic: String] = [
-            .BaseColor:"crate_tex.jpg"
+            .baseColor:"crate_tex.jpg"
         ]
     }
 }

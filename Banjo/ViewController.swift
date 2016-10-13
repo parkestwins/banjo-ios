@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     
     func testFirebase() {
         let firebaseDBRef = FIRDatabase.database().reference()
-        firebaseDBRef.child("platforms").child("nintendo64").observeSingleEventOfType(.Value, withBlock: { snapshot in
+        firebaseDBRef.child("platforms").child("nintendo64").observeSingleEvent(of: .value, with: { snapshot in
             let result = snapshot.value as! [String:AnyObject]
             let abbreviation = result["abbreviation"] as! String
             let title = result["title"] as! String
@@ -43,12 +43,12 @@ class ViewController: UIViewController {
     
     func load3DModel() {
         // Load the .OBJ file
-        guard let url = NSBundle.mainBundle().URLForResource(Constants.Models.testModel, withExtension: "obj") else {
+        guard let url = Bundle.main.url(forResource: Constants.Models.testModel, withExtension: "obj") else {
             fatalError("Failed to find model file.")
         }
         
-        let asset = MDLAsset(URL:url)
-        guard let object = asset.objectAtIndex(0) as? MDLMesh else {
+        let asset = MDLAsset(url:url)
+        guard let object = asset.object(at: 0) as? MDLMesh else {
             fatalError("Failed to get mesh from asset.")
         }
         
@@ -58,14 +58,14 @@ class ViewController: UIViewController {
         material.setTextureProperties(Constants.Models.testTextures)
       
         // Apply the texture to every submesh of the asset
-        for  submesh in object.submeshes  {
+        for  submesh in object.submeshes!  {
             if let submesh = submesh as? MDLSubmesh {
                 submesh.material = material
             }
         }
         
         // Wrap the ModelIO object in a SceneKit object
-        let node = SCNNode(MDLObject: object)
+        let node = SCNNode(mdlObject: object)
         node.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
         let scene = SCNScene()
         scene.rootNode.addChildNode(node)
@@ -75,6 +75,6 @@ class ViewController: UIViewController {
         sceneView.allowsCameraControl = true
         sceneView.scene = scene
         // sceneView.showsStatistics = true
-        sceneView.backgroundColor = UIColor.clearColor()
+        sceneView.backgroundColor = UIColor.clear
     }
 }
