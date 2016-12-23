@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DDDDisplayVC.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 7/18/16.
@@ -11,9 +11,9 @@ import ModelIO
 import SceneKit
 import SceneKit.ModelIO
 
-// MARK: - ViewController: UIViewController
+// MARK: - DDDDisplayVC: UIViewController
 
-class ViewController: UIViewController {
+class DDDDisplayVC: UIViewController {
     
     // MARK: Properties
  
@@ -27,19 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         load3DModel()
     }
-    
-    func testFirebase() {
-//        let firebaseDBRef = FIRDatabase.database().reference()
-//        firebaseDBRef.child("platforms").child("nintendo64").observeSingleEvent(of: .value, with: { snapshot in
-//            let result = snapshot.value as! [String:AnyObject]
-//            let abbreviation = result["abbreviation"] as! String
-//            let title = result["title"] as! String
-//            print("\(title) (\(abbreviation))")
-//        }) { error in
-//            print(error.localizedDescription)
-//        }
-    }
-    
+
     func load3DModel() {
         // Load the .OBJ file
         guard let url = Bundle.main.url(forResource: Constants.Models.testModel, withExtension: "obj") else {
