@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		404341D42EF6F1ACA8006156 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A4DDAD00A035BDB549DC74 /* Pods_Banjo.framework */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
 		A92C2F561D3DE25A001C6E9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F551D3DE25A001C6E9C /* ViewController.swift */; };
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
@@ -51,9 +50,6 @@
 		A93F2E541D43CEF6007BCE7B /* Fighter_Specular_25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fighter_Specular_25.jpg; sourceTree = "<group>"; };
 		A93F2E601D43CFE6007BCE7B /* realship.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = realship.obj; sourceTree = "<group>"; };
 		A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipDiffuse.png; sourceTree = "<group>"; };
-		DC34FC43D178542AA9083902 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
-		E5A4DDAD00A035BDB549DC74 /* Pods_Banjo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Banjo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF33A2E79D7C1FDC78F1C1F5 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				404341D42EF6F1ACA8006156 /* Pods_Banjo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +68,6 @@
 			children = (
 				A92C2F521D3DE25A001C6E9C /* Banjo */,
 				A92C2F511D3DE25A001C6E9C /* Products */,
-				C264521C33C52ED03F55DA2B /* Pods */,
-				C8D2E85439BA41A67E714FE9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,23 +130,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C264521C33C52ED03F55DA2B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FF33A2E79D7C1FDC78F1C1F5 /* Pods-Banjo.debug.xcconfig */,
-				DC34FC43D178542AA9083902 /* Pods-Banjo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		C8D2E85439BA41A67E714FE9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E5A4DDAD00A035BDB549DC74 /* Pods_Banjo.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -161,12 +137,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A92C2F621D3DE25A001C6E9C /* Build configuration list for PBXNativeTarget "Banjo" */;
 			buildPhases = (
-				7872B8FCC20DC0CA84E1CFE4 /* [CP] Check Pods Manifest.lock */,
 				A92C2F4C1D3DE25A001C6E9C /* Sources */,
 				A92C2F4D1D3DE25A001C6E9C /* Frameworks */,
 				A92C2F4E1D3DE25A001C6E9C /* Resources */,
-				D869E221B883AEC21E724792 /* [CP] Embed Pods Frameworks */,
-				F43659D2EA34E86AAE81B535 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,6 +162,7 @@
 				TargetAttributes = {
 					A92C2F4F1D3DE25A001C6E9C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3Y3M3A69VC;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -235,54 +209,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7872B8FCC20DC0CA84E1CFE4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D869E221B883AEC21E724792 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F43659D2EA34E86AAE81B535 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A92C2F4C1D3DE25A001C6E9C /* Sources */ = {
@@ -410,10 +336,10 @@
 		};
 		A92C2F631D3DE25A001C6E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF33A2E79D7C1FDC78F1C1F5 /* Pods-Banjo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3Y3M3A69VC;
 				INFOPLIST_FILE = Banjo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
@@ -427,10 +353,10 @@
 		};
 		A92C2F641D3DE25A001C6E9C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC34FC43D178542AA9083902 /* Pods-Banjo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 3Y3M3A69VC;
 				INFOPLIST_FILE = Banjo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;

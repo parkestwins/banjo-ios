@@ -10,7 +10,6 @@ import UIKit
 import ModelIO
 import SceneKit
 import SceneKit.ModelIO
-import Firebase
 
 // MARK: - ViewController: UIViewController
 
@@ -30,15 +29,15 @@ class ViewController: UIViewController {
     }
     
     func testFirebase() {
-        let firebaseDBRef = FIRDatabase.database().reference()
-        firebaseDBRef.child("platforms").child("nintendo64").observeSingleEvent(of: .value, with: { snapshot in
-            let result = snapshot.value as! [String:AnyObject]
-            let abbreviation = result["abbreviation"] as! String
-            let title = result["title"] as! String
-            print("\(title) (\(abbreviation))")
-        }) { error in
-            print(error.localizedDescription)
-        }
+//        let firebaseDBRef = FIRDatabase.database().reference()
+//        firebaseDBRef.child("platforms").child("nintendo64").observeSingleEvent(of: .value, with: { snapshot in
+//            let result = snapshot.value as! [String:AnyObject]
+//            let abbreviation = result["abbreviation"] as! String
+//            let title = result["title"] as! String
+//            print("\(title) (\(abbreviation))")
+//        }) { error in
+//            print(error.localizedDescription)
+//        }
     }
     
     func load3DModel() {
