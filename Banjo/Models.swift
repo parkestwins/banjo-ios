@@ -15,7 +15,7 @@ final class Platform: Object {
     dynamic var title = ""
     dynamic var abbreviation = ""
     dynamic var id = ""
-    let items = List<Game>()
+    let games = List<Game>()
     
     override static func primaryKey() -> String? {
         return "id"
