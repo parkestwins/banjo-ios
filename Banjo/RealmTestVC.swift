@@ -8,6 +8,6 @@
 
 import UIKit
 
-class RealmTestVC: UIViewController {
-    
+class RealmTestVC: UITableViewController {
+
 }
