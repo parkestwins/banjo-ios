@@ -36,8 +36,8 @@ class RealmTestVC: UITableViewController {
     }
     
     func setupRealm() {
-        let username = "admin@parkestwins.com"
-        let password = "rd3s1gne"
+        let username = "readonly@parkestwins.com"
+        let password = "readonly"
         
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
@@ -46,8 +46,9 @@ class RealmTestVC: UITableViewController {
             
             DispatchQueue.main.async {
                 // Open Realm
-                let configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/~/banjo")!)
+                var configuration = Realm.Configuration(
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!),
+                    readOnly: true
                 )
                 self.realm = try! Realm(configuration: configuration)
                 
@@ -61,9 +62,9 @@ class RealmTestVC: UITableViewController {
                 updateGames()
                 
                 // Notify us when Realm changes
-                self.notificationToken = self.realm.addNotificationBlock { _ in
-                    updateGames()
-                }
+//                self.notificationToken = self.realm.addNotificationBlock { _ in
+//                    updateGames()
+//                }
             }
         }
     }
@@ -108,5 +109,17 @@ class RealmTestVC: UITableViewController {
             }                        
         })
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let game = games[indexPath.row]
+        do {
+            try game.realm?.write {
+                game.title = game.title + " MODIFIED!"
+            }
+        } catch {
+            print("Error info: \(error)")
+            
+        }
     }
 }
