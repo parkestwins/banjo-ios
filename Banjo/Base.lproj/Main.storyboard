@@ -175,17 +175,39 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="EHH-YR-13d" kind="relationship" relationship="rootViewController" id="IgM-Vh-PXZ"/>
+                        <segue destination="Kxk-GQ-1Jr" kind="relationship" relationship="rootViewController" id="PXB-w3-ICq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxz-Dd-rkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="453.60000000000002" y="936.88155922038993"/>
         </scene>
+        <!--LoginVC-->
+        <scene sceneID="1Xr-YO-per">
+            <objects>
+                <viewController id="Kxk-GQ-1Jr" customClass="LoginVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hdD-iY-dlH"/>
+                        <viewControllerLayoutGuide type="bottom" id="tSx-SY-eZK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZU5-Vn-4NZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3Sw-SE-HqP"/>
+                    <connections>
+                        <segue destination="dvp-8S-J90" kind="show" identifier="login" id="wqJ-jp-2dG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-9T-qtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="1287"/>
+        </scene>
         <!--Realm TestVC-->
         <scene sceneID="yoA-V1-yAd">
             <objects>
-                <tableViewController id="EHH-YR-13d" customClass="RealmTestVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="RealmTestVC" id="EHH-YR-13d" customClass="RealmTestVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lw6-Cy-8bf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,7 +217,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ceh-QE-suK" id="Siq-Zq-2Qb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -209,7 +231,44 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yrw-gd-zZq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="937"/>
+            <point key="canvasLocation" x="1455" y="577"/>
+        </scene>
+        <!--Realm Search TableVC-->
+        <scene sceneID="EPC-Ko-Kzz">
+            <objects>
+                <tableViewController id="dvp-8S-J90" customClass="RealmSearchTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sce-je-lza">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gameCell" id="al3-CU-9Yq">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="al3-CU-9Yq" id="oXe-sv-P3u">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dvp-8S-J90" id="eHI-i7-Md6"/>
+                            <outlet property="delegate" destination="dvp-8S-J90" id="2xZ-2L-WpD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="W4s-0f-rr3"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="entityName" value="Game"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="searchPropertyKeyPath" value="title"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="useContainsSearch" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="caseInsensitiveSearch" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="sortPropertyKey" value="title"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="sortAscending" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ONn-Zb-aeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2374" y="1287"/>
         </scene>
     </scenes>
 </document>
