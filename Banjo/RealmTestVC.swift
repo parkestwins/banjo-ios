@@ -47,8 +47,7 @@ class RealmTestVC: UITableViewController {
             DispatchQueue.main.async {
                 // Open Realm
                 var configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!),
-                    readOnly: true
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!)                    
                 )
                 self.realm = try! Realm(configuration: configuration)
                 
