@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import RealmSwift
 
 // MARK: - RealmTestVC: UITableViewController
@@ -18,6 +19,7 @@ class RealmTestVC: UITableViewController {
     var games = List<Game>()
     var notificationToken: NotificationToken!
     var realm: Realm!
+    var firStorageRef: FIRStorageReference!
     
     // MARK: Life Cycle
     
@@ -25,6 +27,7 @@ class RealmTestVC: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupRealm()
+        setupFirebaseStorage()
     }
     
     // MARK: Setup
@@ -32,7 +35,6 @@ class RealmTestVC: UITableViewController {
     func setupUI() {
         title = "N64 Games"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "gameCell")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(add))
     }
     
     func setupRealm() {
@@ -41,14 +43,14 @@ class RealmTestVC: UITableViewController {
         
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
-                fatalError(String(describing: error))
+                print(String(describing: error))
+                return
             }
             
             DispatchQueue.main.async {
                 // Open Realm
                 var configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!),
-                    readOnly: true
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!)                    
                 )
                 self.realm = try! Realm(configuration: configuration)
                 
@@ -62,9 +64,25 @@ class RealmTestVC: UITableViewController {
                 updateGames()
                 
                 // Notify us when Realm changes
-//                self.notificationToken = self.realm.addNotificationBlock { _ in
-//                    updateGames()
-//                }
+                self.notificationToken = self.realm.addNotificationBlock { _ in
+                    updateGames()
+                }
+            }
+        }
+    }
+    
+    func setupFirebaseStorage() {
+        let storageUrl = FIRApp.defaultApp()?.options.storageBucket
+        firStorageRef = FIRStorage.storage().reference(forURL: "gs://" + storageUrl!)
+        let imageURL = "gs://banjo-21ba1.appspot.com/jarrod-mii.png"
+        if imageURL.hasPrefix("gs://") {
+            FIRStorage.storage().reference(forURL: imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
+                if let error = error {
+                    print("Error downloading: \(error)")
+                    return
+                }
+                let image = UIImage.init(data: data!)
+                print(image.debugDescription)
             }
         }
     }
@@ -84,42 +102,5 @@ class RealmTestVC: UITableViewController {
         let game = games[indexPath.row]
         cell.textLabel?.text = game.title
         return cell
-    }
-    
-    // MARK: Functions
-    
-    func add() {
-        let alertController = UIAlertController(title: "New Game", message: "Enter Game Info", preferredStyle: .alert)
-        var titleTextField: UITextField!
-        var publisherTextField: UITextField!
-        alertController.addTextField { textField in
-            titleTextField = textField
-            textField.placeholder = "Title"
-        }
-        alertController.addTextField { textField in
-            publisherTextField = textField
-            textField.placeholder = "Publisher"
-        }
-        alertController.addAction(UIAlertAction(title: "Add", style: .default) { _ in
-            guard let title = titleTextField.text, !title.isEmpty else { return }
-            guard let publisher = publisherTextField.text, !publisher.isEmpty else { return }
-            let games = self.games
-            try! games.realm?.write {
-                games.insert(Game(value: ["title": title, "publisher": publisher]), at: 0)
-            }                        
-        })
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let game = games[indexPath.row]
-        do {
-            try game.realm?.write {
-                game.title = game.title + " MODIFIED!"
-            }
-        } catch {
-            print("Error info: \(error)")
-            
-        }
     }
 }

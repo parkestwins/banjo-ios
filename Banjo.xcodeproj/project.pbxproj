@@ -27,31 +27,16 @@
 		A93F2E631D43CFE6007BCE7B /* shipDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */; };
 		A951627E1E0D76D30056F9E2 /* RealmTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951627D1E0D76D30056F9E2 /* RealmTestVC.swift */; };
 		A95162891E0D78A70056F9E2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95162881E0D78A70056F9E2 /* Models.swift */; };
-		A951628C1E0D793C0056F9E2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A951628A1E0D793C0056F9E2 /* Realm.framework */; };
-		A951628D1E0D793C0056F9E2 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A951628A1E0D793C0056F9E2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A951628E1E0D793C0056F9E2 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A951628B1E0D793C0056F9E2 /* RealmSwift.framework */; };
-		A951628F1E0D793C0056F9E2 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A951628B1E0D793C0056F9E2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* RealmSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* LoginVC.swift */; };
+		A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99DF74A1E155100009C3091 /* GoogleService-Info.plist */; };
+		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A95162861E0D77A90056F9E2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A951628F1E0D793C0056F9E2 /* RealmSwift.framework in Embed Frameworks */,
-				A951628D1E0D793C0056F9E2 /* Realm.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
+		31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Banjo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDDisplayVC.swift; sourceTree = "<group>"; };
@@ -75,11 +60,11 @@
 		A951627D1E0D76D30056F9E2 /* RealmTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTestVC.swift; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
 		A95162881E0D78A70056F9E2 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
-		A951628A1E0D793C0056F9E2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		A951628B1E0D793C0056F9E2 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchTableVC.swift; sourceTree = "<group>"; };
 		A95D56C71E0DFB6C008399B2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		A99DF74A1E155100009C3091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,20 +72,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A951628E1E0D793C0056F9E2 /* RealmSwift.framework in Frameworks */,
-				A951628C1E0D793C0056F9E2 /* Realm.framework in Frameworks */,
+				D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BF5F0FFED8AD30AC6160C43 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */,
+				8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A92C2F471D3DE25A001C6E9C = {
 			isa = PBXGroup;
 			children = (
 				A92C2F521D3DE25A001C6E9C /* Banjo */,
-				A95162871E0D77B00056F9E2 /* Frameworks */,
 				A92C2F511D3DE25A001C6E9C /* Products */,
+				2BF5F0FFED8AD30AC6160C43 /* Pods */,
+				ED8A8A66597BB82B394B9E04 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,18 +153,10 @@
 		A93F2E5F1D43CF60007BCE7B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A99DF74A1E155100009C3091 /* GoogleService-Info.plist */,
 				A92C2F5F1D3DE25A001C6E9C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A95162871E0D77B00056F9E2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A951628A1E0D793C0056F9E2 /* Realm.framework */,
-				A951628B1E0D793C0056F9E2 /* RealmSwift.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A95D56C91E0E080C008399B2 /* Controllers */ = {
@@ -185,6 +171,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		ED8A8A66597BB82B394B9E04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,10 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A92C2F621D3DE25A001C6E9C /* Build configuration list for PBXNativeTarget "Banjo" */;
 			buildPhases = (
+				078F366DEAD5C4CBA4BC16DB /* [CP] Check Pods Manifest.lock */,
 				A92C2F4C1D3DE25A001C6E9C /* Sources */,
 				A92C2F4D1D3DE25A001C6E9C /* Frameworks */,
 				A92C2F4E1D3DE25A001C6E9C /* Resources */,
-				A95162861E0D77A90056F9E2 /* Embed Frameworks */,
+				AD20A5F58D5E0EE72DDE6434 /* [CP] Embed Pods Frameworks */,
+				0AC39DC56B842C2DE5222A0C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +249,7 @@
 			files = (
 				A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */,
 				A93F2E591D43CEF6007BCE7B /* crate_tex4.jpg in Resources */,
+				A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */,
 				A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */,
 				A93F2E551D43CEF6007BCE7B /* crate.obj in Resources */,
 				A93F2E5C1D43CEF6007BCE7B /* Fighter_Illumination_25.jpg in Resources */,
@@ -269,6 +266,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		078F366DEAD5C4CBA4BC16DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0AC39DC56B842C2DE5222A0C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD20A5F58D5E0EE72DDE6434 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A92C2F4C1D3DE25A001C6E9C /* Sources */ = {
@@ -401,6 +446,7 @@
 		};
 		A92C2F631D3DE25A001C6E9C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -412,7 +458,7 @@
 				);
 				INFOPLIST_FILE = Banjo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.parkestwins.banjo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -423,6 +469,7 @@
 		};
 		A92C2F641D3DE25A001C6E9C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -434,7 +481,7 @@
 				);
 				INFOPLIST_FILE = Banjo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.parkestwins.banjo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
