@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import RealmSwift
 
 // MARK: - RealmTestVC: UITableViewController
@@ -18,6 +19,7 @@ class RealmTestVC: UITableViewController {
     var games = List<Game>()
     var notificationToken: NotificationToken!
     var realm: Realm!
+    var firStorageRef: FIRStorageReference!
     
     // MARK: Life Cycle
     
@@ -25,6 +27,7 @@ class RealmTestVC: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupRealm()
+        setupFirebaseStorage()
     }
     
     // MARK: Setup
@@ -64,6 +67,22 @@ class RealmTestVC: UITableViewController {
                 self.notificationToken = self.realm.addNotificationBlock { _ in
                     updateGames()
                 }
+            }
+        }
+    }
+    
+    func setupFirebaseStorage() {
+        let storageUrl = FIRApp.defaultApp()?.options.storageBucket
+        firStorageRef = FIRStorage.storage().reference(forURL: "gs://" + storageUrl!)
+        let imageURL = "gs://banjo-21ba1.appspot.com/jarrod-mii.png"
+        if imageURL.hasPrefix("gs://") {
+            FIRStorage.storage().reference(forURL: imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
+                if let error = error {
+                    print("Error downloading: \(error)")
+                    return
+                }
+                let image = UIImage.init(data: data!)
+                print(image.debugDescription)
             }
         }
     }
