@@ -35,5 +35,17 @@ class RealmSearchTableVC: RealmSearchVC {
             gameCell.releaseLabel.text = "Release Date"
         }
         return cell
-    }        
+    }
+    
+    override func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+        if let game = anObject as? Game {
+            performSegue(withIdentifier: "showDetail", sender: game)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let game = sender as? Game, let gameDetailVC = segue.destination as? GameDetailVC, segue.identifier == "showDetail" {
+            gameDetailVC.game = game
+        }
+    }
 }

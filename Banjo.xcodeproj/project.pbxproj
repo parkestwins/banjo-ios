@@ -33,6 +33,7 @@
 		A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99DF74A1E155100009C3091 /* GoogleService-Info.plist */; };
 		A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11751E15770500B8DA2B /* GameCell.swift */; };
 		A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DB11761E15770500B8DA2B /* GameCell.xib */; };
+		A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11791E15895900B8DA2B /* GameDetailVC.swift */; };
 		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		A99DF74A1E155100009C3091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9DB11751E15770500B8DA2B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A9DB11761E15770500B8DA2B /* GameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
+		A9DB11791E15895900B8DA2B /* GameDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailVC.swift; sourceTree = "<group>"; };
 		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 				A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */,
 				A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */,
 				A95D56C71E0DFB6C008399B2 /* LoginVC.swift */,
+				A9DB11791E15895900B8DA2B /* GameDetailVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */,
+				A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */,
 				A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */,
 				A92C2F561D3DE25A001C6E9C /* DDDDisplayVC.swift in Sources */,
 				A95D56C61E0DEB72008399B2 /* RealmSearchTableVC.swift in Sources */,
