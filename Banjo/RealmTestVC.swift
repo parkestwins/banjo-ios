@@ -20,6 +20,7 @@ class RealmTestVC: UITableViewController {
     var notificationToken: NotificationToken!
     var realm: Realm!
     var firStorageRef: FIRStorageReference!
+    private let reuseIdentifier = "gameCell"
     
     // MARK: Life Cycle
     
@@ -34,7 +35,8 @@ class RealmTestVC: UITableViewController {
     
     func setupUI() {
         title = "N64 Games"
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "gameCell")
+        let gameCellNib = UINib(nibName: "GameCell", bundle: nil)
+        tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)        
     }
     
     func setupRealm() {
@@ -98,9 +100,12 @@ class RealmTestVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
-        let game = games[indexPath.row]
-        cell.textLabel?.text = game.title
+        let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        if let gameCell = cell as? GameCell {
+            let game = games[indexPath.row]
+            gameCell.titleLabel.text = game.title
+            gameCell.releaseLabel.text = "Release Date"
+        }
         return cell
     }
 }
