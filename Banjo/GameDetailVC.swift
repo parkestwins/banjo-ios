@@ -8,9 +8,15 @@
 
 import UIKit
 
+// MARK: - GameDetailVC: UIViewController
+
 class GameDetailVC: UIViewController {
     
+    // MARK: Properties
+    
     var game: Game?
+    
+    // MARK: Outlets
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -21,6 +27,8 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var gameDescriptionLabel: UILabel!
+        
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()

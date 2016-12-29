@@ -169,9 +169,13 @@
             <objects>
                 <navigationController storyboardIdentifier="SearchNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="Cpd-9h-okx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qFn-Ue-anL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qFn-Ue-anL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -180,7 +184,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxz-Dd-rkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="453.60000000000002" y="936.88155922038993"/>
+            <point key="canvasLocation" x="490" y="1287"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="1Xr-YO-per">
@@ -191,7 +195,7 @@
                         <viewControllerLayoutGuide type="bottom" id="tSx-SY-eZK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZU5-Vn-4NZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -202,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-9T-qtc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="1287"/>
+            <point key="canvasLocation" x="1375" y="1287"/>
         </scene>
         <!--Realm TestVC-->
         <scene sceneID="yoA-V1-yAd">
@@ -238,7 +242,7 @@
             <objects>
                 <tableViewController id="dvp-8S-J90" customClass="RealmSearchTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="sce-je-lza">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -272,7 +276,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ONn-Zb-aeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2373.5999999999999" y="1286.8065967016494"/>
+            <point key="canvasLocation" x="2284" y="1287"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pob-uS-sod">
@@ -301,11 +305,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Yv9-6y-QUE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZKh-tx-j45">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2xt-uB-Kb9">
-                                <rect key="frame" x="16" y="72" width="343" height="585"/>
+                                <rect key="frame" x="16" y="8" width="343" height="585"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xmv-fY-S0Z">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="237"/>
