@@ -22,7 +22,8 @@ class LoginVC: UIViewController {
         
         SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
             guard let user = user else {
-                fatalError(String(describing: error))
+                print(String(describing: error))
+                return
             }
                                     
             DispatchQueue.main.async {
