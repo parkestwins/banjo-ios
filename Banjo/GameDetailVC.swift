@@ -30,6 +30,7 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
     // MARK: Life Cycle
@@ -42,6 +43,7 @@ class GameDetailVC: UIViewController {
         genreCollectionView.collectionViewLayout = genreCellLayout        
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
+        detailScrollView.contentInset.bottom = 30
         
         if let game = game {
             titleLabel.text = game.title
