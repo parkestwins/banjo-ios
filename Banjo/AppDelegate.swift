@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        seedRealm()
+        //seedRealm()
         UIApplication.shared.statusBarStyle = .lightContent        
         return true
     }
@@ -69,8 +69,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // create ratings
             let everyoneRating = Rating(value: ["id": "1", "abbreviation": "E", "shortDescription": "Everyone", "longDescription": "Content is generally suitable for all ages. May contain minimal cartoon, fantasy or mild violence and/or infrequent use of mild language."])
             
+            // create genres
+            let action = Genre(value: ["id": "1", "name": "Action"])
+            let adventure = Genre(value: ["id": "2", "name": "Adventure"])
+            
             // create releases
             let zelda = Game(value: ["id": "1", "title": "The Legend of Zelda: Ocarina of Time"])
+            zelda.genres.append(objectsIn: [action, adventure])
             
             let zeldaJP = Release(value: ["id": "1", "specialTitle": "Zelda no Densetsu: Toki no Ocarina", "date": DateHelper.dateFromString("11/21/98"), "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-jp-11-21-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
             zeldaJP.game = zelda
@@ -96,6 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     realm.add([europe, latinAmerica, southAmerica], update: true)
                     realm.add([unitedStates, canada, mexico, japan], update: true)
                     realm.add([ntscUC, jp], update: true)
+                    realm.add([action, adventure], update: true)
                     realm.add(releases, update: true)
                     realm.add(zelda, update: true)
                 }

@@ -28,7 +28,7 @@ class RealmSearchTableVC: RealmSearchVC {
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
 
-    override func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
@@ -39,7 +39,7 @@ class RealmSearchTableVC: RealmSearchVC {
         return cell
     }
     
-    override func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+    override func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         if let game = anObject as? Game {
             performSegue(withIdentifier: "showDetail", sender: game)
         }

@@ -28,7 +28,17 @@ final class Game: Object {
     dynamic var id = ""
     dynamic var title = ""
     let releases = List<Release>()
+    let genres = List<Genre>()
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+final class Genre: Object {
+    dynamic var id = ""
+    dynamic var name = ""
+
     override static func primaryKey() -> String? {
         return "id"
     }
