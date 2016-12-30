@@ -19,7 +19,7 @@ class Constants {
         static let realmUsername = "readonly@parkestwins.com"
         static let realmPassword = "readonly"
         static let realmServer = "http://127.0.0.1:9080"
-        static let realmBanjo = "realm://127.0.0.1:9080/banjo7"
+        static let realmBanjo = "realm://127.0.0.1:9080/banjo8"
     }
     
     struct Models {

@@ -23,9 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        //seedRealm()
-        UIApplication.shared.statusBarStyle = .lightContent        
+        seedRealm()
+        setupGlobalAppearances()
         return true
+    }
+    
+    func setupGlobalAppearances() {
+        UIApplication.shared.statusBarStyle = .lightContent
+        //UINavigationBar.appearance().setTex
     }
     
     func seedRealm() {
@@ -70,24 +75,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let everyoneRating = Rating(value: ["id": "1", "abbreviation": "E", "shortDescription": "Everyone", "longDescription": "Content is generally suitable for all ages. May contain minimal cartoon, fantasy or mild violence and/or infrequent use of mild language."])
             
             // create genres
-            let action = Genre(value: ["id": "1", "name": "Action"])
-            let adventure = Genre(value: ["id": "2", "name": "Adventure"])
+            let action = Genre(value: ["id": "1", "name": "Action", "colorHex": "ce3c11"])
+            let adventure = Genre(value: ["id": "2", "name": "Adventure", "colorHex": "70ac30"])
             
             // create releases
             let zelda = Game(value: ["id": "1", "title": "The Legend of Zelda: Ocarina of Time"])
             zelda.genres.append(objectsIn: [action, adventure])
             
-            let zeldaJP = Release(value: ["id": "1", "specialTitle": "Zelda no Densetsu: Toki no Ocarina", "date": DateHelper.dateFromString("11/21/98"), "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-jp-11-21-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
+            let zeldaJP = Release(value: ["id": "1", "specialTitle": "Zelda no Densetsu: Toki no Ocarina", "date": "11/21/98".toNSDate()!, "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-jp-11-21-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
             zeldaJP.game = zelda
             zeldaJP.rating = everyoneRating
             zeldaJP.releaseRegion = jp
             
-            let zeldaUS1 = Release(value: ["id": "2", "date": DateHelper.dateFromString("11/23/98"), "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-us-11-23-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
+            let zeldaUS1 = Release(value: ["id": "2", "date": "11/23/98".toNSDate()!, "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-us-11-23-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
             zeldaUS1.game = zelda
             zeldaUS1.rating = everyoneRating
             zeldaUS1.releaseRegion = ntscUC
             
-            let zeldaUS2 = Release(value: ["id": "3", "specialTitle": "##Collector's Edition", "date": DateHelper.dateFromString("11/24/98"), "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-us-11-24-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
+            let zeldaUS2 = Release(value: ["id": "3", "specialTitle": "##Collector's Edition", "date": "11/24/98".toNSDate()!, "publisher": "Nintendo", "developer": "Nintendo", "coverImagePath": "gs://banjo-21ba1.appspot.com/zelda-us-11-24-98.jpg", "summary": "As a young boy, Link is tricked by Ganondorf, the King of the Gerudo Thieves. The evil human uses Link to gain access to the Sacred Realm, where he places his tainted hands on Triforce and transforms the beautiful Hyrulean landscape into a barren wasteland. Link is determined to fix the problems he helped to create, so with the help of Rauru he travels through time gathering the powers of the Seven Sages."])
             zeldaUS2.game = zelda
             zeldaUS2.rating = everyoneRating
             zeldaUS2.releaseRegion = ntscUC

@@ -49,7 +49,7 @@ class GameDetailVC: UIViewController {
             titleLabel.text = game.title
             // FIXME: pick release based on user region. fallback: pick first release by date?
             if let release = game.releases.first {                
-                releaseDateLabel.text = DateHelper.dateToString(release.date)
+                releaseDateLabel.text = release.date.toString()
                 developerLabel.text = release.developer
                 publisherLabel.text = release.publisher
                 ratingLabel.text = release.rating?.abbreviation
@@ -94,6 +94,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
         if let game = game {
             let genre = game.genres[indexPath.row]
+            genreCell.backgroundColor = UIColor(hex: genre.colorHex)
             genreCell.nameLabel.text = genre.name.uppercased()
         }
     }

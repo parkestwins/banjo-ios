@@ -33,7 +33,7 @@ class RealmSearchTableVC: RealmSearchVC {
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
             if let releaseDate = game.releases.first?.date {
-                gameCell.releaseLabel.text = DateHelper.dateToString(releaseDate)
+                gameCell.releaseLabel.text = releaseDate.toString()
             }            
         }
         return cell
