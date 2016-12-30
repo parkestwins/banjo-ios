@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        seedRealm()
         setupGlobalAppearances()
+        seedRealm()
         return true
     }
     
@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func seedRealm() {
+        
         SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmAdminUsername, password: Constants.Realm.realmAdminPassword, register: false), server: URL(string: Constants.Realm.realmServer)!) { user, error in
             guard let user = user else {
                 print(String(describing: error))

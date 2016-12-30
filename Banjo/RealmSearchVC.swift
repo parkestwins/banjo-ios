@@ -193,8 +193,6 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.viewLoaded = true
-        
         if searchBarInTableView {
             tableView.tableHeaderView = searchBar
             searchBar.sizeToFit()
@@ -202,7 +200,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
         else {
             searchController.hidesNavigationBarDuringPresentation = false
         }
-        
+                
         definesPresentationContext = true
     }
     
