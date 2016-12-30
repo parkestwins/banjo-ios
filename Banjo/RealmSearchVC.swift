@@ -24,7 +24,7 @@ public protocol RealmSearchResultsDataSource {
      
      :return: instance of UITableViewCell that displays the object information
      */
-    func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell
 }
 
 /**
@@ -38,7 +38,7 @@ public protocol RealmSearchResultsDelegate {
      :param: anObject             the object to be selected
      :param: indexPath            the indexPath that the object resides at
      */
-    func searchViewController(controller: RealmSearchVC, willSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath)
+    func searchViewController(controller: RealmSearchVC, willSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
     
     /**
      Called just when an object is selected from the search results table view
@@ -47,7 +47,7 @@ public protocol RealmSearchResultsDelegate {
      :param: selectedObject       the selected object
      :param: indexPath            the indexPath that the object resides at
      */
-    func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath)
+    func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
 }
 
 // MARK: - RealmSearchVC
@@ -213,7 +213,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     }
     
     // MARK: RealmSearchResultsDataSource
-    public func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         print("You need to implement searchViewController(controller:,cellForObject object:,atIndexPath indexPath:)")
         
@@ -221,11 +221,11 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     }
     
     // MARK: RealmSearchResultsDelegate
-    public func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+    public func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         // Subclasses to redeclare
     }
     
-    public func searchViewController(controller: RealmSearchVC, willSelectObject anObject: Object, atIndexPath indexPath: NSIndexPath) {
+    public func searchViewController(controller: RealmSearchVC, willSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         // Subclasses to redeclare
     }
     
@@ -378,7 +378,7 @@ extension RealmSearchVC {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
-            resultsDelegate.searchViewController(controller: self, willSelectObject: object, atIndexPath: indexPath as NSIndexPath)
+            resultsDelegate.searchViewController(controller: self, willSelectObject: object, atIndexPath: indexPath)
             
             return indexPath
         }
@@ -393,7 +393,7 @@ extension RealmSearchVC {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
-            resultsDelegate.searchViewController(controller: self, didSelectObject: object, atIndexPath: indexPath as NSIndexPath)
+            resultsDelegate.searchViewController(controller: self, didSelectObject: object, atIndexPath: indexPath)
         }
     }
 }
@@ -413,9 +413,8 @@ extension RealmSearchVC {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let results = results {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
-            let object = baseObject as! Object
-            
-            let cell = resultsDataSource.searchViewController(controller: self, cellForObject: object, atIndexPath: indexPath as NSIndexPath)
+            let object = baseObject as! Object            
+            let cell = resultsDataSource.searchViewController(controller: self, cellForObject: object, atIndexPath: indexPath)
             
             return cell
         }

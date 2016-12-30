@@ -11,6 +11,17 @@ import Foundation
 
 class Constants {
     
+    // FIXME: remove usernames and passwords
+    
+    struct Realm {
+        static let realmAdminUsername = "admin@parkestwins.com"
+        static let realmAdminPassword = "rd3s1gne"
+        static let realmUsername = "readonly@parkestwins.com"
+        static let realmPassword = "readonly"
+        static let realmServer = "http://127.0.0.1:9080"
+        static let realmBanjo = "realm://127.0.0.1:9080/banjo7"
+    }
+    
     struct Models {
         
         static let testModel = fighterModel

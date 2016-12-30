@@ -18,8 +18,7 @@ class RealmTestVC: UITableViewController {
     
     var games = List<Game>()
     var notificationToken: NotificationToken!
-    var realm: Realm!
-    var firStorageRef: FIRStorageReference!
+    var realm: Realm!    
     private let reuseIdentifier = "gameCell"
     
     // MARK: Life Cycle
@@ -28,7 +27,7 @@ class RealmTestVC: UITableViewController {
         super.viewDidLoad()
         setupUI()
         setupRealm()
-        setupFirebaseStorage()
+        testFirebaseStorage()
     }
     
     // MARK: Setup
@@ -40,10 +39,8 @@ class RealmTestVC: UITableViewController {
     }
     
     func setupRealm() {
-        let username = "readonly@parkestwins.com"
-        let password = "readonly"
         
-        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmUsername, password: Constants.Realm.realmPassword, register: false), server: URL(string: Constants.Realm.realmServer)!) { user, error in
             guard let user = user else {
                 print(String(describing: error))
                 return
@@ -52,7 +49,7 @@ class RealmTestVC: UITableViewController {
             DispatchQueue.main.async {
                 // Open Realm
                 var configuration = Realm.Configuration(
-                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!)                    
+                    syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: Constants.Realm.realmBanjo)!)
                 )
                 self.realm = try! Realm(configuration: configuration)
                 
@@ -73,9 +70,7 @@ class RealmTestVC: UITableViewController {
         }
     }
     
-    func setupFirebaseStorage() {
-        let storageUrl = FIRApp.defaultApp()?.options.storageBucket
-        firStorageRef = FIRStorage.storage().reference(forURL: "gs://" + storageUrl!)
+    func testFirebaseStorage() {
         let imageURL = "gs://banjo-21ba1.appspot.com/jarrod-mii.png"
         if imageURL.hasPrefix("gs://") {
             FIRStorage.storage().reference(forURL: imageURL).data(withMaxSize: INT64_MAX){ (data, error) in
@@ -104,7 +99,7 @@ class RealmTestVC: UITableViewController {
         if let gameCell = cell as? GameCell {
             let game = games[indexPath.row]
             gameCell.titleLabel.text = game.title
-            gameCell.releaseLabel.text = "Release Date"
+            gameCell.releaseLabel.text = "Release Date"            
         }
         return cell
     }
