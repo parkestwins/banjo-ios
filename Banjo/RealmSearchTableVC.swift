@@ -32,7 +32,9 @@ class RealmSearchTableVC: RealmSearchVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
-            gameCell.releaseLabel.text = "Release Date"
+            if let releaseDate = game.releases.first?.date {
+                gameCell.releaseLabel.text = DateHelper.dateToString(releaseDate)
+            }            
         }
         return cell
     }

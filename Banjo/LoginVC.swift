@@ -17,17 +17,15 @@ class LoginVC: UIViewController {
     }
     
     func setupRealm() {
-        let username = "readonly@parkestwins.com"
-        let password = "readonly"
         
-        SyncUser.logIn(with: .usernamePassword(username: username, password: password, register: false), server: URL(string: "http://127.0.0.1:9080")!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmUsername, password: Constants.Realm.realmPassword, register: false), server: URL(string: Constants.Realm.realmServer)!) { user, error in
             guard let user = user else {
                 print(String(describing: error))
                 return
             }
                                     
             DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: "realm://127.0.0.1:9080/7e540a2f372c0e0946bd7672309f10c6/banjo")!))
+                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: Constants.Realm.realmBanjo)!))
                 self.performSegue(withIdentifier: "login", sender: self)
             }
         }

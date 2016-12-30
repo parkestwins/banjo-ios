@@ -221,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ceh-QE-suK" id="Siq-Zq-2Qb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -250,7 +250,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="al3-CU-9Yq" id="oXe-sv-P3u">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -311,7 +311,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2xt-uB-Kb9">
                                 <rect key="frame" x="16" y="8" width="343" height="585"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xmv-fY-S0Z">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xmv-fY-S0Z">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="237"/>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1t-Kq-uFE">
@@ -428,7 +428,7 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="[Description]" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7N-5M-guk">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="[Summary]" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7N-5M-guk">
                                                         <rect key="frame" x="0.0" y="272" width="343" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -467,12 +467,12 @@
                     <connections>
                         <outlet property="coverImageView" destination="Xmv-fY-S0Z" id="tuc-Qc-zjq"/>
                         <outlet property="developerLabel" destination="uJ3-jO-2KP" id="W3C-gR-aQv"/>
-                        <outlet property="gameDescriptionLabel" destination="i7N-5M-guk" id="jyd-iV-Jct"/>
                         <outlet property="platformLabel" destination="Mrn-mO-PZB" id="2Mf-2m-Dsm"/>
                         <outlet property="playersImageView" destination="Hr2-Yo-I1P" id="Y5K-yg-lSM"/>
                         <outlet property="publisherLabel" destination="dlg-fX-TNi" id="rIJ-Lc-d62"/>
                         <outlet property="ratingLabel" destination="YIh-1q-KDO" id="9Fj-ws-Ktk"/>
                         <outlet property="releaseDateLabel" destination="pRn-Gp-0M1" id="pFk-4N-Xzq"/>
+                        <outlet property="summaryLabel" destination="i7N-5M-guk" id="gK5-PL-fJB"/>
                         <outlet property="titleLabel" destination="SbX-v5-sut" id="jhH-3q-bqI"/>
                     </connections>
                 </viewController>

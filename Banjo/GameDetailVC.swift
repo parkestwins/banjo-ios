@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 // MARK: - GameDetailVC: UIViewController
 
@@ -26,7 +27,7 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var gameDescriptionLabel: UILabel!
+    @IBOutlet weak var summaryLabel: UILabel!
         
     // MARK: Life Cycle
     
@@ -34,7 +35,26 @@ class GameDetailVC: UIViewController {
         super.viewDidLoad()
         if let game = game {
             titleLabel.text = game.title
-            publisherLabel.text = game.publisher
+            // FIXME: pick release based on user region. fallback: pick first release by date?
+            if let release = game.releases.first {                
+                releaseDateLabel.text = DateHelper.dateToString(release.date)
+                developerLabel.text = release.developer
+                publisherLabel.text = release.publisher
+                ratingLabel.text = release.rating?.abbreviation
+                summaryLabel.text = release.summary
+                let coverImagePath = release.coverImagePath
+                if release.coverImagePath.hasPrefix("gs://") {
+                    FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
+                        if let error = error {
+                            print("Error downloading: \(error)")
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.coverImageView.image = UIImage(data: data!)
+                        }
+                    }
+                }
+            }
         }
     }
 }
