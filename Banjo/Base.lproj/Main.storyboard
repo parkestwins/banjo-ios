@@ -186,7 +186,7 @@
             </objects>
             <point key="canvasLocation" x="490" y="1287"/>
         </scene>
-        <!--LoginVC-->
+        <!--Login-->
         <scene sceneID="1Xr-YO-per">
             <objects>
                 <viewController id="Kxk-GQ-1Jr" customClass="LoginVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
@@ -199,7 +199,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3Sw-SE-HqP"/>
+                    <navigationItem key="navigationItem" title="Login" id="3Sw-SE-HqP">
+                        <barButtonItem key="backBarButtonItem" title=" " id="duV-1z-9Li"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="dvp-8S-J90" kind="show" identifier="login" id="wqJ-jp-2dG"/>
                     </connections>
@@ -261,7 +263,9 @@
                             <outlet property="delegate" destination="dvp-8S-J90" id="2xZ-2L-WpD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="W4s-0f-rr3"/>
+                    <navigationItem key="navigationItem" id="W4s-0f-rr3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="i37-9B-dTC"/>
+                    </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityName" value="Game"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="searchPropertyKeyPath" value="title"/>
@@ -486,7 +490,9 @@
                             <constraint firstItem="Yv9-6y-QUE" firstAttribute="top" secondItem="u1t-Kq-uFE" secondAttribute="bottom" id="oqY-nK-I4Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Game Detail" id="y7t-F6-sFb"/>
+                    <navigationItem key="navigationItem" title="Game Detail" id="y7t-F6-sFb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="kY3-Mb-Ymn"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="coverImageView" destination="Xmv-fY-S0Z" id="tuc-Qc-zjq"/>
                         <outlet property="detailScrollView" destination="u1t-Kq-uFE" id="YZj-oO-QGh"/>
