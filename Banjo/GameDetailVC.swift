@@ -94,6 +94,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
         if let game = game {
             let genre = game.genres[indexPath.row]
+            genreCell.backgroundColor = UIColor(hex: genre.colorHex)
             genreCell.nameLabel.text = genre.name.uppercased()
         }
     }

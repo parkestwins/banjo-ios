@@ -38,7 +38,8 @@ final class Game: Object {
 final class Genre: Object {
     dynamic var id = ""
     dynamic var name = ""
-
+    dynamic var colorHex = ""
+    
     override static func primaryKey() -> String? {
         return "id"
     }

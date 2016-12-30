@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
-        //seedRealm()
+        seedRealm()
         setupGlobalAppearances()
         return true
     }
@@ -74,8 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let everyoneRating = Rating(value: ["id": "1", "abbreviation": "E", "shortDescription": "Everyone", "longDescription": "Content is generally suitable for all ages. May contain minimal cartoon, fantasy or mild violence and/or infrequent use of mild language."])
             
             // create genres
-            let action = Genre(value: ["id": "1", "name": "Action"])
-            let adventure = Genre(value: ["id": "2", "name": "Adventure"])
+            let action = Genre(value: ["id": "1", "name": "Action", "colorHex": "ce3c11"])
+            let adventure = Genre(value: ["id": "2", "name": "Adventure", "colorHex": "70ac30"])
             
             // create releases
             let zelda = Game(value: ["id": "1", "title": "The Legend of Zelda: Ocarina of Time"])
