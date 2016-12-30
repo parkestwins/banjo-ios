@@ -33,6 +33,8 @@
 		A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99DF74A1E155100009C3091 /* GoogleService-Info.plist */; };
 		A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */; };
 		A9ADA1231E16E4D3004968E1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA1221E16E4D3004968E1 /* UIColor+Hex.swift */; };
+		A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */; };
+		A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */; };
 		A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11751E15770500B8DA2B /* GameCell.swift */; };
 		A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DB11761E15770500B8DA2B /* GameCell.xib */; };
 		A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11791E15895900B8DA2B /* GameDetailVC.swift */; };
@@ -76,6 +78,8 @@
 		A99DF74A1E155100009C3091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ToNSDate.swift"; sourceTree = "<group>"; };
 		A9ADA1221E16E4D3004968E1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		A9DB11751E15770500B8DA2B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A9DB11761E15770500B8DA2B /* GameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
 		A9DB11791E15895900B8DA2B /* GameDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailVC.swift; sourceTree = "<group>"; };
@@ -131,8 +135,8 @@
 			children = (
 				A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */,
 				A93F2E491D43CE0A007BCE7B /* Constants.swift */,
-				A9ADA1211E16DF6F004968E1 /* Model */,
-				A9ADA11D1E16DD72004968E1 /* View */,
+				A9ADA1211E16DF6F004968E1 /* Models */,
+				A9ADA11D1E16DD72004968E1 /* Views */,
 				A95D56C91E0E080C008399B2 /* Controller */,
 				A9ADA1201E16DF53004968E1 /* Extensions */,
 				A93F2E5E1D43CF55007BCE7B /* Assets */,
@@ -162,6 +166,7 @@
 		A93F2E5E1D43CF55007BCE7B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A9ADA1241E16E854004968E1 /* Fonts */,
 				A93F2E4B1D43CEF6007BCE7B /* 3D */,
 				A92C2F571D3DE25A001C6E9C /* Main.storyboard */,
 				A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */,
@@ -193,7 +198,7 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		A9ADA11D1E16DD72004968E1 /* View */ = {
+		A9ADA11D1E16DD72004968E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A9DB11751E15770500B8DA2B /* GameCell.swift */,
@@ -203,7 +208,7 @@
 				A9DEC1B51E1615DB0099A14F /* GenreCellLayout.swift */,
 				A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		A9ADA1201E16DF53004968E1 /* Extensions */ = {
@@ -217,12 +222,21 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
-		A9ADA1211E16DF6F004968E1 /* Model */ = {
+		A9ADA1211E16DF6F004968E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				A95162881E0D78A70056F9E2 /* Models.swift */,
 			);
-			name = Model;
+			name = Models;
+			sourceTree = "<group>";
+		};
+		A9ADA1241E16E854004968E1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */,
+				A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		ED8A8A66597BB82B394B9E04 /* Frameworks */ = {
@@ -314,9 +328,11 @@
 				A93F2E631D43CFE6007BCE7B /* shipDiffuse.png in Resources */,
 				A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */,
 				A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */,
+				A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */,
 				A93F2E561D43CEF6007BCE7B /* crate_tex.jpg in Resources */,
 				A93F2E5D1D43CEF6007BCE7B /* Fighter_Specular_25.jpg in Resources */,
 				A93F2E581D43CEF6007BCE7B /* crate_tex3.jpg in Resources */,
+				A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */,
 				A93F2E5B1D43CEF6007BCE7B /* Fighter_Diffuse_25.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func setupGlobalAppearances() {
         UIApplication.shared.statusBarStyle = .lightContent
+        //UINavigationBar.appearance().setTex
     }
     
     func seedRealm() {
