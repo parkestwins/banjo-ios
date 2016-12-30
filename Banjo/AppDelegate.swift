@@ -24,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         //seedRealm()
-        UIApplication.shared.statusBarStyle = .lightContent        
+        setupGlobalAppearances()
         return true
+    }
+    
+    func setupGlobalAppearances() {
+        UIApplication.shared.statusBarStyle = .lightContent
     }
     
     func seedRealm() {
