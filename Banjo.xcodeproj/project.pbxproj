@@ -25,8 +25,6 @@
 		A93F2E5D1D43CEF6007BCE7B /* Fighter_Specular_25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E541D43CEF6007BCE7B /* Fighter_Specular_25.jpg */; };
 		A93F2E621D43CFE6007BCE7B /* realship.obj in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E601D43CFE6007BCE7B /* realship.obj */; };
 		A93F2E631D43CFE6007BCE7B /* shipDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */; };
-		A951627E1E0D76D30056F9E2 /* RealmTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951627D1E0D76D30056F9E2 /* RealmTestVC.swift */; };
-		A95162891E0D78A70056F9E2 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95162881E0D78A70056F9E2 /* Models.swift */; };
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* RealmSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* LoginVC.swift */; };
@@ -43,6 +41,13 @@
 		A9DEC1B91E161B050099A14F /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DEC1B71E161B050099A14F /* GenreCell.swift */; };
 		A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DEC1B81E161B050099A14F /* GenreCell.xib */; };
 		A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */; };
+		A9F4E3671E1D2B14001169BE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3661E1D2B14001169BE /* Platform.swift */; };
+		A9F4E3691E1D2B1F001169BE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3681E1D2B1F001169BE /* Game.swift */; };
+		A9F4E36B1E1D2B29001169BE /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36A1E1D2B29001169BE /* Genre.swift */; };
+		A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */; };
+		A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36E1E1D2B41001169BE /* Rating.swift */; };
+		A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3701E1D2B4F001169BE /* Release.swift */; };
+		A9F4E3731E1D2B58001169BE /* ReleaseRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */; };
 		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,9 +74,7 @@
 		A93F2E541D43CEF6007BCE7B /* Fighter_Specular_25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fighter_Specular_25.jpg; sourceTree = "<group>"; };
 		A93F2E601D43CFE6007BCE7B /* realship.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = realship.obj; sourceTree = "<group>"; };
 		A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipDiffuse.png; sourceTree = "<group>"; };
-		A951627D1E0D76D30056F9E2 /* RealmTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmTestVC.swift; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
-		A95162881E0D78A70056F9E2 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchTableVC.swift; sourceTree = "<group>"; };
 		A95D56C71E0DFB6C008399B2 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -88,6 +91,13 @@
 		A9DEC1B71E161B050099A14F /* GenreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		A9DEC1B81E161B050099A14F /* GenreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenreCell.xib; sourceTree = "<group>"; };
 		A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionView.swift; sourceTree = "<group>"; };
+		A9F4E3661E1D2B14001169BE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		A9F4E3681E1D2B1F001169BE /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A9F4E36A1E1D2B29001169BE /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSystem.swift; sourceTree = "<group>"; };
+		A9F4E36E1E1D2B41001169BE /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A9F4E3701E1D2B4F001169BE /* Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
+		A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseRegion.swift; sourceTree = "<group>"; };
 		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */,
-				A951627D1E0D76D30056F9E2 /* RealmTestVC.swift */,
 				A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */,
 				A95D56C51E0DEB72008399B2 /* RealmSearchTableVC.swift */,
 				A95D56C71E0DFB6C008399B2 /* LoginVC.swift */,
@@ -225,7 +234,13 @@
 		A9ADA1211E16DF6F004968E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A95162881E0D78A70056F9E2 /* Models.swift */,
+				A9F4E3661E1D2B14001169BE /* Platform.swift */,
+				A9F4E3681E1D2B1F001169BE /* Game.swift */,
+				A9F4E36A1E1D2B29001169BE /* Genre.swift */,
+				A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */,
+				A9F4E36E1E1D2B41001169BE /* Rating.swift */,
+				A9F4E3701E1D2B4F001169BE /* Release.swift */,
+				A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -393,18 +408,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */,
+				A9F4E3691E1D2B1F001169BE /* Game.swift in Sources */,
 				A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */,
+				A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */,
 				A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */,
+				A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */,
+				A9F4E3671E1D2B14001169BE /* Platform.swift in Sources */,
+				A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */,
 				A9DEC1AE1E15F5280099A14F /* NSDate+ToString.swift in Sources */,
 				A9ADA1231E16E4D3004968E1 /* UIColor+Hex.swift in Sources */,
+				A9F4E36B1E1D2B29001169BE /* Genre.swift in Sources */,
 				A92C2F561D3DE25A001C6E9C /* DDDDisplayVC.swift in Sources */,
 				A9DEC1B61E1615DB0099A14F /* GenreCellLayout.swift in Sources */,
 				A95D56C61E0DEB72008399B2 /* RealmSearchTableVC.swift in Sources */,
-				A951627E1E0D76D30056F9E2 /* RealmTestVC.swift in Sources */,
 				A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */,
 				A9DEC1B91E161B050099A14F /* GenreCell.swift in Sources */,
 				A95D56C81E0DFB6C008399B2 /* LoginVC.swift in Sources */,
-				A95162891E0D78A70056F9E2 /* Models.swift in Sources */,
+				A9F4E3731E1D2B58001169BE /* ReleaseRegion.swift in Sources */,
 				A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,

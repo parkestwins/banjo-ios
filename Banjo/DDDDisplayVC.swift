@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ModelIO
 import SceneKit
 import SceneKit.ModelIO
 
@@ -15,8 +14,6 @@ import SceneKit.ModelIO
 
 class DDDDisplayVC: UIViewController {
     
-    // MARK: Properties
- 
     // MARK: Outlets
     
     @IBOutlet weak var sceneView: SCNView!
@@ -30,7 +27,7 @@ class DDDDisplayVC: UIViewController {
 
     func load3DModel() {
         // Load the .OBJ file
-        guard let url = Bundle.main.url(forResource: Constants.Models.testModel, withExtension: "obj") else {
+        guard let url = Bundle.main.url(forResource: Constants.DDDModels.testModel.0, withExtension: "obj") else {
             fatalError("Failed to find model file.")
         }
         
@@ -42,7 +39,7 @@ class DDDDisplayVC: UIViewController {
         // Create a material from the various textures
         let scatteringFunction = MDLScatteringFunction()
         let material = MDLMaterial(name: "baseMaterial", scatteringFunction: scatteringFunction)
-        material.setTextureProperties(Constants.Models.testTextures)
+        material.setTextureProperties(Constants.DDDModels.testModel.1)
       
         // Apply the texture to every submesh of the asset
         for  submesh in object.submeshes!  {

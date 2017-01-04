@@ -18,14 +18,14 @@ class LoginVC: UIViewController {
     
     func setupRealm() {
         
-        SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmUsername, password: Constants.Realm.realmPassword, register: false), server: URL(string: Constants.Realm.realmServer)!) { user, error in
+        SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmUsername, password: Constants.Realm.realmPassword, register: false), server: URL(string: Constants.Realm.testRealmServer)!) { user, error in
             guard let user = user else {
                 print(String(describing: error))
                 return
             }
                                     
             DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: Constants.Realm.realmBanjo)!))
+                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: Constants.Realm.testRealmBanjo)!))
                 self.performSegue(withIdentifier: "login", sender: self)
             }
         }

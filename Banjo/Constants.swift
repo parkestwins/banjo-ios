@@ -7,40 +7,44 @@
 //
 
 import ModelIO
-import Foundation
+
+// MARK: - Constants
 
 class Constants {
     
-    // FIXME: remove usernames and passwords
+    // MARK: Realm
     
     struct Realm {
-        static let realmAdminUsername = "admin@parkestwins.com"
-        static let realmAdminPassword = "rd3s1gne"
         static let realmUsername = "readonly@parkestwins.com"
         static let realmPassword = "readonly"
-        static let realmServer = "http://127.0.0.1:9080"
-        static let realmBanjo = "realm://127.0.0.1:9080/banjo28"
+        static let liveRealmServer = "http://127.0.0.1:9080"
+        static let liveRealmBanjo = "realm://127.0.0.1:9080/banjo28"
+        static let testRealmServer = "http://127.0.0.1:9080"
+        static let testRealmBanjo = "realm://127.0.0.1:9080/banjo28"
     }
     
-    struct Models {
-        
+    // MARK: 3D Models (Testing Feature)
+    
+    struct DDDModels {        
         static let testModel = fighterModel
-        static let testTextures = fighterTextures
         
-        static let shipModel = "realship"
+        static let shipModel = (shipObj, shipTextures)
+        static let shipObj = "realship"
         static let shipTextures: [MDLMaterialSemantic: String] = [
             .baseColor:"shipDiffuse.png"
         ]
         
-        static let fighterModel = "Fighter"
+        static let fighterModel = (fighterObj, fighterTextures)
+        static let fighterObj = "Fighter"
         static let fighterTextures: [MDLMaterialSemantic: String] = [
             .baseColor:"Fighter_Diffuse_25.jpg",
             .specular:"Fighter_Specular_25.jpg",
             .emission:"Fighter_Illumination_25.jpg"
         ]
         
-        static let crateModel = "crate"
-        static let crateTexture1: [MDLMaterialSemantic: String] = [
+        static let crateModel = (crateObj, crateTextures)
+        static let crateObj = "crate"
+        static let crateTextures: [MDLMaterialSemantic: String] = [
             .baseColor:"crate_tex.jpg"
         ]
     }
