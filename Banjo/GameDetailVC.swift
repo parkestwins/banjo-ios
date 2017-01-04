@@ -16,6 +16,7 @@ class GameDetailVC: UIViewController {
     // MARK: Properties
     
     var game: Game?
+    var selectedRelease: Release?
     let reuseIdentifier = "genreCell"
     var sizingCell: GenreCell?
     
@@ -28,7 +29,13 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
+    
+    // FIXME: better naming for "field" labels
+    
+    @IBOutlet weak var ratingFieldLabel: UILabel!
+    
     @IBOutlet weak var ratingLabel: UILabel!
+    
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
@@ -37,33 +44,61 @@ class GameDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    @IBAction func swapRelease(_ sender: Any) {
+        if let game = game {
+            let randomIndex = Int(arc4random_uniform(UInt32(game.releases.count)))
+            selectedRelease = game.releases[randomIndex]
+            setupUIForRelease()
+        }
+    }
+    
+    // MARK: Setup UI
+    
+    func setupUI() {
         let genreCellNib = UINib(nibName: "GenreCell", bundle: nil)
         let genreCellLayout = GenreCellLayout()
         genreCellLayout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
-        genreCollectionView.collectionViewLayout = genreCellLayout        
+        genreCollectionView.collectionViewLayout = genreCellLayout
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
-        
-        if let game = game {
-            titleLabel.text = game.title
-            // FIXME: pick release based on user region. fallback: pick first release by date?
-            if let release = game.releases.first {                
-                releaseDateLabel.text = release.date.toString()
-                developerLabel.text = release.developer
-                publisherLabel.text = release.publisher
-                ratingLabel.text = release.rating?.abbreviation
-                summaryLabel.text = release.summary
-                let coverImagePath = release.coverImagePath
-                if release.coverImagePath.hasPrefix("gs://") {
-                    FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
-                        if let error = error {
-                            print("Error downloading: \(error)")
-                            return
-                        }
-                        DispatchQueue.main.async {
-                            self.coverImageView.image = UIImage(data: data!)
-                        }
+        setupUIForRelease()
+    }
+    
+    func setupUIForRelease() {
+        if let game = game, let release = selectedRelease {
+            if let specialTitle = release.specialTitle {
+                titleLabel.text = specialTitle
+            } else {
+                titleLabel.text = game.title
+            }
+            releaseDateLabel.text = release.date.toString()
+            developerLabel.text = release.developer
+            publisherLabel.text = release.publisher
+            if let rating = release.rating {
+                ratingLabel.isHidden = false
+                ratingFieldLabel.isHidden = false
+                if let ratingSystemAbbv = rating.system?.abbreviation {
+                    ratingFieldLabel.text = "\(ratingSystemAbbv) Rating"
+                }
+                ratingLabel.text = rating.name
+            } else {
+                ratingLabel.isHidden = true
+                ratingFieldLabel.isHidden = true
+            }
+            
+            summaryLabel.text = release.summary
+            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix("gs://") {
+                FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
+                    if let error = error {
+                        print("Error downloading: \(error)")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self.coverImageView.image = UIImage(data: data!)
                     }
                 }
             }
