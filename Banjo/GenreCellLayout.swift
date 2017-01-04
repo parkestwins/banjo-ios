@@ -1,16 +1,25 @@
 //
 //  GenreCellLayout.swift
-//  Banjo
 //
-//  Created by Jarrod Parkes on 12/29/16.
-//  Copyright © 2016 ParkesTwins. All rights reserved.
+//  Created by Diep Nguyen Hoang on 7/30/15.
+//  Copyright © 2015 CodenTrick. All rights reserved.
+//  github.com/luceefer/TagFlowExample
+//
+//  Modified by Jarrod Parkes on 12/23/16.
 //
 
 import UIKit
-import Foundation
+
+// MARK: - GenreCellLayout: UICollectionViewFlowLayout
 
 public class GenreCellLayout: UICollectionViewFlowLayout {
+    
+    // MARK: UICollectionViewLayout
+    
+    // FIXME: Long genre tags (ex. Al Shogi 3) are not always left-aligned.
+    
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        
         let attributesForElementsInRect = super.layoutAttributesForElements(in: rect)
         var newAttributesForElementsInRect = [UICollectionViewLayoutAttributes]()
         
@@ -20,8 +29,8 @@ public class GenreCellLayout: UICollectionViewFlowLayout {
         for attributes in attributesForElementsInRect! {
             let refAttributes = attributes
             // assign value if next row
-            if (refAttributes.frame.origin.x == self.sectionInset.left) {
-                leftMargin = self.sectionInset.left
+            if (refAttributes.frame.origin.x == sectionInset.left) {
+                leftMargin = sectionInset.left
             } else {
                 // set x position of attributes to current margin
                 var newLeftAlignedFrame = refAttributes.frame

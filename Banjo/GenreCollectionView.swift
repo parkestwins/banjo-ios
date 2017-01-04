@@ -8,7 +8,11 @@
 
 import UIKit
 
+// - GenreCollectionView: UICollectionView
+
 class GenreCollectionView: UICollectionView {
+    
+    // MARK: UIView
     
     override func layoutSubviews() {
         super.layoutSubviews()

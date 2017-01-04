@@ -149,7 +149,7 @@
 				A9ADA11D1E16DD72004968E1 /* Views */,
 				A95D56C91E0E080C008399B2 /* Controller */,
 				A9ADA1201E16DF53004968E1 /* Extensions */,
-				A93F2E5E1D43CF55007BCE7B /* Assets */,
+				A93F2E5E1D43CF55007BCE7B /* Resources */,
 				A93F2E5F1D43CF60007BCE7B /* Supporting Files */,
 			);
 			path = Banjo;
@@ -173,16 +173,14 @@
 			path = 3D;
 			sourceTree = "<group>";
 		};
-		A93F2E5E1D43CF55007BCE7B /* Assets */ = {
+		A93F2E5E1D43CF55007BCE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				A9ADA1241E16E854004968E1 /* Fonts */,
 				A93F2E4B1D43CEF6007BCE7B /* 3D */,
-				A92C2F571D3DE25A001C6E9C /* Main.storyboard */,
 				A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */,
-				A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */,
 			);
-			name = Assets;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A93F2E5F1D43CF60007BCE7B /* Supporting Files */ = {
@@ -210,12 +208,9 @@
 		A9ADA11D1E16DD72004968E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9DB11751E15770500B8DA2B /* GameCell.swift */,
-				A9DB11761E15770500B8DA2B /* GameCell.xib */,
-				A9DEC1B71E161B050099A14F /* GenreCell.swift */,
-				A9DEC1B81E161B050099A14F /* GenreCell.xib */,
-				A9DEC1B51E1615DB0099A14F /* GenreCellLayout.swift */,
-				A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */,
+				A9F4E3851E1D32EB001169BE /* Storyboards */,
+				A9F4E3841E1D3078001169BE /* Collections */,
+				A9F4E3831E1D3072001169BE /* Tables */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -252,6 +247,35 @@
 				A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		A9F4E3831E1D3072001169BE /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+				A9DB11751E15770500B8DA2B /* GameCell.swift */,
+				A9DB11761E15770500B8DA2B /* GameCell.xib */,
+			);
+			name = Tables;
+			sourceTree = "<group>";
+		};
+		A9F4E3841E1D3078001169BE /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				A9DEC1B71E161B050099A14F /* GenreCell.swift */,
+				A9DEC1B81E161B050099A14F /* GenreCell.xib */,
+				A9DEC1B51E1615DB0099A14F /* GenreCellLayout.swift */,
+				A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */,
+			);
+			name = Collections;
+			sourceTree = "<group>";
+		};
+		A9F4E3851E1D32EB001169BE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A92C2F571D3DE25A001C6E9C /* Main.storyboard */,
+				A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 		ED8A8A66597BB82B394B9E04 /* Frameworks */ = {
