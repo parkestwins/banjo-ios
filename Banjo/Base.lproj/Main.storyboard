@@ -364,13 +364,13 @@
                                                                 <rect key="frame" x="0.0" y="24" width="170.33333333333334" height="92.666666666666686"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAg-ps-hAw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170.33333333333334" height="15.666666666666629"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="15.666666666666629"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vae-jJ-4WN">
-                                                                        <rect key="frame" x="0.0" y="25.666666666666686" width="59.666666666666671" height="15.666666666666629"/>
+                                                                        <rect key="frame" x="0.0" y="25.666666666666686" width="170.33333333333334" height="15.666666666666629"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -472,6 +472,7 @@
                         <outlet property="platformLabel" destination="Mrn-mO-PZB" id="2Mf-2m-Dsm"/>
                         <outlet property="playersImageView" destination="Hr2-Yo-I1P" id="Y5K-yg-lSM"/>
                         <outlet property="publisherLabel" destination="dlg-fX-TNi" id="rIJ-Lc-d62"/>
+                        <outlet property="ratingFieldLabel" destination="eAy-k6-ouS" id="fm3-bI-WMZ"/>
                         <outlet property="ratingLabel" destination="YIh-1q-KDO" id="9Fj-ws-Ktk"/>
                         <outlet property="releaseDateLabel" destination="pRn-Gp-0M1" id="pFk-4N-Xzq"/>
                         <outlet property="summaryLabel" destination="i7N-5M-guk" id="gK5-PL-fJB"/>

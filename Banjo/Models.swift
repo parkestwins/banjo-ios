@@ -1,9 +1,9 @@
 //
 //  Models.swift
-//  Banjo
+//  BanjoWriter
 //
-//  Created by Jarrod Parkes on 12/23/16.
-//  Copyright © 2016 ParkesTwins. All rights reserved.
+//  Created by Jarrod Parkes on 1/2/17.
+//  Copyright © 2017 Parkes Twins. All rights reserved.
 //
 
 import Foundation
@@ -27,6 +27,8 @@ final class Platform: Object {
 final class Game: Object {
     dynamic var id = ""
     dynamic var title = ""
+    let playersMin = RealmOptional<Int>()
+    let playersMax = RealmOptional<Int>()
     let releases = List<Release>()
     let genres = List<Genre>()
     
@@ -45,11 +47,24 @@ final class Genre: Object {
     }
 }
 
+final class RatingSystem: Object {
+    dynamic var id = ""
+    dynamic var name = ""
+    dynamic var abbreviation: String? = nil
+    dynamic var website: String? = nil
+    let ratings = List<Rating>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
 final class Rating: Object {
     dynamic var id = ""
+    dynamic var name = ""
     dynamic var abbreviation = ""
-    dynamic var shortDescription = ""
-    dynamic var longDescription = ""
+    dynamic var summary = ""
+    dynamic var system: RatingSystem?
     
     override static func primaryKey() -> String? {
         return "id"
@@ -63,10 +78,11 @@ final class Release: Object {
     dynamic var date = NSDate()
     dynamic var publisher = ""
     dynamic var developer = ""
-    dynamic var coverImagePath = ""
+    dynamic var coverImagePath: String? = nil
     dynamic var summary = ""
     dynamic var rating: Rating?
     dynamic var releaseRegion: ReleaseRegion?
+    dynamic var gameplayPath: String? = nil
     
     override static func primaryKey() -> String? {
         return "id"
@@ -74,27 +90,6 @@ final class Release: Object {
 }
 
 final class ReleaseRegion: Object {
-    dynamic var id = ""
-    dynamic var abbreviation = ""
-    let geoRegions = List<GeoRegion>()
-    let countries = List<Country>()
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-final class GeoRegion: Object {
-    dynamic var id = ""
-    dynamic var abbreviation = ""
-    dynamic var name = ""
-    
-    override static func primaryKey() -> String? {
-        return "id"
-    }
-}
-
-final class Country: Object {
     dynamic var id = ""
     dynamic var abbreviation = ""
     dynamic var name = ""

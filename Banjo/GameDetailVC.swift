@@ -29,7 +29,13 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
+    
+    // FIXME: better naming for "field" labels
+    
+    @IBOutlet weak var ratingFieldLabel: UILabel!
+    
     @IBOutlet weak var ratingLabel: UILabel!
+    
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
@@ -65,24 +71,27 @@ class GameDetailVC: UIViewController {
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
             if let specialTitle = release.specialTitle {
-                if specialTitle.hasPrefix("##") {
-                    titleLabel.text = game.title
-                    // FIXME: add new field/model for special things like collector's, etc.
-                    // FIXME: could have a special icon displayed somewhere?
-                    print("do something with special title!")
-                } else {
-                    titleLabel.text = specialTitle
-                }
+                titleLabel.text = specialTitle
             } else {
                 titleLabel.text = game.title
             }
             releaseDateLabel.text = release.date.toString()
             developerLabel.text = release.developer
             publisherLabel.text = release.publisher
-            ratingLabel.text = release.rating?.abbreviation
+            if let rating = release.rating {
+                ratingLabel.isHidden = false
+                ratingFieldLabel.isHidden = false
+                if let ratingSystemAbbv = rating.system?.abbreviation {
+                    ratingFieldLabel.text = "\(ratingSystemAbbv) Rating"
+                }
+                ratingLabel.text = rating.name
+            } else {
+                ratingLabel.isHidden = true
+                ratingFieldLabel.isHidden = true
+            }
+            
             summaryLabel.text = release.summary
-            let coverImagePath = release.coverImagePath
-            if release.coverImagePath.hasPrefix("gs://") {
+            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix("gs://") {
                 FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
                     if let error = error {
                         print("Error downloading: \(error)")
