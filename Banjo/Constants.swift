@@ -18,12 +18,12 @@ class Constants {
         static let realmUsername = "readonly@parkestwins.com"
         static let realmPassword = "readonly"
         static let liveRealmServer = "http://127.0.0.1:9080"
-        static let liveRealmBanjo = "realm://127.0.0.1:9080/banjo28"
+        static let liveRealmBanjo = "realm://127.0.0.1:9080/banjo29"
         static let testRealmServer = "http://127.0.0.1:9080"
-        static let testRealmBanjo = "realm://127.0.0.1:9080/banjo28"
+        static let testRealmBanjo = "realm://127.0.0.1:9080/banjo29"
     }
     
-    // MARK: 3D Models (Testing Feature)
+    // MARK: 3D Models (Test Feature)
     
     struct DDDModels {        
         static let testModel = fighterModel

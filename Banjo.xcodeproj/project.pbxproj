@@ -47,7 +47,7 @@
 		A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */; };
 		A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36E1E1D2B41001169BE /* Rating.swift */; };
 		A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3701E1D2B4F001169BE /* Release.swift */; };
-		A9F4E3731E1D2B58001169BE /* ReleaseRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */; };
+		A9F4E3731E1D2B58001169BE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3721E1D2B58001169BE /* Region.swift */; };
 		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSystem.swift; sourceTree = "<group>"; };
 		A9F4E36E1E1D2B41001169BE /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A9F4E3701E1D2B4F001169BE /* Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
-		A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseRegion.swift; sourceTree = "<group>"; };
+		A9F4E3721E1D2B58001169BE /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +240,7 @@
 				A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */,
 				A9F4E36E1E1D2B41001169BE /* Rating.swift */,
 				A9F4E3701E1D2B4F001169BE /* Release.swift */,
-				A9F4E3721E1D2B58001169BE /* ReleaseRegion.swift */,
+				A9F4E3721E1D2B58001169BE /* Region.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -424,7 +424,7 @@
 				A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */,
 				A9DEC1B91E161B050099A14F /* GenreCell.swift in Sources */,
 				A95D56C81E0DFB6C008399B2 /* LoginVC.swift in Sources */,
-				A9F4E3731E1D2B58001169BE /* ReleaseRegion.swift in Sources */,
+				A9F4E3731E1D2B58001169BE /* Region.swift in Sources */,
 				A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,

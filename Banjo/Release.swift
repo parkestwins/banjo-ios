@@ -8,7 +8,12 @@
 
 import RealmSwift
 
+// MARK: - Release: Object
+
 final class Release: Object {
+    
+    // MARK: Properties
+    
     dynamic var id = ""
     dynamic var game: Game?
     dynamic var specialTitle: String? = nil
@@ -18,8 +23,10 @@ final class Release: Object {
     dynamic var coverImagePath: String? = nil
     dynamic var summary = ""
     dynamic var rating: Rating?
-    dynamic var releaseRegion: ReleaseRegion?
+    dynamic var region: Region?
     dynamic var gameplayPath: String? = nil
+    
+    // MARK: Primary Key
     
     override static func primaryKey() -> String? {
         return "id"
