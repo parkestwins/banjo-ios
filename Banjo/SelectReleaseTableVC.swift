@@ -54,9 +54,9 @@ extension SelectReleaseTableVC {
                 releaseCell.regionReleaseLabel.text = "\(release.date.toString())"
             }
             if let selectedRelease = selectedRelease, release.id == selectedRelease.id {
-                releaseCell.backgroundColor = .gray
+                releaseCell.regionSelectImage.isHighlighted = true
             } else {
-                releaseCell.backgroundColor = .white
+                releaseCell.regionSelectImage.isHighlighted = false
             }            
         }
         return cell
@@ -71,6 +71,7 @@ extension SelectReleaseTableVC {
         if let game = game {
             selectedRelease = game.releases[indexPath.row]
             tableView.reloadData()
+            performSegue(withIdentifier: "saveRelease", sender: self)
         }
     }
 }

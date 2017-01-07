@@ -177,7 +177,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SearchNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="Cpd-9h-okx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="qFn-Ue-anL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="qFn-Ue-anL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -364,7 +364,7 @@
                                                                 <rect key="frame" x="0.0" y="24" width="170.33333333333334" height="92.666666666666686"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAg-ps-hAw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170.33333333333334" height="15.666666666666629"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="15.666666666666629"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -457,7 +457,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Game Detail" id="y7t-F6-sFb">
                         <barButtonItem key="backBarButtonItem" title=" " id="kY3-Mb-Ymn"/>
-                        <barButtonItem key="rightBarButtonItem" title="Swap" id="p2t-DU-A6S">
+                        <barButtonItem key="leftBarButtonItem" image="back-arrow" id="ml6-nk-BNE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="backToSearch:" destination="vy9-kH-GaH" id="OFe-Fx-og6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="US" id="p2t-DU-A6S">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="swapRelease:" destination="vy9-kH-GaH" id="cs2-4O-VDo"/>
@@ -474,6 +480,7 @@
                         <outlet property="publisherLabel" destination="dlg-fX-TNi" id="rIJ-Lc-d62"/>
                         <outlet property="ratingFieldLabel" destination="eAy-k6-ouS" id="fm3-bI-WMZ"/>
                         <outlet property="ratingLabel" destination="YIh-1q-KDO" id="9Fj-ws-Ktk"/>
+                        <outlet property="regionSelectButton" destination="p2t-DU-A6S" id="xQl-y9-Sf2"/>
                         <outlet property="releaseDateLabel" destination="pRn-Gp-0M1" id="pFk-4N-Xzq"/>
                         <outlet property="summaryLabel" destination="i7N-5M-guk" id="gK5-PL-fJB"/>
                         <outlet property="titleLabel" destination="SbX-v5-sut" id="jhH-3q-bqI"/>
@@ -508,10 +515,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Release" id="BII-vh-Ctc">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="yHA-Dp-NP0">
+                        <barButtonItem key="leftBarButtonItem" image="back-arrow" id="yHA-Dp-NP0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="HMa-eK-br2" kind="unwind" unwindAction="saveSelectedReleaseWithSegue:" id="WVH-J2-Xmg"/>
+                                <segue destination="HMa-eK-br2" kind="unwind" identifier="saveRelease" unwindAction="saveSelectedReleaseWithSegue:" id="WVH-J2-Xmg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -522,4 +529,7 @@
             <point key="canvasLocation" x="4348" y="1287"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back-arrow" width="22" height="22"/>
+    </resources>
 </document>

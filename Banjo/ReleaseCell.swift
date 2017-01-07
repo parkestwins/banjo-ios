@@ -16,5 +16,5 @@ class ReleaseCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var regionReleaseLabel: UILabel!
-
+    @IBOutlet weak var regionSelectImage: UIImageView!
 }

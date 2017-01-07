@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // MARK: Global UI Settings
+    
     func setupGlobalAppearances() {
         UIApplication.shared.statusBarStyle = .lightContent
     }

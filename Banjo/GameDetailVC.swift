@@ -22,6 +22,7 @@ class GameDetailVC: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
@@ -55,6 +56,10 @@ class GameDetailVC: UIViewController {
         }
     }
     
+    @IBAction func backToSearch(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
         if let releasesTableVC = segue.source as? SelectReleaseTableVC {
             if let newSelectedRelease = releasesTableVC.selectedRelease {
@@ -79,6 +84,11 @@ class GameDetailVC: UIViewController {
     
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
+            
+            if let region = release.region {
+                regionSelectButton.title = region.abbreviation
+            }
+            
             if let specialTitle = release.specialTitle {
                 titleLabel.text = specialTitle
             } else {

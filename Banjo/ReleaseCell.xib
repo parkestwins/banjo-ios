@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhf-aa-0DN">
-                        <rect key="frame" x="18" y="14" width="337" height="18"/>
+                        <rect key="frame" x="55" y="14" width="300" height="18"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +35,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGION / Month Date, Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1m-Ys-aSV">
-                        <rect key="frame" x="18" y="34" width="337" height="14.5"/>
+                        <rect key="frame" x="55" y="34" width="300" height="15"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                         <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -42,22 +43,36 @@
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                         </variation>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="7t0-7P-hae">
+                        <rect key="frame" x="15" y="20" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7t0-7P-hae" secondAttribute="height" multiplier="1:1" id="n1q-FY-jkn"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="7t0-7P-hae" secondAttribute="bottom" constant="12" id="0Ey-ru-u5V"/>
+                    <constraint firstItem="q1m-Ys-aSV" firstAttribute="leading" secondItem="7t0-7P-hae" secondAttribute="trailing" constant="16" id="2tn-A8-nTv"/>
                     <constraint firstItem="Yhf-aa-0DN" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="7ii-Kg-JcZ"/>
                     <constraint firstItem="q1m-Ys-aSV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="8Bg-g9-OJp"/>
                     <constraint firstItem="q1m-Ys-aSV" firstAttribute="top" secondItem="Yhf-aa-0DN" secondAttribute="bottom" constant="2" id="JqG-if-cdM"/>
-                    <constraint firstItem="Yhf-aa-0DN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="U31-8G-u9h"/>
+                    <constraint firstItem="7t0-7P-hae" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="7" id="MtN-lg-mkq"/>
                     <constraint firstItem="Yhf-aa-0DN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="dsh-dU-SLB"/>
-                    <constraint firstItem="q1m-Ys-aSV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="zTS-I4-0y4"/>
+                    <constraint firstItem="Yhf-aa-0DN" firstAttribute="leading" secondItem="7t0-7P-hae" secondAttribute="trailing" constant="16" id="wWg-Mg-s49"/>
+                    <constraint firstItem="7t0-7P-hae" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="za8-im-shv"/>
                 </constraints>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="regionReleaseLabel" destination="q1m-Ys-aSV" id="Efu-u1-LuR"/>
+                <outlet property="regionSelectImage" destination="7t0-7P-hae" id="0vI-97-9Pg"/>
                 <outlet property="titleLabel" destination="Yhf-aa-0DN" id="OAS-e9-rb3"/>
             </connections>
-            <point key="canvasLocation" x="55.5" y="63"/>
+            <point key="canvasLocation" x="55.5" y="62.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="select" width="22" height="22"/>
+        <image name="selected" width="22" height="22"/>
+    </resources>
 </document>
