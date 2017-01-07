@@ -1,5 +1,5 @@
 //
-//  LoginVC.swift
+//  SyncVC.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 12/23/16.
@@ -9,12 +9,18 @@
 import UIKit
 import RealmSwift
 
-class LoginVC: UIViewController {
+// MARK: - SyncVC: UIViewController
+
+class SyncVC: UIViewController {
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRealm()
     }
+    
+    // MARK: Setup
     
     func setupRealm() {
         

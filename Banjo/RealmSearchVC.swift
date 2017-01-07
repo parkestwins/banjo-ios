@@ -2,8 +2,10 @@
 //  RealmSearchVC.swift
 //
 //  Created by Adam Fish on 10/2/15.
-//  Modified by Jarrod Parkes on 12/23/16.
 //  Copyright © 2015 Adam Fish. All rights reserved.
+//  github.com/bigfish24/ABFRealmSearchViewController
+//
+//  Modified by Jarrod Parkes on 12/23/16.
 //
 
 import UIKit

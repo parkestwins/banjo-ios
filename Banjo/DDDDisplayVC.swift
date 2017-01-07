@@ -26,7 +26,7 @@ class DDDDisplayVC: UIViewController {
     }
 
     func load3DModel() {
-        // Load the .OBJ file
+        // load .obj file
         guard let url = Bundle.main.url(forResource: Constants.DDDModels.testModel.0, withExtension: "obj") else {
             fatalError("Failed to find model file.")
         }
@@ -36,29 +36,28 @@ class DDDDisplayVC: UIViewController {
             fatalError("Failed to get mesh from asset.")
         }
         
-        // Create a material from the various textures
+        // create a material from the various textures
         let scatteringFunction = MDLScatteringFunction()
         let material = MDLMaterial(name: "baseMaterial", scatteringFunction: scatteringFunction)
         material.setTextureProperties(Constants.DDDModels.testModel.1)
       
-        // Apply the texture to every submesh of the asset
+        // apply the texture to every submesh of the asset
         for  submesh in object.submeshes!  {
             if let submesh = submesh as? MDLSubmesh {
                 submesh.material = material
             }
         }
         
-        // Wrap the ModelIO object in a SceneKit object
+        // wrap the object in a SceneKit object
         let node = SCNNode(mdlObject: object)
         node.scale = SCNVector3(x: 0.5, y: 0.5, z: 0.5)
         let scene = SCNScene()
         scene.rootNode.addChildNode(node)
         
-        // Set up the SceneView
+        // set up the scene
         sceneView.autoenablesDefaultLighting = true
         sceneView.allowsCameraControl = true
-        sceneView.scene = scene
-        // sceneView.showsStatistics = true
+        sceneView.scene = scene        
         sceneView.backgroundColor = UIColor.clear
     }
 }

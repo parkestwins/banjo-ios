@@ -8,8 +8,12 @@
 
 import ModelIO
 
+// MARK: - MDLMaterial (Set Textures)
+
 extension MDLMaterial {
+    
     func setTextureProperties(_ textures: [MDLMaterialSemantic:String]) -> Void {
+        
         for (key,value) in textures {
             guard let url = Bundle.main.url(forResource: value, withExtension: "") else {
                 fatalError("Failed to find URL for resource \(value).")

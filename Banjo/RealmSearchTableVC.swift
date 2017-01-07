@@ -13,7 +13,11 @@ import RealmSwift
 
 class RealmSearchTableVC: RealmSearchVC {
     
+    // MARK: Properties
+    
     private let reuseIdentifier = "gameCell"
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,8 @@ class RealmSearchTableVC: RealmSearchVC {
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
 
+    // MARK: RealmSearchResultsDataSource
+    
     override func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
@@ -44,6 +50,8 @@ class RealmSearchTableVC: RealmSearchVC {
             performSegue(withIdentifier: "showDetail", sender: game)
         }
     }
+    
+    // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let game = sender as? Game, let gameDetailVC = segue.destination as? GameDetailVC, segue.identifier == "showDetail" {
