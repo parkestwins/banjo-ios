@@ -18,7 +18,7 @@ class SelectReleaseTableVC: UITableViewController {
     
     // MARK: Life Cycle
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {        
         setupUI()
     }
     

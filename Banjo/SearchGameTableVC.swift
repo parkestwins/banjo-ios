@@ -21,6 +21,7 @@ class SearchGameTableVC: RealmSearchVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         setupUI()
     }
     
@@ -30,6 +31,12 @@ class SearchGameTableVC: RealmSearchVC {
         title = "N64 Games"
         let gameCellNib = UINib(nibName: "GameCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func toStartScreen(_ sender: Any) {
+        let _ = navigationController?.popViewController(animated: true)
     }
 
     // MARK: RealmSearchResultsDataSource
