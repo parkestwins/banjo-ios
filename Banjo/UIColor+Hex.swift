@@ -32,7 +32,7 @@ extension UIColor {
         }        
     }
     
-    class var banjoRed: UIColor {
+    class func banjoRed() -> UIColor {
         return UIColor(red: 254/255, green: 56/255, blue: 36/255, alpha: 1)
     }
 }
