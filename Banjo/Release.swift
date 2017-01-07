@@ -17,7 +17,7 @@ final class Release: Object {
     dynamic var id = ""
     dynamic var game: Game?
     dynamic var specialTitle: String? = nil
-    dynamic var date = NSDate()
+    dynamic var date: NSDate? = nil
     dynamic var publisher = ""
     dynamic var developer = ""
     dynamic var coverImagePath: String? = nil

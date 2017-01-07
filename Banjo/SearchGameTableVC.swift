@@ -38,14 +38,10 @@ class SearchGameTableVC: RealmSearchVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
-            if let firstRelease = game.releases.first {
-                if let region = firstRelease.region {
-                    gameCell.regionReleaseLabel.text = "\(region.abbreviation) / \(firstRelease.date.toString())"
-                } else {
-                    gameCell.regionReleaseLabel.text = "\(firstRelease.date.toString())"
-                }
+            if let firstRelease = game.releases.first, let region = firstRelease.region, let date = firstRelease.date {
+                gameCell.regionReleaseLabel.text = "\(region.abbreviation) / \(date.toString())"
             } else {
-                gameCell.regionReleaseLabel.text = "Never Released"
+                gameCell.regionReleaseLabel.text = "Unreleased"
             }
         }
         return cell

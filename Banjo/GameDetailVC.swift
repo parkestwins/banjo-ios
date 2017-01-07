@@ -57,7 +57,7 @@ class GameDetailVC: UIViewController {
     }
     
     @IBAction func backToSearch(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
@@ -79,6 +79,9 @@ class GameDetailVC: UIViewController {
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
+        if game?.releases.count == 1 {
+            navigationItem.setRightBarButton(nil, animated: false)
+        }
         setupUIForRelease()
     }
     
@@ -94,7 +97,11 @@ class GameDetailVC: UIViewController {
             } else {
                 titleLabel.text = game.title
             }
-            releaseDateLabel.text = release.date.toString()
+            if let date = release.date {
+                releaseDateLabel.text = date.toString()
+            } else {
+                releaseDateLabel.text = "Unreleased"
+            }
             developerLabel.text = release.developer
             publisherLabel.text = release.publisher
             if let rating = release.rating {

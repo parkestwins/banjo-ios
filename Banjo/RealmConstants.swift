@@ -13,7 +13,7 @@ class RealmConstants {
     static let username = "readonly@parkestwins.com"
     static let password = "readonly"
     static let remoteServer = "http://127.0.0.1:9080"
-    static let remoteRealm = "realm://127.0.0.1:9080/banjo39"
+    static let remoteRealm = "realm://127.0.0.1:9080/banjo41"
     static let testServer = "http://127.0.0.1:9080"
-    static let testRealm = "realm://127.0.0.1:9080/banjo39"
+    static let testRealm = "realm://127.0.0.1:9080/banjo41"
 }
