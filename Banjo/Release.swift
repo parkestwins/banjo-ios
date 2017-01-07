@@ -19,7 +19,7 @@ final class Release: Object {
     dynamic var specialTitle: String? = nil
     dynamic var date: NSDate? = nil
     dynamic var publisher = ""
-    dynamic var developer = ""
+    dynamic var developer: String? = nil
     dynamic var coverImagePath: String? = nil
     dynamic var summary = ""
     dynamic var rating: Rating?

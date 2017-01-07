@@ -35,6 +35,7 @@ class GameDetailVC: UIViewController {
     
     @IBOutlet weak var ratingFieldLabel: UILabel!
     
+    @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
     @IBOutlet weak var summaryLabel: UILabel!
@@ -102,7 +103,14 @@ class GameDetailVC: UIViewController {
             } else {
                 releaseDateLabel.text = "Unreleased"
             }
-            developerLabel.text = release.developer
+            if let developer = release.developer {
+                developerLabel.isHidden = false
+                developerFieldLabel.isHidden = false
+                developerLabel.text = developer
+            } else {
+                developerLabel.isHidden = true
+                developerFieldLabel.isHidden = true
+            }
             publisherLabel.text = release.publisher
             if let rating = release.rating {
                 ratingLabel.isHidden = false

@@ -245,6 +245,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="W4s-0f-rr3">
                         <barButtonItem key="backBarButtonItem" title=" " id="i37-9B-dTC"/>
+                        <barButtonItem key="leftBarButtonItem" image="back-arrow" id="GAh-2a-r4A">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                     </navigationItem>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="entityName" value="Game"/>
@@ -473,6 +476,7 @@
                     <connections>
                         <outlet property="coverImageView" destination="Xmv-fY-S0Z" id="tuc-Qc-zjq"/>
                         <outlet property="detailScrollView" destination="u1t-Kq-uFE" id="YZj-oO-QGh"/>
+                        <outlet property="developerFieldLabel" destination="vae-jJ-4WN" id="s0v-cU-W8u"/>
                         <outlet property="developerLabel" destination="uJ3-jO-2KP" id="W3C-gR-aQv"/>
                         <outlet property="genreCollectionView" destination="oIQ-JN-luS" id="woL-Ug-bbe"/>
                         <outlet property="platformLabel" destination="Mrn-mO-PZB" id="2Mf-2m-Dsm"/>
