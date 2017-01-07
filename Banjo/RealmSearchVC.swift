@@ -2,8 +2,10 @@
 //  RealmSearchVC.swift
 //
 //  Created by Adam Fish on 10/2/15.
-//  Modified by Jarrod Parkes on 12/23/16.
 //  Copyright © 2015 Adam Fish. All rights reserved.
+//  github.com/bigfish24/ABFRealmSearchViewController
+//
+//  Modified by Jarrod Parkes on 12/23/16.
 //
 
 import UIKit
@@ -56,6 +58,7 @@ public protocol RealmSearchResultsDelegate {
 public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource, RealmSearchResultsDelegate {
     
     // MARK: Properties
+    
     /// The data source object for the search view controller
     public var resultsDataSource: RealmSearchResultsDataSource!
     
@@ -196,8 +199,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
         if searchBarInTableView {
             tableView.tableHeaderView = searchBar
             searchBar.sizeToFit()
-        }
-        else {
+        } else {
             searchController.hidesNavigationBarDuringPresentation = false
         }
                 
@@ -206,19 +208,19 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         refreshSearchResults()
     }
     
     // MARK: RealmSearchResultsDataSource
+    
     public func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         
         print("You need to implement searchViewController(controller:,cellForObject object:,atIndexPath indexPath:)")
-        
         return UITableViewCell()
     }
     
     // MARK: RealmSearchResultsDelegate
+    
     public func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         // Subclasses to redeclare
     }
@@ -228,9 +230,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     }
     
     // MARK: Private
-    // FIXME: viewLoaded was commented out. is it needed?
-    // public var viewLoaded: Bool = false
-    
+
     private var internalConfiguration: Realm.Configuration?
     
     private var token: RLMNotificationToken?
@@ -271,13 +271,13 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
                     
                     let tableView = weakSelf.tableView
                     
-                    // Initial run of the query will pass nil for the change information
+                    // initial run of the query will pass nil for the change information
                     if change == nil {
                         tableView?.reloadData()
                         return
                     }
                         
-                        // Query results have changed, so apply them to the UITableView
+                    // query results have changed, so apply them to the UITableView
                     else if let aChange = change {
                         tableView?.beginUpdates()
                         tableView?.deleteRows(at: aChange.deletions(inSection: 0), with: .automatic)
@@ -371,6 +371,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
 // MARK: - RealmSearchVC (UITableViewDelegate)
 
 extension RealmSearchVC {
+    
     public override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let results = results {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
@@ -409,6 +410,7 @@ extension RealmSearchVC {
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if let results = results {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object            
@@ -424,6 +426,7 @@ extension RealmSearchVC {
 // MARK: - RealmSearchVC: UISearchResultsUpdating
 
 extension RealmSearchVC: UISearchResultsUpdating {
+    
     public func updateSearchResults(for searchController: UISearchController) {
         refreshSearchResults()
     }

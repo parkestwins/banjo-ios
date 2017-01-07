@@ -8,9 +8,13 @@
 
 import Foundation
 
+// MARK: - DateHelper
+
 class DateHelper {
     static let formatter = DateFormatter()
 }
+
+// MARK: - NSDate (To String)
 
 extension NSDate {
     

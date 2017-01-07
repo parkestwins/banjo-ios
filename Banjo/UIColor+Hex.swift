@@ -2,13 +2,15 @@
 //  UIColor+Hex.swift
 //  Banjo
 //
-//  Created by Jarrod Parkes on 12/30/16.
-//  Copyright © 2016 ParkesTwins. All rights reserved.
+//  Created by Arshad Chummun on 6/4/14.
+//  gist.github.com/arshad/de147c42d7b3063ef7bc
+//
+//  Modified by Jarrod Parkes on 12/30/16.
 //
 
 import UIKit
 
-// CREDIT: adapted from stackoverflow.com/questions/24263007/how-to-use-hex-colour-values-in-swift-ios
+// MARK: - UIColor (From Hex)
 
 extension UIColor {
     

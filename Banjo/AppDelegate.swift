@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import RealmSwift
 
 // MARK: - AppDelegate: UIResponder, UIApplicationDelegate
 
@@ -24,15 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
         setupGlobalAppearances()
-        seedRealm()
         return true
     }
     
     func setupGlobalAppearances() {
         UIApplication.shared.statusBarStyle = .lightContent
-    }
-    
-    func seedRealm() {
-        // FIXME: add new seeding code that uses CSV files
     }
 }

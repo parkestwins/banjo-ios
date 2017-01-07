@@ -8,8 +8,12 @@
 
 import UIKit
 
+// MARK: - GameCell: UITableViewCell
+
 class GameCell: UITableViewCell {
 
+    // MARK: Outlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseLabel: UILabel!
     

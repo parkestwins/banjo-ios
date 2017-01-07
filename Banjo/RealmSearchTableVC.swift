@@ -13,7 +13,11 @@ import RealmSwift
 
 class RealmSearchTableVC: RealmSearchVC {
     
+    // MARK: Properties
+    
     private let reuseIdentifier = "gameCell"
+    
+    // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,8 @@ class RealmSearchTableVC: RealmSearchVC {
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
 
+    // MARK: RealmSearchResultsDataSource
+    
     override func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
@@ -39,19 +45,23 @@ class RealmSearchTableVC: RealmSearchVC {
         return cell
     }
     
+    // MARK: RealmSearchResultsDelegate
+    
     override func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         if let game = anObject as? Game {
             performSegue(withIdentifier: "showDetail", sender: game)
         }
     }
     
+    // MARK: Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let game = sender as? Game, let gameDetailVC = segue.destination as? GameDetailVC, segue.identifier == "showDetail" {
             gameDetailVC.game = game
                         
-            if let usRegion = realm.objects(ReleaseRegion.self).filter("abbreviation = 'US'").first {
+            if let usRegion = realm.objects(Region.self).filter("abbreviation = 'US'").first {
                 let sortedReleases = game.releases.sorted(byProperty: "date")
-                let usReleases = game.releases.filter("releaseRegion == %@", usRegion).sorted(byProperty: "date")
+                let usReleases = game.releases.filter("region == %@", usRegion).sorted(byProperty: "date")
                 
                 if usReleases.count > 0 {
                     gameDetailVC.selectedRelease = usReleases.first

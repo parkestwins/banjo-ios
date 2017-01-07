@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - String (To Date)
+
 extension String {
     
     func toNSDate() -> NSDate? {
