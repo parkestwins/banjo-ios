@@ -1,5 +1,5 @@
 //
-//  RealmSearchTableVC.swift
+//  SearchGameTableVC.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 12/23/16.
@@ -9,9 +9,9 @@
 import UIKit
 import RealmSwift
 
-// MARK: - RealmSearchTableVC: RealmSearchViewController
+// MARK: - SearchGameTableVC: RealmSearchViewController
 
-class RealmSearchTableVC: RealmSearchVC {
+class SearchGameTableVC: RealmSearchVC {
     
     // MARK: Properties
     
@@ -38,9 +38,15 @@ class RealmSearchTableVC: RealmSearchVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
-            if let releaseDate = game.releases.first?.date {
-                gameCell.releaseLabel.text = releaseDate.toString()
-            }            
+            if let firstRelease = game.releases.first {
+                if let region = firstRelease.region {
+                    gameCell.regionReleaseLabel.text = "\(region.abbreviation) / \(firstRelease.date.toString())"
+                } else {
+                    gameCell.regionReleaseLabel.text = "\(firstRelease.date.toString())"
+                }
+            } else {
+                gameCell.regionReleaseLabel.text = "Never Released"
+            }
         }
         return cell
     }

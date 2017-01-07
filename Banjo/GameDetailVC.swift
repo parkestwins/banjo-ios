@@ -47,11 +47,20 @@ class GameDetailVC: UIViewController {
         setupUI()
     }
     
+    // MARK: Actions
+    
     @IBAction func swapRelease(_ sender: Any) {
         if let game = game {
-            let randomIndex = Int(arc4random_uniform(UInt32(game.releases.count)))
-            selectedRelease = game.releases[randomIndex]
-            setupUIForRelease()
+            performSegue(withIdentifier: "showRelease", sender: game)
+        }
+    }
+    
+    @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
+        if let releasesTableVC = segue.source as? SelectReleaseTableVC {
+            if let newSelectedRelease = releasesTableVC.selectedRelease {
+                selectedRelease = newSelectedRelease
+                setupUIForRelease()
+            }
         }
     }
     
@@ -104,9 +113,20 @@ class GameDetailVC: UIViewController {
             }
         }
     }
+    
+    // MARK: Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let game = sender as? Game, let selectReleaseTableVC = segue.destination as? SelectReleaseTableVC, segue.identifier == "showRelease" {
+            selectReleaseTableVC.game = game
+            selectReleaseTableVC.selectedRelease = selectedRelease
+        }
+    }
 }
 
-extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
+
+extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -133,8 +153,11 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             genreCell.nameLabel.text = genre.name.uppercased()
         }
     }
-    
-    // MARK: UICollectionViewDelegateFlowLayout
+}
+
+// MARK: - GameDetailVC: UICollectionViewDelegateFlowLayout
+
+extension GameDetailVC: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         configureCell(genreCell: self.sizingCell!, forIndexPath: indexPath)
