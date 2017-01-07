@@ -28,12 +28,14 @@ class DDDDisplayVC: UIViewController {
     func load3DModel() {
         // load .obj file
         guard let url = Bundle.main.url(forResource: Constants.DDDModels.testModel.0, withExtension: "obj") else {
-            fatalError("Failed to find model file.")
+            print("failed to find model file")
+            return
         }
         
         let asset = MDLAsset(url:url)
         guard let object = asset.object(at: 0) as? MDLMesh else {
-            fatalError("Failed to get mesh from asset.")
+            print("failed to get mesh from asset")
+            return
         }
         
         // create a material from the various textures

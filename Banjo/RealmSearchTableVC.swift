@@ -45,6 +45,8 @@ class RealmSearchTableVC: RealmSearchVC {
         return cell
     }
     
+    // MARK: RealmSearchResultsDelegate
+    
     override func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath) {
         if let game = anObject as? Game {
             performSegue(withIdentifier: "showDetail", sender: game)
