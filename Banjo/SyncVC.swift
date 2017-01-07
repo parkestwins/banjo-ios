@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 // MARK: - SyncVC: UIViewController
 
@@ -17,21 +16,17 @@ class SyncVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupRealm()
+        syncRealm()
     }
     
     // MARK: Setup
     
-    func setupRealm() {
+    func syncRealm() {
         
-        SyncUser.logIn(with: .usernamePassword(username: Constants.Realm.realmUsername, password: Constants.Realm.realmPassword, register: false), server: URL(string: Constants.Realm.testRealmServer)!) { user, error in
-            guard let user = user else {
-                print(String(describing: error))
-                return
-            }
-                                    
-            DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: Constants.Realm.testRealmBanjo)!))
+        RealmClient.syncRealm { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
                 self.performSegue(withIdentifier: "login", sender: self)
             }
         }

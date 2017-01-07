@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC01E214CB100F67272 /* RealmClient.swift */; };
+		A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC21E214D0800F67272 /* RealmConstants.swift */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
 		A92C2F561D3DE25A001C6E9C /* DDDDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */; };
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Banjo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
+		A926BDC01E214CB100F67272 /* RealmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
+		A926BDC21E214D0800F67272 /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConstants.swift; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDDisplayVC.swift; sourceTree = "<group>"; };
@@ -120,6 +124,29 @@
 				8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A926BDBE1E214C9300F67272 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				A9F4E3661E1D2B14001169BE /* Platform.swift */,
+				A9F4E3681E1D2B1F001169BE /* Game.swift */,
+				A9F4E36A1E1D2B29001169BE /* Genre.swift */,
+				A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */,
+				A9F4E36E1E1D2B41001169BE /* Rating.swift */,
+				A9F4E3701E1D2B4F001169BE /* Release.swift */,
+				A9F4E3721E1D2B58001169BE /* Region.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		A926BDBF1E214C9800F67272 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				A926BDC01E214CB100F67272 /* RealmClient.swift */,
+				A926BDC21E214D0800F67272 /* RealmConstants.swift */,
+			);
+			name = Clients;
 			sourceTree = "<group>";
 		};
 		A92C2F471D3DE25A001C6E9C = {
@@ -229,13 +256,8 @@
 		A9ADA1211E16DF6F004968E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A9F4E3661E1D2B14001169BE /* Platform.swift */,
-				A9F4E3681E1D2B1F001169BE /* Game.swift */,
-				A9F4E36A1E1D2B29001169BE /* Genre.swift */,
-				A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */,
-				A9F4E36E1E1D2B41001169BE /* Rating.swift */,
-				A9F4E3701E1D2B4F001169BE /* Release.swift */,
-				A9F4E3721E1D2B58001169BE /* Region.swift */,
+				A926BDBF1E214C9800F67272 /* Clients */,
+				A926BDBE1E214C9300F67272 /* Objects */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -451,6 +473,8 @@
 				A9F4E3731E1D2B58001169BE /* Region.swift in Sources */,
 				A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,
+				A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */,
+				A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,
 				A93F2E4A1D43CE0A007BCE7B /* Constants.swift in Sources */,
 			);
