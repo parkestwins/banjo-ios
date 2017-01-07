@@ -22,6 +22,7 @@ class GameDetailVC: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
@@ -34,6 +35,7 @@ class GameDetailVC: UIViewController {
     
     @IBOutlet weak var ratingFieldLabel: UILabel!
     
+    @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
     @IBOutlet weak var summaryLabel: UILabel!
@@ -47,11 +49,24 @@ class GameDetailVC: UIViewController {
         setupUI()
     }
     
+    // MARK: Actions
+    
     @IBAction func swapRelease(_ sender: Any) {
         if let game = game {
-            let randomIndex = Int(arc4random_uniform(UInt32(game.releases.count)))
-            selectedRelease = game.releases[randomIndex]
-            setupUIForRelease()
+            performSegue(withIdentifier: "showRelease", sender: game)
+        }
+    }
+    
+    @IBAction func backToSearch(_ sender: Any) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
+        if let releasesTableVC = segue.source as? SelectReleaseTableVC {
+            if let newSelectedRelease = releasesTableVC.selectedRelease {
+                selectedRelease = newSelectedRelease
+                setupUIForRelease()
+            }
         }
     }
     
@@ -65,18 +80,37 @@ class GameDetailVC: UIViewController {
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
+        if game?.releases.count == 1 {
+            navigationItem.setRightBarButton(nil, animated: false)
+        }
         setupUIForRelease()
     }
     
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
+            
+            if let region = release.region {
+                regionSelectButton.title = region.abbreviation
+            }
+            
             if let specialTitle = release.specialTitle {
                 titleLabel.text = specialTitle
             } else {
                 titleLabel.text = game.title
             }
-            releaseDateLabel.text = release.date.toString()
-            developerLabel.text = release.developer
+            if let date = release.date {
+                releaseDateLabel.text = date.toString()
+            } else {
+                releaseDateLabel.text = "Unreleased"
+            }
+            if let developer = release.developer {
+                developerLabel.isHidden = false
+                developerFieldLabel.isHidden = false
+                developerLabel.text = developer
+            } else {
+                developerLabel.isHidden = true
+                developerFieldLabel.isHidden = true
+            }
             publisherLabel.text = release.publisher
             if let rating = release.rating {
                 ratingLabel.isHidden = false
@@ -104,9 +138,20 @@ class GameDetailVC: UIViewController {
             }
         }
     }
+    
+    // MARK: Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let game = sender as? Game, let selectReleaseTableVC = segue.destination as? SelectReleaseTableVC, segue.identifier == "showRelease" {
+            selectReleaseTableVC.game = game
+            selectReleaseTableVC.selectedRelease = selectedRelease
+        }
+    }
 }
 
-extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource
+
+extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -133,8 +178,11 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource, UI
             genreCell.nameLabel.text = genre.name.uppercased()
         }
     }
-    
-    // MARK: UICollectionViewDelegateFlowLayout
+}
+
+// MARK: - GameDetailVC: UICollectionViewDelegateFlowLayout
+
+extension GameDetailVC: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         configureCell(genreCell: self.sizingCell!, forIndexPath: indexPath)

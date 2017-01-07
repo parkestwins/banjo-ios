@@ -31,4 +31,8 @@ extension UIColor {
             self.init(red: CGFloat((rgbHex & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgbHex & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgbHex & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
         }        
     }
+    
+    class func banjoRed() -> UIColor {
+        return UIColor(red: 254/255, green: 56/255, blue: 36/255, alpha: 1)
+    }
 }

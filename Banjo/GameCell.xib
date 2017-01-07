@@ -24,8 +24,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="308" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banjo-Kazooie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ggB-Dc-kxb">
-                        <rect key="frame" x="18" y="14" width="291" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ggB-Dc-kxb">
+                        <rect key="frame" x="18" y="14" width="282" height="18"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -33,24 +33,28 @@
                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NA / May 31, 1998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBm-m9-NFt">
-                        <rect key="frame" x="18" y="34" width="291" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGION / Month Date, Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBm-m9-NFt">
+                        <rect key="frame" x="18" y="34" width="282" height="14.5"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="widthClass=compact">
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
+                        </variation>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="leadingMargin" secondItem="ggB-Dc-kxb" secondAttribute="leading" constant="-10" id="4iq-X0-CQU"/>
                     <constraint firstItem="QBm-m9-NFt" firstAttribute="top" secondItem="ggB-Dc-kxb" secondAttribute="bottom" constant="2" id="DnV-HP-gwe"/>
                     <constraint firstAttribute="leadingMargin" secondItem="QBm-m9-NFt" secondAttribute="leading" constant="-10" id="GOq-dV-dhy"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="ggB-Dc-kxb" secondAttribute="trailing" constant="-9" id="MC8-sD-6xx"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="QBm-m9-NFt" secondAttribute="trailing" constant="-9" id="gk3-Kx-mi0"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ggB-Dc-kxb" secondAttribute="trailing" id="MC8-sD-6xx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QBm-m9-NFt" secondAttribute="trailing" id="gk3-Kx-mi0"/>
                     <constraint firstItem="ggB-Dc-kxb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="qVu-q1-Lph"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
-                <outlet property="releaseLabel" destination="QBm-m9-NFt" id="NQ4-ey-AUr"/>
+                <outlet property="regionReleaseLabel" destination="QBm-m9-NFt" id="FlE-XQ-8QE"/>
                 <outlet property="titleLabel" destination="ggB-Dc-kxb" id="97R-mc-YXQ"/>
             </connections>
             <point key="canvasLocation" x="44.5" y="64.5"/>
