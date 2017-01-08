@@ -31,6 +31,7 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var ratingFieldLabel: UILabel!
     @IBOutlet weak var developerFieldLabel: UILabel!
+    @IBOutlet weak var debugCoverLabel: UILabel!    
     @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var regionSelectButton: UIBarButtonItem!
     @IBOutlet weak var coverImageView: UIImageView!
@@ -86,6 +87,12 @@ class GameDetailVC: UIViewController {
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
             
+            // reset image
+            self.coverLoadingIndicator.startAnimating()
+            self.coverLoadingIndicator.isHidden = false
+            debugCoverLabel.isHidden = true
+            coverImageView.image = nil
+            
             publisherLabel.text = release.publisher
             summaryLabel.text = release.summary
             regionSelectButton.title = release.region?.abbreviation
@@ -126,15 +133,16 @@ class GameDetailVC: UIViewController {
             // cover image
             if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
                 
-                self.coverLoadingIndicator.startAnimating()
-                self.coverLoadingIndicator.isHidden = false
-                
                 FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
+                    
+                    // stop activity indicator
+                    self.coverLoadingIndicator.stopAnimating()
+                    self.coverLoadingIndicator.isHidden = true
+                    
                     if let error = error {
+                        self.debugCoverLabel.isHidden = false
                         print(error)
                     } else if let image = image {
-                        self.coverLoadingIndicator.stopAnimating()
-                        self.coverLoadingIndicator.isHidden = true
                         self.coverImageView.image = image
                     }
                 }
