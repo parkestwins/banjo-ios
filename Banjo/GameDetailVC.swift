@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 // MARK: - GameDetailVC: UIViewController
 
@@ -145,13 +144,11 @@ class GameDetailVC: UIViewController {
             
             summaryLabel.text = release.summary
             if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix("gs://") {
-                FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
+                FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
                     if let error = error {
-                        print("Error downloading: \(error)")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.coverImageView.image = UIImage(data: data!)
+                        print(error)
+                    } else if let image = image {
+                        self.coverImageView.image = image
                     }
                 }
             }
