@@ -48,6 +48,10 @@ class GameDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            self.setupUIForRelease()
+        }
     }
     
     // MARK: Actions
@@ -63,7 +67,7 @@ class GameDetailVC: UIViewController {
     }
     
     @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
-        if let releasesTableVC = segue.source as? SelectReleaseTableVC {
+        if let releasesTableVC = segue.source as? ReleaseSelectTableVC {
             if let newSelectedRelease = releasesTableVC.selectedRelease {
                 selectedRelease = newSelectedRelease
                 setupUIForRelease()
@@ -165,9 +169,9 @@ class GameDetailVC: UIViewController {
     // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let game = sender as? Game, let selectReleaseTableVC = segue.destination as? SelectReleaseTableVC, segue.identifier == "showRelease" {
-            selectReleaseTableVC.game = game
-            selectReleaseTableVC.selectedRelease = selectedRelease
+        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == "showRelease" {
+            releaseSelectTableVC.game = game
+            releaseSelectTableVC.selectedRelease = selectedRelease
         }
     }
 }

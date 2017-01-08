@@ -262,10 +262,10 @@
             </objects>
             <point key="canvasLocation" x="1372.5" y="1286.25"/>
         </scene>
-        <!--Search Game TableVC-->
+        <!--Game Search TableVC-->
         <scene sceneID="EPC-Ko-Kzz">
             <objects>
-                <tableViewController id="dvp-8S-J90" customClass="SearchGameTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dvp-8S-J90" customClass="GameSearchTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="sce-je-lza">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -422,13 +422,13 @@
                                                                 <rect key="frame" x="0.0" y="24" width="133" height="94"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Release Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAg-ps-hAw">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="133" height="16"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="75" height="16"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vae-jJ-4WN">
-                                                                        <rect key="frame" x="0.0" y="26" width="60" height="16"/>
+                                                                        <rect key="frame" x="0.0" y="26" width="133" height="16"/>
                                                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -557,7 +557,7 @@
         <!--Select Release-->
         <scene sceneID="weU-9b-GNB">
             <objects>
-                <tableViewController id="W64-hG-Xvx" customClass="SelectReleaseTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="W64-hG-Xvx" customClass="ReleaseSelectTableVC" customModule="Banjo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="xrh-dg-Qta">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

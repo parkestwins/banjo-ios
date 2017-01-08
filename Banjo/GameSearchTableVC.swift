@@ -1,5 +1,5 @@
 //
-//  SearchGameTableVC.swift
+//  GameSearchTableVC.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 12/23/16.
@@ -9,9 +9,9 @@
 import UIKit
 import RealmSwift
 
-// MARK: - SearchGameTableVC: RealmSearchViewController
+// MARK: - GameSearchTableVC: RealmSearchViewController
 
-class SearchGameTableVC: RealmSearchVC {
+class GameSearchTableVC: RealmSearchVC {
     
     // MARK: Properties
     
@@ -74,7 +74,7 @@ class SearchGameTableVC: RealmSearchVC {
         if let game = sender as? Game, let gameDetailVC = segue.destination as? GameDetailVC, segue.identifier == "showDetail" {
             gameDetailVC.game = game
                         
-            if let usRegion = realm.objects(Region.self).filter("abbreviation = 'US'").first {
+            if let usRegion = RealmClient.shared.realm.objects(Region.self).filter("abbreviation = 'US'").first {
                 let sortedReleases = game.releases.sorted(byProperty: "date")
                 let usReleases = game.releases.filter("region == %@", usRegion).sorted(byProperty: "date")
                 

@@ -39,7 +39,7 @@ class StartVC: UIViewController {
     // MARK: Setup
     
     func syncRealm() {
-        RealmClient.syncRealm { error in
+        RealmClient.shared.syncToRealm { error in
             DispatchQueue.main.async {
                 if let _ = error {
                     self.searchGamesButton.setTitle("Unable to Sync...", for: .disabled)

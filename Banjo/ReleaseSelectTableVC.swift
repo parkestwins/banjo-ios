@@ -1,5 +1,5 @@
 //
-//  SelectReleaseTableVC.swift
+//  ReleaseSelectTableVC.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/7/17.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SelectReleaseTableVC: UITableViewController {
+// MARK: - ReleaseSelectTableVC: UITableViewController
+
+class ReleaseSelectTableVC: UITableViewController {
     
     // MARK: Properties
     
@@ -20,6 +22,10 @@ class SelectReleaseTableVC: UITableViewController {
     
     override func viewDidLoad() {        
         setupUI()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: Setup
@@ -31,9 +37,9 @@ class SelectReleaseTableVC: UITableViewController {
     }
 }
 
-// MARK: - SelectReleaseTableVC (UITableViewDataSource)
+// MARK: - ReleaseSelectTableVC (UITableViewDataSource)
 
-extension SelectReleaseTableVC {
+extension ReleaseSelectTableVC {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let releases = game?.releases {
@@ -65,9 +71,9 @@ extension SelectReleaseTableVC {
     }
 }
 
-// MARK: - SelectReleaseTableVC (UITableViewDelegate)
+// MARK: - ReleaseSelectTableVC (UITableViewDelegate)
 
-extension SelectReleaseTableVC {
+extension ReleaseSelectTableVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let game = game {
