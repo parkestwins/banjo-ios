@@ -21,6 +21,7 @@ class SearchGameTableVC: RealmSearchVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = false
         setupUI()
     }
     
@@ -31,6 +32,12 @@ class SearchGameTableVC: RealmSearchVC {
         let gameCellNib = UINib(nibName: "GameCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
+    
+    // MARK: Actions
+    
+    @IBAction func toStartScreen(_ sender: Any) {
+        let _ = navigationController?.popViewController(animated: true)
+    }
 
     // MARK: RealmSearchResultsDataSource
     
@@ -38,10 +45,16 @@ class SearchGameTableVC: RealmSearchVC {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath as IndexPath)
         if let game = object as? Game, let gameCell = cell as? GameCell {
             gameCell.titleLabel.text = game.title
-            if let firstRelease = game.releases.first, let region = firstRelease.region, let date = firstRelease.date {
-                gameCell.regionReleaseLabel.text = "\(region.abbreviation) / \(date.toString())"
+            if let firstRelease = game.releases.first {
+                var developerPublisherText = ""
+                if let developer = firstRelease.developer {
+                    developerPublisherText = developer + " / " + firstRelease.publisher
+                } else {
+                    developerPublisherText = firstRelease.publisher
+                }
+                gameCell.developerPublisherLabel.text = developerPublisherText
             } else {
-                gameCell.regionReleaseLabel.text = "Unreleased"
+                gameCell.developerPublisherLabel.text = "Unreleased"
             }
         }
         return cell

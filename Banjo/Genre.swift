@@ -16,7 +16,6 @@ final class Genre: Object {
     
     dynamic var id = ""
     dynamic var name = ""
-    dynamic var colorHex = ""
     
     // MARK: Primary Key
     

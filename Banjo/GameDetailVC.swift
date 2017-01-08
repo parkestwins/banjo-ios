@@ -26,11 +26,12 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
-    @IBOutlet weak var playersImageView: UIImageView!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
+    @IBOutlet weak var playersLabel: UILabel!
     
+    @IBOutlet weak var playersImage: UIImageView!
     // FIXME: better naming for "field" labels
     
     @IBOutlet weak var ratingFieldLabel: UILabel!
@@ -52,7 +53,7 @@ class GameDetailVC: UIViewController {
     // MARK: Actions
     
     @IBAction func swapRelease(_ sender: Any) {
-        if let game = game {
+        if let game = game, game.releases.count > 1 {
             performSegue(withIdentifier: "showRelease", sender: game)
         }
     }
@@ -75,14 +76,11 @@ class GameDetailVC: UIViewController {
     func setupUI() {
         let genreCellNib = UINib(nibName: "GenreCell", bundle: nil)
         let genreCellLayout = GenreCellLayout()
-        genreCellLayout.sectionInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        genreCellLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         genreCollectionView.collectionViewLayout = genreCellLayout
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
-        if game?.releases.count == 1 {
-            navigationItem.setRightBarButton(nil, animated: false)
-        }
         setupUIForRelease()
     }
     
@@ -112,6 +110,27 @@ class GameDetailVC: UIViewController {
                 developerFieldLabel.isHidden = true
             }
             publisherLabel.text = release.publisher
+            
+            var playersText = ""
+            if let playersMin = game.playersMin.value {
+                playersText += "\(playersMin)"
+            }
+            if let playersMax = game.playersMax.value {
+                if playersText == "" {
+                    playersText += "\(playersMax)"
+                } else {
+                    playersText += "- \(playersMax)"
+                }
+            }
+            if playersText == "" {
+                playersImage.isHidden = true
+                playersLabel.isHidden = true
+            } else {
+                playersImage.isHidden = false
+                playersLabel.isHidden = false
+                playersLabel.text = playersText
+            }
+            
             if let rating = release.rating {
                 ratingLabel.isHidden = false
                 ratingFieldLabel.isHidden = false
@@ -174,7 +193,18 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
         if let game = game {
             let genre = game.genres[indexPath.row]
-            genreCell.backgroundColor = UIColor(hex: genre.colorHex)
+            switch(indexPath.row) {
+            case 0:
+                genreCell.backgroundColor = .banjoFern
+            case 1:
+                genreCell.backgroundColor = .banjoCornflowerBlue
+            case 2:
+                genreCell.backgroundColor = .banjoBlueberry
+            case 3:
+                genreCell.backgroundColor = .banjoGolden
+            default:
+                genreCell.backgroundColor = .banjoBrickOrange
+            }
             genreCell.nameLabel.text = genre.name.uppercased()
         }
     }

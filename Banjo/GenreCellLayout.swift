@@ -16,8 +16,6 @@ public class GenreCellLayout: UICollectionViewFlowLayout {
     
     // MARK: UICollectionViewLayout
     
-    // FIXME: Long genre tags (ex. Al Shogi 3) are not always left-aligned.
-    
     override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         
         let attributesForElementsInRect = super.layoutAttributesForElements(in: rect)
@@ -26,15 +24,23 @@ public class GenreCellLayout: UICollectionViewFlowLayout {
         // use a value to keep track of left margin
         var leftMargin: CGFloat = 0.0
         
+        // bug fix: long genre tags (ex. Al Shogi 3) don't begin at 0 when they should
+        let isFirstElementOffset = attributesForElementsInRect!.first!.frame.origin.x > 0
+        
         for attributes in attributesForElementsInRect! {
             let refAttributes = attributes
             // assign value if next row
-            if (refAttributes.frame.origin.x == sectionInset.left) {
+            if refAttributes.frame.origin.x == sectionInset.left {
                 leftMargin = sectionInset.left
             } else {
                 // set x position of attributes to current margin
                 var newLeftAlignedFrame = refAttributes.frame
-                newLeftAlignedFrame.origin.x = leftMargin
+                // bug fix: long genre tags (ex. Al Shogi 3) don't begin at 0 when they should
+                if isFirstElementOffset {
+                    newLeftAlignedFrame.origin.x = 0
+                } else {
+                    newLeftAlignedFrame.origin.x = leftMargin
+                }
                 refAttributes.frame = newLeftAlignedFrame
             }
             // calculate new value for current margin
