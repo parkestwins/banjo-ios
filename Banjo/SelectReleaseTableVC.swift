@@ -48,11 +48,13 @@ extension SelectReleaseTableVC {
         if let game = game, let releaseCell = cell as? ReleaseCell {
             let release = game.releases[indexPath.row]
             releaseCell.titleLabel.text = release.specialTitle ?? game.title
-            if let releaseRegionAbbv = release.region?.abbreviation {
-                releaseCell.regionReleaseLabel.text = "\(releaseRegionAbbv) / \(release.date?.toString())"
-            } else {
-                releaseCell.regionReleaseLabel.text = "\(release.date?.toString())"
+            
+            if let releaseRegionAbbv = release.region?.abbreviation, let date = release.date {
+                releaseCell.regionReleaseLabel.text = "\(releaseRegionAbbv) / \(date.toString())"
+            } else if let date = release.date {
+                releaseCell.regionReleaseLabel.text = "\(date.toString())"
             }
+            
             if let selectedRelease = selectedRelease, release.id == selectedRelease.id {
                 releaseCell.regionSelectImage.isHighlighted = true
             } else {
