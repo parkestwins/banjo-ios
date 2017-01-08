@@ -10,8 +10,8 @@
 
 import UIKit
 import Realm
-import Realm.Dynamic
 import RealmSwift
+import Realm.Dynamic
 
 // MARK: - Protocols
 
@@ -75,11 +75,9 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     /// The keyPath on the entity that will be searched against.
     @IBInspectable public var searchPropertyKeyPath: String? {
         didSet {
-            
             if searchPropertyKeyPath?.contains(".") == false && sortPropertyKey == nil {
                 sortPropertyKey = searchPropertyKeyPath
             }
-            
             refreshSearchResults()
         }
     }
@@ -132,30 +130,9 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
             refreshSearchResults()
         }
     }
-    
-    /// The configuration for the Realm in which the entity resides
-    ///
-    /// Default is [RLMRealmConfiguration defaultConfiguration]
-    public var realmConfiguration: Realm.Configuration {
-        set {
-            internalConfiguration = newValue
-        }
-        get {
-            if let configuration = internalConfiguration {
-                return configuration
-            }
-            
-            return Realm.Configuration.defaultConfiguration            
-        }
-    }
-    
-    /// The Realm in which the given entity resides in
-    public var realm: Realm {
-        return try! Realm(configuration: realmConfiguration)
-    }
-    
+
     /// The underlying search results
-    public var results: RLMResults<RLMObject>?
+    public var searchResults: RLMResults<RLMObject>?
     
     /// The search bar for the controller
     public var searchBar: UISearchBar {
@@ -214,7 +191,6 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     // MARK: RealmSearchResultsDataSource
     
     public func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell {
-        
         print("You need to implement searchViewController(controller:,cellForObject object:,atIndexPath indexPath:)")
         return UITableViewCell()
     }
@@ -230,10 +206,6 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     }
     
     // MARK: Private
-
-    private var internalConfiguration: Realm.Configuration?
-    
-    private var token: RLMNotificationToken?
     
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
@@ -241,52 +213,19 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
         controller.dimsBackgroundDuringPresentation = false
         return controller
     }()
-    
-    private var rlmRealm: RLMRealm {
-        let configuration = toRLMConfiguration(configuration: realmConfiguration)
-        return try! RLMRealm(configuration: configuration)
-    }
-    
-    private var isReadOnly: Bool {
-        return realmConfiguration.readOnly
-    }
+
+    private var searchResultsToken: RLMNotificationToken?
     
     private func updateResults(predicate: NSPredicate?) {
         
-        if let results = searchResults(entityName: entityName, inRealm: rlmRealm, predicate: predicate, sortPropertyKey: sortPropertyKey, sortAscending: sortAscending) {
+        if let results = searchResults(entityName: entityName, inRealm: RealmClient.shared.rlmRealm, predicate: predicate, sortPropertyKey: sortPropertyKey, sortAscending: sortAscending) {
             
-            guard !isReadOnly else {
-                self.results = results
-                tableView.reloadData()
+            if (!isViewLoaded) {
                 return
+            } else {
+                self.searchResults = results
+                tableView?.reloadData()
             }
-            
-            token = results.addNotificationBlock({ [weak self] (results, change, error) in
-                if let weakSelf = self {
-                    if (error != nil || !weakSelf.isViewLoaded) {
-                        return
-                    }
-                    
-                    weakSelf.results = results
-                    
-                    let tableView = weakSelf.tableView
-                    
-                    // initial run of the query will pass nil for the change information
-                    if change == nil {
-                        tableView?.reloadData()
-                        return
-                    }
-                        
-                    // query results have changed, so apply them to the UITableView
-                    else if let aChange = change {
-                        tableView?.beginUpdates()
-                        tableView?.deleteRows(at: aChange.deletions(inSection: 0), with: .automatic)
-                        tableView?.insertRows(at: aChange.insertions(inSection: 0), with: .automatic)
-                        tableView?.reloadRows(at: aChange.modifications(inSection: 0), with: .automatic)
-                        tableView?.endUpdates()
-                    }
-                }
-            })
         }
     }
     
@@ -335,27 +274,6 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
         return nil
     }
     
-    private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
-        let rlmConfiguration = RLMRealmConfiguration()
-        
-        if configuration.fileURL != nil {
-            rlmConfiguration.fileURL = configuration.fileURL
-        }
-        
-        if configuration.inMemoryIdentifier != nil {
-            rlmConfiguration.inMemoryIdentifier = configuration.inMemoryIdentifier
-        }
-        
-        if configuration.syncConfiguration != nil {
-            rlmConfiguration.syncConfiguration = RLMSyncConfiguration(user: (configuration.syncConfiguration?.user)!, realmURL: (configuration.syncConfiguration?.realmURL)!)
-        }
-        
-        rlmConfiguration.encryptionKey = configuration.encryptionKey
-        rlmConfiguration.readOnly = configuration.readOnly
-        rlmConfiguration.schemaVersion = configuration.schemaVersion
-        return rlmConfiguration
-    }
-    
     private func runOnMainThread(block: @escaping () -> Void) {
         if Thread.isMainThread {
             block()
@@ -373,7 +291,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
 extension RealmSearchVC {
     
     public override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if let results = results {
+        if let results = searchResults {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
@@ -388,7 +306,7 @@ extension RealmSearchVC {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
-        if let results = results {
+        if let results = searchResults {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
             
@@ -402,7 +320,7 @@ extension RealmSearchVC {
 extension RealmSearchVC {
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let results = results {
+        if let results = searchResults {
             return Int(results.count)
         }
         
@@ -411,7 +329,7 @@ extension RealmSearchVC {
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let results = results {
+        if let results = searchResults {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object            
             let cell = resultsDataSource.searchViewController(controller: self, cellForObject: object, atIndexPath: indexPath)

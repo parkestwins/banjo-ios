@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 // MARK: - GameDetailVC: UIViewController
 
@@ -22,24 +21,21 @@ class GameDetailVC: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
-    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var playersLabel: UILabel!
-    
-    @IBOutlet weak var playersImage: UIImageView!
-    // FIXME: better naming for "field" labels
-    
-    @IBOutlet weak var ratingFieldLabel: UILabel!
-    
-    @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var ratingFieldLabel: UILabel!
+    @IBOutlet weak var developerFieldLabel: UILabel!
+    @IBOutlet weak var debugCoverLabel: UILabel!    
+    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var playersImage: UIImageView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
@@ -48,6 +44,10 @@ class GameDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            self.setupUIForRelease()
+        }
     }
     
     // MARK: Actions
@@ -63,7 +63,7 @@ class GameDetailVC: UIViewController {
     }
     
     @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
-        if let releasesTableVC = segue.source as? SelectReleaseTableVC {
+        if let releasesTableVC = segue.source as? ReleaseSelectTableVC {
             if let newSelectedRelease = releasesTableVC.selectedRelease {
                 selectedRelease = newSelectedRelease
                 setupUIForRelease()
@@ -87,20 +87,29 @@ class GameDetailVC: UIViewController {
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
             
-            if let region = release.region {
-                regionSelectButton.title = region.abbreviation
+            // reset image
+            self.coverLoadingIndicator.startAnimating()
+            self.coverLoadingIndicator.isHidden = false
+            debugCoverLabel.isHidden = true
+            coverImageView.image = nil
+            
+            publisherLabel.text = release.publisher
+            summaryLabel.text = release.summary
+            regionSelectButton.title = release.region?.abbreviation
+            titleLabel.text = release.specialTitle ?? game.title
+            releaseDateLabel.text = release.date != nil ? release.date!.toString() : "Unreleased"
+            
+            // number of players
+            if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
+                playersImage.isHidden = false
+                playersLabel.isHidden = false
+                playersLabel.text = playersLabelTuple.1
+            } else {
+                playersImage.isHidden = true
+                playersLabel.isHidden = true
             }
             
-            if let specialTitle = release.specialTitle {
-                titleLabel.text = specialTitle
-            } else {
-                titleLabel.text = game.title
-            }
-            if let date = release.date {
-                releaseDateLabel.text = date.toString()
-            } else {
-                releaseDateLabel.text = "Unreleased"
-            }
+            // developer
             if let developer = release.developer {
                 developerLabel.isHidden = false
                 developerFieldLabel.isHidden = false
@@ -109,61 +118,58 @@ class GameDetailVC: UIViewController {
                 developerLabel.isHidden = true
                 developerFieldLabel.isHidden = true
             }
-            publisherLabel.text = release.publisher
             
-            var playersText = ""
-            if let playersMin = game.playersMin.value {
-                playersText += "\(playersMin)"
-            }
-            if let playersMax = game.playersMax.value {
-                if playersText == "" {
-                    playersText += "\(playersMax)"
-                } else {
-                    playersText += "- \(playersMax)"
-                }
-            }
-            if playersText == "" {
-                playersImage.isHidden = true
-                playersLabel.isHidden = true
-            } else {
-                playersImage.isHidden = false
-                playersLabel.isHidden = false
-                playersLabel.text = playersText
-            }
-            
-            if let rating = release.rating {
+            // game rating
+            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
                 ratingLabel.isHidden = false
                 ratingFieldLabel.isHidden = false
-                if let ratingSystemAbbv = rating.system?.abbreviation {
-                    ratingFieldLabel.text = "\(ratingSystemAbbv) Rating"
-                }
                 ratingLabel.text = rating.name
+                ratingFieldLabel.text = "\(ratingSystemAbbrevation) Rating"
             } else {
                 ratingLabel.isHidden = true
                 ratingFieldLabel.isHidden = true
             }
             
-            summaryLabel.text = release.summary
-            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix("gs://") {
-                FIRStorage.storage().reference(forURL: coverImagePath).data(withMaxSize: INT64_MAX){ (data, error) in
+            // cover image
+            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
+                
+                FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
+                    
+                    // stop activity indicator
+                    self.coverLoadingIndicator.stopAnimating()
+                    self.coverLoadingIndicator.isHidden = true
+                    
                     if let error = error {
-                        print("Error downloading: \(error)")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.coverImageView.image = UIImage(data: data!)
+                        self.debugCoverLabel.isHidden = false
+                        print(error)
+                    } else if let image = image {
+                        self.coverImageView.image = image
                     }
                 }
             }
         }
     }
     
+    func playersLabelText(game: Game) -> (Bool, String)? {
+        let players = (game.playersMin.value, game.playersMax.value)
+        switch(players) {
+        case (nil, nil):
+            return (false, "")
+        case (let min, nil):
+            return (true, "\(min!)")
+        case (nil, let max):
+            return (true, "\(max!)")
+        case (let min, let max):
+            return (true, "\(min!) - \(max!)")
+        }
+    }
+    
     // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let game = sender as? Game, let selectReleaseTableVC = segue.destination as? SelectReleaseTableVC, segue.identifier == "showRelease" {
-            selectReleaseTableVC.game = game
-            selectReleaseTableVC.selectedRelease = selectedRelease
+        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == "showRelease" {
+            releaseSelectTableVC.game = game
+            releaseSelectTableVC.selectedRelease = selectedRelease
         }
     }
 }
