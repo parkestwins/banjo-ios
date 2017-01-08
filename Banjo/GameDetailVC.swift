@@ -26,11 +26,12 @@ class GameDetailVC: UIViewController {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
-    @IBOutlet weak var playersImageView: UIImageView!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
+    @IBOutlet weak var playersLabel: UILabel!
     
+    @IBOutlet weak var playersImage: UIImageView!
     // FIXME: better naming for "field" labels
     
     @IBOutlet weak var ratingFieldLabel: UILabel!
@@ -109,6 +110,27 @@ class GameDetailVC: UIViewController {
                 developerFieldLabel.isHidden = true
             }
             publisherLabel.text = release.publisher
+            
+            var playersText = ""
+            if let playersMin = game.playersMin.value {
+                playersText += "\(playersMin)"
+            }
+            if let playersMax = game.playersMax.value {
+                if playersText == "" {
+                    playersText += "\(playersMax)"
+                } else {
+                    playersText += "- \(playersMax)"
+                }
+            }
+            if playersText == "" {
+                playersImage.isHidden = true
+                playersLabel.isHidden = true
+            } else {
+                playersImage.isHidden = false
+                playersLabel.isHidden = false
+                playersLabel.text = playersText
+            }
+            
             if let rating = release.rating {
                 ratingLabel.isHidden = false
                 ratingFieldLabel.isHidden = false
