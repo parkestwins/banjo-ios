@@ -39,6 +39,7 @@
 		A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */; };
 		A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */; };
 		A9D3E34C1E227D0C0036D735 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3E34B1E227D0C0036D735 /* FirebaseClient.swift */; };
+		A9D3E34E1E228C260036D735 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3E34D1E228C260036D735 /* FirebaseConstants.swift */; };
 		A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11751E15770500B8DA2B /* GameCell.swift */; };
 		A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DB11761E15770500B8DA2B /* GameCell.xib */; };
 		A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11791E15895900B8DA2B /* GameDetailVC.swift */; };
@@ -95,6 +96,7 @@
 		A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		A9D3E34B1E227D0C0036D735 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
+		A9D3E34D1E228C260036D735 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		A9DB11751E15770500B8DA2B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A9DB11761E15770500B8DA2B /* GameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
 		A9DB11791E15895900B8DA2B /* GameDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailVC.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				A9D3E34B1E227D0C0036D735 /* FirebaseClient.swift */,
+				A9D3E34D1E228C260036D735 /* FirebaseConstants.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */,
 				A9DEC1B91E161B050099A14F /* GenreCell.swift in Sources */,
 				A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */,
+				A9D3E34E1E228C260036D735 /* FirebaseConstants.swift in Sources */,
 				A9F4E3731E1D2B58001169BE /* Region.swift in Sources */,
 				A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,

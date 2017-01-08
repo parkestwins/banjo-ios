@@ -143,7 +143,7 @@ class GameDetailVC: UIViewController {
             }
             
             summaryLabel.text = release.summary
-            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix("gs://") {
+            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
                 FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
                     if let error = error {
                         print(error)

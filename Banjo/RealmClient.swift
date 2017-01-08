@@ -9,6 +9,8 @@
 import Foundation
 import RealmSwift
 
+// MARK: - RealmClient
+
 class RealmClient {
     
     // FIXME: Add notification layer that dispatches messages to any listeners
