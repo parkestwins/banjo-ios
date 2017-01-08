@@ -21,25 +21,20 @@ class GameDetailVC: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
-    @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var playersLabel: UILabel!
-    
-    @IBOutlet weak var playersImage: UIImageView!
-    // FIXME: better naming for "field" labels
-    
-    @IBOutlet weak var ratingFieldLabel: UILabel!
-    
-    @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
-    
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var ratingFieldLabel: UILabel!
+    @IBOutlet weak var developerFieldLabel: UILabel!
+    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
+    @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var playersImage: UIImageView!
     @IBOutlet weak var detailScrollView: UIScrollView!
     @IBOutlet weak var genreCollectionView: UICollectionView!
     
@@ -91,20 +86,23 @@ class GameDetailVC: UIViewController {
     func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
             
-            if let region = release.region {
-                regionSelectButton.title = region.abbreviation
+            publisherLabel.text = release.publisher
+            summaryLabel.text = release.summary
+            regionSelectButton.title = release.region?.abbreviation
+            titleLabel.text = release.specialTitle ?? game.title
+            releaseDateLabel.text = release.date != nil ? release.date!.toString() : "Unreleased"
+            
+            // number of players
+            if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
+                playersImage.isHidden = false
+                playersLabel.isHidden = false
+                playersLabel.text = playersLabelTuple.1
+            } else {
+                playersImage.isHidden = true
+                playersLabel.isHidden = true
             }
             
-            if let specialTitle = release.specialTitle {
-                titleLabel.text = specialTitle
-            } else {
-                titleLabel.text = game.title
-            }
-            if let date = release.date {
-                releaseDateLabel.text = date.toString()
-            } else {
-                releaseDateLabel.text = "Unreleased"
-            }
+            // developer
             if let developer = release.developer {
                 developerLabel.isHidden = false
                 developerFieldLabel.isHidden = false
@@ -113,41 +111,19 @@ class GameDetailVC: UIViewController {
                 developerLabel.isHidden = true
                 developerFieldLabel.isHidden = true
             }
-            publisherLabel.text = release.publisher
             
-            var playersText = ""
-            if let playersMin = game.playersMin.value {
-                playersText += "\(playersMin)"
-            }
-            if let playersMax = game.playersMax.value {
-                if playersText == "" {
-                    playersText += "\(playersMax)"
-                } else {
-                    playersText += "- \(playersMax)"
-                }
-            }
-            if playersText == "" {
-                playersImage.isHidden = true
-                playersLabel.isHidden = true
-            } else {
-                playersImage.isHidden = false
-                playersLabel.isHidden = false
-                playersLabel.text = playersText
-            }
-            
-            if let rating = release.rating {
+            // game rating
+            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
                 ratingLabel.isHidden = false
                 ratingFieldLabel.isHidden = false
-                if let ratingSystemAbbv = rating.system?.abbreviation {
-                    ratingFieldLabel.text = "\(ratingSystemAbbv) Rating"
-                }
                 ratingLabel.text = rating.name
+                ratingFieldLabel.text = "\(ratingSystemAbbrevation) Rating"
             } else {
                 ratingLabel.isHidden = true
                 ratingFieldLabel.isHidden = true
             }
             
-            summaryLabel.text = release.summary
+            // cover image
             if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
                 
                 self.coverLoadingIndicator.startAnimating()
@@ -163,6 +139,20 @@ class GameDetailVC: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    func playersLabelText(game: Game) -> (Bool, String)? {
+        let players = (game.playersMin.value, game.playersMax.value)
+        switch(players) {
+        case (nil, nil):
+            return (false, "")
+        case (let min, nil):
+            return (true, "\(min!)")
+        case (nil, let max):
+            return (true, "\(max!)")
+        case (let min, let max):
+            return (true, "\(min!) - \(max!)")
         }
     }
     
