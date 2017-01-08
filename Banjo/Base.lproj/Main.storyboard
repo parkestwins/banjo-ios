@@ -326,6 +326,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1t-Kq-uFE">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BOv-N0-1yO">
+                                        <rect key="frame" x="150" y="85.5" width="20" height="20"/>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2h-Vf-44P">
                                         <rect key="frame" x="0.0" y="335" width="320" height="142"/>
                                         <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
@@ -490,9 +493,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="L2h-Vf-44P" firstAttribute="bottom" secondItem="k6r-oa-hVs" secondAttribute="bottom" id="0PI-dB-EUG"/>
+                                    <constraint firstItem="BOv-N0-1yO" firstAttribute="centerY" secondItem="Xmv-fY-S0Z" secondAttribute="centerY" id="1Ys-I5-Dsa"/>
                                     <constraint firstItem="b67-h4-16q" firstAttribute="top" secondItem="u1t-Kq-uFE" secondAttribute="top" id="6Lv-ND-2uC"/>
                                     <constraint firstItem="Xmv-fY-S0Z" firstAttribute="width" secondItem="u1t-Kq-uFE" secondAttribute="width" id="AZy-Iz-sAx"/>
                                     <constraint firstItem="b67-h4-16q" firstAttribute="leading" secondItem="u1t-Kq-uFE" secondAttribute="leading" id="E9x-T8-o0c"/>
+                                    <constraint firstItem="BOv-N0-1yO" firstAttribute="centerX" secondItem="Xmv-fY-S0Z" secondAttribute="centerX" id="TNd-hB-f6B"/>
                                     <constraint firstItem="L2h-Vf-44P" firstAttribute="top" secondItem="k6r-oa-hVs" secondAttribute="top" id="YuX-xZ-Znr"/>
                                     <constraint firstItem="Xmv-fY-S0Z" firstAttribute="height" secondItem="u1t-Kq-uFE" secondAttribute="height" multiplier="0.4" id="eQm-27-3Cb"/>
                                     <constraint firstAttribute="trailing" secondItem="b67-h4-16q" secondAttribute="trailing" id="glI-Bg-zYj"/>
@@ -527,6 +532,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="coverImageView" destination="Xmv-fY-S0Z" id="tuc-Qc-zjq"/>
+                        <outlet property="coverLoadingIndicator" destination="BOv-N0-1yO" id="3i9-D0-QrM"/>
                         <outlet property="detailScrollView" destination="u1t-Kq-uFE" id="YZj-oO-QGh"/>
                         <outlet property="developerFieldLabel" destination="vae-jJ-4WN" id="s0v-cU-W8u"/>
                         <outlet property="developerLabel" destination="uJ3-jO-2KP" id="W3C-gR-aQv"/>

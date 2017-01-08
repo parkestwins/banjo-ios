@@ -21,6 +21,7 @@ class GameDetailVC: UIViewController {
     
     // MARK: Outlets
     
+    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var regionSelectButton: UIBarButtonItem!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -144,10 +145,16 @@ class GameDetailVC: UIViewController {
             
             summaryLabel.text = release.summary
             if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
+                
+                self.coverLoadingIndicator.startAnimating()
+                self.coverLoadingIndicator.isHidden = false
+                
                 FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
                     if let error = error {
                         print(error)
                     } else if let image = image {
+                        self.coverLoadingIndicator.stopAnimating()
+                        self.coverLoadingIndicator.isHidden = true
                         self.coverImageView.image = image
                     }
                 }

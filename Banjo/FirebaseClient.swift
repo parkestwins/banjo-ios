@@ -6,11 +6,14 @@
 //  Chris: splinter.com.au/2015/09/24/swift-image-cache/
 //  Hector: krakendev.io/blog/the-right-way-to-write-a-singleton/
 //
-//  Modified by Jarrod Parkes on 01/08/16.
+//  Created by Jarrod Parkes on 01/08/16.
+//  Copyright © 2017 ParkesTwins. All rights reserved.
 //
 
 import Firebase
 import Foundation
+
+// MARK: - FirebaseStorageError: Error
 
 enum FirebaseStorageError: Error {
     case fileNotOnFirebase(String)
@@ -32,7 +35,7 @@ class FirebaseClient {
         FIRApp.configure()
     }
     
-    // MARK: Image Caching
+    // MARK: In-Memory Image Caching    
     
     func getImage(path: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
         if let cachedImage = imageCache.object(forKey: path as NSString), cachedEnabled == true {
