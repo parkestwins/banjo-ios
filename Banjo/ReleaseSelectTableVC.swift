@@ -28,6 +28,12 @@ class ReleaseSelectTableVC: UITableViewController {
         }
     }
     
+    // MARK: Deinitializer
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: Setup
     
     func setupUI() {
