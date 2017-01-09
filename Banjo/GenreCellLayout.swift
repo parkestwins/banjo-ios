@@ -25,7 +25,10 @@ public class GenreCellLayout: UICollectionViewFlowLayout {
         var leftMargin: CGFloat = 0.0
         
         // bug fix: long genre tags (ex. Al Shogi 3) don't begin at 0 when they should
-        let isFirstElementOffset = attributesForElementsInRect!.first!.frame.origin.x > 0
+        var isFirstElementOffset = false        
+        if let offsetOrigin = attributesForElementsInRect?.first?.frame.origin.x, offsetOrigin > 0 {
+            isFirstElementOffset = true
+        }
         
         for attributes in attributesForElementsInRect! {
             let refAttributes = attributes

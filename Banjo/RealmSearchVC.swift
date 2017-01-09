@@ -107,12 +107,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
             refreshSearchResults()
         }
     }
-    
-    /// Defines whether the search bar is inserted into the table view header
-    ///
-    /// Default is YES
-    @IBInspectable public var searchBarInTableView: Bool = true
-    
+
     /// Defines whether the text search is case insensitive
     ///
     /// Default is YES
@@ -138,6 +133,9 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     public var searchBar: UISearchBar {
         return searchController.searchBar
     }
+    
+    /// Search string at the moment of selection
+    public var searchStringAtSelection = ""
     
     // MARK: Public Methods
     
@@ -172,20 +170,27 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        
-        if searchBarInTableView {
-            tableView.tableHeaderView = searchBar
-            searchBar.sizeToFit()
-        } else {
-            searchController.hidesNavigationBarDuringPresentation = false
-        }
-                
+        tableView.tableHeaderView = searchBar
+        searchController.hidesNavigationBarDuringPresentation = false
+        automaticallyAdjustsScrollViewInsets = false
+        searchBar.sizeToFit()
         definesPresentationContext = true
     }
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if searchStringAtSelection != "" {
+            searchController.searchBar.text = searchStringAtSelection
+            searchController.isActive = true
+        }
+        
         refreshSearchResults()
+    }
+    
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.isActive = false
     }
     
     // MARK: RealmSearchResultsDataSource
@@ -210,6 +215,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
         controller.searchResultsUpdater = self
+        controller.searchBar.delegate = self
         controller.dimsBackgroundDuringPresentation = false
         return controller
     }()
@@ -306,6 +312,12 @@ extension RealmSearchVC {
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         
+        if let searchText = searchBar.text, searchText != "" {
+            searchStringAtSelection = searchText
+        } else {
+            searchStringAtSelection = ""
+        }
+        
         if let results = searchResults {
             let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
             let object = baseObject as! Object
@@ -349,3 +361,14 @@ extension RealmSearchVC: UISearchResultsUpdating {
         refreshSearchResults()
     }
 }
+
+// MARK: - RealmSearchVC: UISearchBarDelegate
+
+extension RealmSearchVC: UISearchBarDelegate {
+    
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.contentInset = .zero
+    }
+}
+
+
