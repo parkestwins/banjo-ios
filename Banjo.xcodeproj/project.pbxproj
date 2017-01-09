@@ -13,23 +13,11 @@
 		A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A926BDC51E215A9000F67272 /* ReleaseCell.xib */; };
 		A926BDC91E215E8200F67272 /* ReleaseSelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
-		A92C2F561D3DE25A001C6E9C /* DDDDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */; };
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
 		A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */; };
 		A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */; };
 		A93F2E4A1D43CE0A007BCE7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F2E491D43CE0A007BCE7B /* Constants.swift */; };
-		A93F2E551D43CEF6007BCE7B /* crate.obj in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E4C1D43CEF6007BCE7B /* crate.obj */; };
-		A93F2E561D43CEF6007BCE7B /* crate_tex.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E4D1D43CEF6007BCE7B /* crate_tex.jpg */; };
-		A93F2E571D43CEF6007BCE7B /* crate_tex2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E4E1D43CEF6007BCE7B /* crate_tex2.jpg */; };
-		A93F2E581D43CEF6007BCE7B /* crate_tex3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E4F1D43CEF6007BCE7B /* crate_tex3.jpg */; };
-		A93F2E591D43CEF6007BCE7B /* crate_tex4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E501D43CEF6007BCE7B /* crate_tex4.jpg */; };
-		A93F2E5A1D43CEF6007BCE7B /* fighter.obj in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E511D43CEF6007BCE7B /* fighter.obj */; };
-		A93F2E5B1D43CEF6007BCE7B /* fighter_diffuse_25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E521D43CEF6007BCE7B /* fighter_diffuse_25.jpg */; };
-		A93F2E5C1D43CEF6007BCE7B /* fighter_illumination_25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E531D43CEF6007BCE7B /* fighter_illumination_25.jpg */; };
-		A93F2E5D1D43CEF6007BCE7B /* fighter_Specular_25.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E541D43CEF6007BCE7B /* fighter_Specular_25.jpg */; };
-		A93F2E621D43CFE6007BCE7B /* realship.obj in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E601D43CFE6007BCE7B /* realship.obj */; };
-		A93F2E631D43CFE6007BCE7B /* shipDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */; };
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
@@ -69,24 +57,12 @@
 		A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseSelectTableVC.swift; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDDDisplayVC.swift; sourceTree = "<group>"; };
 		A92C2F581D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92C2F5D1D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92C2F5F1D3DE25A001C6E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDLMaterial+Textures.swift"; sourceTree = "<group>"; };
 		A93F2E491D43CE0A007BCE7B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A93F2E4C1D43CEF6007BCE7B /* crate.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = crate.obj; sourceTree = "<group>"; };
-		A93F2E4D1D43CEF6007BCE7B /* crate_tex.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate_tex.jpg; sourceTree = "<group>"; };
-		A93F2E4E1D43CEF6007BCE7B /* crate_tex2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate_tex2.jpg; sourceTree = "<group>"; };
-		A93F2E4F1D43CEF6007BCE7B /* crate_tex3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate_tex3.jpg; sourceTree = "<group>"; };
-		A93F2E501D43CEF6007BCE7B /* crate_tex4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate_tex4.jpg; sourceTree = "<group>"; };
-		A93F2E511D43CEF6007BCE7B /* fighter.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fighter.obj; sourceTree = "<group>"; };
-		A93F2E521D43CEF6007BCE7B /* fighter_diffuse_25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fighter_diffuse_25.jpg; sourceTree = "<group>"; };
-		A93F2E531D43CEF6007BCE7B /* fighter_illumination_25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fighter_illumination_25.jpg; sourceTree = "<group>"; };
-		A93F2E541D43CEF6007BCE7B /* fighter_Specular_25.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fighter_Specular_25.jpg; sourceTree = "<group>"; };
-		A93F2E601D43CFE6007BCE7B /* realship.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = realship.obj; sourceTree = "<group>"; };
-		A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipDiffuse.png; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchTableVC.swift; sourceTree = "<group>"; };
@@ -194,29 +170,10 @@
 			path = Banjo;
 			sourceTree = "<group>";
 		};
-		A93F2E4B1D43CEF6007BCE7B /* 3D */ = {
-			isa = PBXGroup;
-			children = (
-				A93F2E601D43CFE6007BCE7B /* realship.obj */,
-				A93F2E611D43CFE6007BCE7B /* shipDiffuse.png */,
-				A93F2E4C1D43CEF6007BCE7B /* crate.obj */,
-				A93F2E4D1D43CEF6007BCE7B /* crate_tex.jpg */,
-				A93F2E4E1D43CEF6007BCE7B /* crate_tex2.jpg */,
-				A93F2E4F1D43CEF6007BCE7B /* crate_tex3.jpg */,
-				A93F2E501D43CEF6007BCE7B /* crate_tex4.jpg */,
-				A93F2E511D43CEF6007BCE7B /* fighter.obj */,
-				A93F2E521D43CEF6007BCE7B /* fighter_diffuse_25.jpg */,
-				A93F2E531D43CEF6007BCE7B /* fighter_illumination_25.jpg */,
-				A93F2E541D43CEF6007BCE7B /* fighter_Specular_25.jpg */,
-			);
-			path = 3D;
-			sourceTree = "<group>";
-		};
 		A93F2E5E1D43CF55007BCE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				A9ADA1241E16E854004968E1 /* Fonts */,
-				A93F2E4B1D43CEF6007BCE7B /* 3D */,
 				A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -235,7 +192,6 @@
 		A95D56C91E0E080C008399B2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A92C2F551D3DE25A001C6E9C /* DDDDisplayVC.swift */,
 				A9DB11791E15895900B8DA2B /* GameDetailVC.swift */,
 				A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */,
 				A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */,
@@ -419,25 +375,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */,
-				A93F2E591D43CEF6007BCE7B /* crate_tex4.jpg in Resources */,
 				A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */,
 				A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */,
-				A93F2E551D43CEF6007BCE7B /* crate.obj in Resources */,
-				A93F2E5C1D43CEF6007BCE7B /* fighter_illumination_25.jpg in Resources */,
-				A93F2E5A1D43CEF6007BCE7B /* fighter.obj in Resources */,
 				A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */,
-				A93F2E621D43CFE6007BCE7B /* realship.obj in Resources */,
-				A93F2E571D43CEF6007BCE7B /* crate_tex2.jpg in Resources */,
-				A93F2E631D43CFE6007BCE7B /* shipDiffuse.png in Resources */,
 				A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */,
 				A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */,
 				A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */,
 				A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */,
-				A93F2E561D43CEF6007BCE7B /* crate_tex.jpg in Resources */,
-				A93F2E5D1D43CEF6007BCE7B /* fighter_Specular_25.jpg in Resources */,
-				A93F2E581D43CEF6007BCE7B /* crate_tex3.jpg in Resources */,
 				A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */,
-				A93F2E5B1D43CEF6007BCE7B /* fighter_diffuse_25.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +456,6 @@
 				A9DEC1AE1E15F5280099A14F /* NSDate+ToString.swift in Sources */,
 				A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */,
 				A9F4E36B1E1D2B29001169BE /* Genre.swift in Sources */,
-				A92C2F561D3DE25A001C6E9C /* DDDDisplayVC.swift in Sources */,
 				A9DEC1B61E1615DB0099A14F /* GenreCellLayout.swift in Sources */,
 				A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */,
 				A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */,
