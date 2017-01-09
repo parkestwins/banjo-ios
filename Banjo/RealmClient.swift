@@ -18,10 +18,6 @@ import Realm.Dynamic
 
 class RealmClient {
 
-    // MARK: Properties
-    
-    //var searchResults: RLMResults<RLMObject>?
-    
     // MARK: Notification Tokens
     
     var token: RLMNotificationToken?
@@ -39,15 +35,15 @@ class RealmClient {
     // MARK: Sync to Realm
     
     func syncToRealm(completionHandler: @escaping (Error?) -> Void) {
-        
-        SyncUser.logIn(with: .usernamePassword(username: RealmConstants.username, password: RealmConstants.password, register: false), server: URL(string: RealmConstants.testServer)!) { user, error in
+                        
+        SyncUser.logIn(with: .usernamePassword(username: RealmConstants.username, password: RealmConstants.password, register: false), server: URL(string: RealmConstants.liveServer)!) { user, error in
             guard let user = user else {
                 completionHandler(error)
                 return
             }
             
             DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.testRealm)!))
+                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
                 
                 // notify us when the realm changes
                 self.token = self.realm.addNotificationBlock { _ in

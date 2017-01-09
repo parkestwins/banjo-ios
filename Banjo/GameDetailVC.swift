@@ -50,6 +50,12 @@ class GameDetailVC: UIViewController {
         }
     }
     
+    // MARK: Deinitializer
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: Actions
     
     @IBAction func swapRelease(_ sender: Any) {

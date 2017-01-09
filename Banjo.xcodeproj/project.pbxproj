@@ -38,6 +38,7 @@
 		A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */; };
 		A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */; };
 		A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */; };
+		A9B1FA921E2311D40046B2A3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B1FA911E2311D40046B2A3 /* Reachability.swift */; };
 		A9D3E34C1E227D0C0036D735 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3E34B1E227D0C0036D735 /* FirebaseClient.swift */; };
 		A9D3E34E1E228C260036D735 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3E34D1E228C260036D735 /* FirebaseConstants.swift */; };
 		A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DB11751E15770500B8DA2B /* GameCell.swift */; };
@@ -95,6 +96,7 @@
 		A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexAndColors.swift"; sourceTree = "<group>"; };
 		A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		A9B1FA911E2311D40046B2A3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A9D3E34B1E227D0C0036D735 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		A9D3E34D1E228C260036D735 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		A9DB11751E15770500B8DA2B /* GameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		A9ADA1211E16DF6F004968E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9B1FA931E2312500046B2A3 /* Reachability */,
 				A926BDBF1E214C9800F67272 /* Clients */,
 				A926BDBE1E214C9300F67272 /* Objects */,
 			);
@@ -279,6 +282,14 @@
 				A9ADA1271E16E8D4004968E1 /* SourceSansPro-Semibold.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		A9B1FA931E2312500046B2A3 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				A9B1FA911E2311D40046B2A3 /* Reachability.swift */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		A9D3E3491E227CEF0036D735 /* Firebase */ = {
@@ -492,6 +503,7 @@
 				A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */,
 				A9D3E34C1E227D0C0036D735 /* FirebaseClient.swift in Sources */,
 				A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */,
+				A9B1FA921E2311D40046B2A3 /* Reachability.swift in Sources */,
 				A9F4E3671E1D2B14001169BE /* Platform.swift in Sources */,
 				A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */,
 				A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */,
