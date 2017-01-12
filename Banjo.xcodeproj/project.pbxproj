@@ -17,7 +17,6 @@
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
 		A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */; };
 		A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */; };
-		A93F2E4A1D43CE0A007BCE7B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F2E491D43CE0A007BCE7B /* Constants.swift */; };
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
@@ -62,7 +61,6 @@
 		A92C2F5D1D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92C2F5F1D3DE25A001C6E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDLMaterial+Textures.swift"; sourceTree = "<group>"; };
-		A93F2E491D43CE0A007BCE7B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchTableVC.swift; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */,
-				A93F2E491D43CE0A007BCE7B /* Constants.swift */,
 				A9ADA1211E16DF6F004968E1 /* Models */,
 				A9ADA11D1E16DD72004968E1 /* Views */,
 				A95D56C91E0E080C008399B2 /* Controllers */,
@@ -468,7 +465,6 @@
 				A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */,
 				A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,
-				A93F2E4A1D43CE0A007BCE7B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
