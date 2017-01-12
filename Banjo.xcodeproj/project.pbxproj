@@ -162,7 +162,7 @@
 				A93F2E491D43CE0A007BCE7B /* Constants.swift */,
 				A9ADA1211E16DF6F004968E1 /* Models */,
 				A9ADA11D1E16DD72004968E1 /* Views */,
-				A95D56C91E0E080C008399B2 /* Controller */,
+				A95D56C91E0E080C008399B2 /* Controllers */,
 				A9ADA1201E16DF53004968E1 /* Extensions */,
 				A93F2E5E1D43CF55007BCE7B /* Resources */,
 				A93F2E5F1D43CF60007BCE7B /* Supporting Files */,
@@ -189,7 +189,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		A95D56C91E0E080C008399B2 /* Controller */ = {
+		A95D56C91E0E080C008399B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A9DB11791E15895900B8DA2B /* GameDetailVC.swift */,
@@ -197,7 +197,7 @@
 				A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */,
 				A95D56C71E0DFB6C008399B2 /* StartVC.swift */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A9ADA11D1E16DD72004968E1 /* Views */ = {
