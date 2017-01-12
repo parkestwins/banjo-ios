@@ -20,12 +20,12 @@ class ReleaseSelectTableVC: UITableViewController {
     
     // MARK: Life Cycle
     
-    override func viewDidLoad() {        
-        setupUI()
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
             self.tableView.reloadData()
         }
+        setupUI()
     }
     
     // MARK: Deinitializer

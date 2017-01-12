@@ -22,7 +22,16 @@ class GameSearchTableVC: RealmSearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            self.tableView.reloadData()
+        }
         setupUI()
+    }
+    
+    // MARK: Deinitializer
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Setup

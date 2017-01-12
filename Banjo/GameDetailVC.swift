@@ -43,11 +43,10 @@ class GameDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
             self.setupUIForRelease()
         }
+        setupUI()
     }
     
     // MARK: Deinitializer
