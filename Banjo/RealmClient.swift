@@ -32,25 +32,46 @@ class RealmClient {
         return try! RLMRealm(configuration: configuration)
     }
     
-    // MARK: Sync to Realm
+    // MARK: Sync Realm
     
-    func syncToRealm(completionHandler: @escaping (Error?) -> Void) {
-                        
+    func syncRealm(completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        if realmSynced() {
+            // we're already synced before
+            completionHandler(true, nil)
+        } else {
+            // never synced before, must login to sync
+            logInWithCompletionHandler(completionHandler)
+        }
+    }
+    
+    private func realmSynced() -> Bool {
+        if let user = SyncUser.current {
+            setConfigurationAndTokenWithUser(user)
+            return true
+        }
+        return false
+    }
+    
+    private func setConfigurationAndTokenWithUser(_ user: SyncUser) {
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
+        
+        token = realm.addNotificationBlock { _ in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+        }
+    }
+    
+    private func logInWithCompletionHandler(_ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        
         SyncUser.logIn(with: .usernamePassword(username: RealmConstants.username, password: RealmConstants.password, register: false), server: URL(string: RealmConstants.liveServer)!) { user, error in
+            
             guard let user = user else {
-                completionHandler(error)
+                completionHandler(false, error)
                 return
             }
             
             DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
-                
-                // notify us when the realm changes
-                self.token = self.realm.addNotificationBlock { _ in
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
-                }
-                
-                completionHandler(nil)                
+                self.setConfigurationAndTokenWithUser(user)
+                completionHandler(true, nil)
             }
         }
     }

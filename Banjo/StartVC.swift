@@ -57,7 +57,7 @@ class StartVC: UIViewController {
         case .cannotSync:
             searchGamesButton.isEnabled = false
             searchGamesButton.setTitle("Could Not Initialize.", for: .disabled)
-            syncStatusLabel.text = "Cannot sync.\nConnect to a network."
+            syncStatusLabel.text = "Cannot perform initial sync.\nPlease connect to a network."
         case .synced:
             syncStatusLabel.text = ""
             searchGamesButton.setTitle("Search N64 Database...", for: .normal)
@@ -101,9 +101,9 @@ class StartVC: UIViewController {
         if let _ = RealmClient.shared.token {
             self.setupUI(forState: .synced)
         } else {
-            RealmClient.shared.syncToRealm { error in
+            RealmClient.shared.syncRealm { (synced, error) in
                 DispatchQueue.main.async {
-                    if let _ = error {
+                    if let _ = error, synced == false {
                         self.setupUI(forState: .cannotSync)
                     } else {
                         self.setupUI(forState: .synced)
