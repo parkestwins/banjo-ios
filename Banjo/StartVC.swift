@@ -92,6 +92,8 @@ class StartVC: UIViewController {
     func reachabilityDidChange(_ notification: Notification) {
         if !RealmClient.shared.isSynced {
             retrySync()
+        } else {
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
         }
     }
     
