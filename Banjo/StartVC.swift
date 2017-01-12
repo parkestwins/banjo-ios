@@ -90,10 +90,25 @@ class StartVC: UIViewController {
     // MARK: Reachability
     
     func reachabilityDidChange(_ notification: Notification) {
-        if !RealmClient.shared.isSynced {
-            retrySync()
-        } else {
-            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+        guard let reachability = reachability else { return }
+        if reachability.isReachable {
+            // if never synced before, try syncing for the first time
+            if !RealmClient.shared.isSynced {
+                syncRealm()
+            } else {
+                // otherwise, resync (logout, then login) to continue getting updates
+                RealmClient.shared.resyncRealm { (synced, error) in
+                    if let error = error {
+                        // fail silently, this could be called from anywhere
+                        print(error)
+                    }
+                    if synced == true {
+                        DispatchQueue.main.async {
+                            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -113,15 +128,6 @@ class StartVC: UIViewController {
                     }
                 }
             }
-        }
-    }
-    
-    func retrySync() {
-        guard let reachability = reachability else { return }
-        if reachability.isReachable {
-            syncRealm()
-        } else {
-            setupUI(forState: .cannotSync)
         }
     }
 }

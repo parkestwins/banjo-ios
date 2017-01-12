@@ -47,6 +47,11 @@ class RealmClient {
         }
     }
     
+    func resyncRealm(completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        SyncUser.current?.logOut()
+        syncRealm(completionHandler: completionHandler)
+    }
+    
     private func realmSynced() -> Bool {
         if let user = SyncUser.current {
             setConfigurationAndTokenWithUser(user)
