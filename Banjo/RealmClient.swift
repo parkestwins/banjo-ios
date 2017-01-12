@@ -18,11 +18,11 @@ import Realm.Dynamic
 
 class RealmClient {
 
-    // MARK: Notification Tokens
+    // MARK: Properties
     
     var token: RLMNotificationToken?
     
-    // MARK: Realms
+    // MARK: Computed Properties
     
     var realm: Realm {
         return try! Realm(configuration: Realm.Configuration.defaultConfiguration)
@@ -30,6 +30,9 @@ class RealmClient {
     var rlmRealm: RLMRealm {
         let configuration = toRLMConfiguration(configuration: Realm.Configuration.defaultConfiguration)
         return try! RLMRealm(configuration: configuration)
+    }
+    var isSynced: Bool {
+        return SyncUser.current != nil
     }
     
     // MARK: Sync Realm

@@ -11,7 +11,7 @@ import UIKit
 // MARK: - StartVCState
 
 enum StartVCState {
-    case initial
+    case startSync
     case cannotSync
     case synced
 }
@@ -33,7 +33,6 @@ class StartVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI(forState: .initial)
         
         // start listening for reachability changes
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
@@ -47,22 +46,38 @@ class StartVC: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    // MARK: Actions
+    
+    @IBAction func startSearching(_ sender: Any) {
+        performSegue(withIdentifier: "login", sender: self)
+    }
+    
     // MARK: Setup UI
     
     func setupUI(forState: StartVCState) {
         switch (forState) {
-        case .initial:
+        case .startSync:
             searchGamesButton.setTitle("Initializing Database...", for: .normal)
             searchGamesButton.isEnabled = false
         case .cannotSync:
             searchGamesButton.isEnabled = false
-            searchGamesButton.setTitle("Could Not Initialize.", for: .disabled)
-            syncStatusLabel.text = "Cannot perform initial sync.\nPlease connect to a network."
+            searchGamesButton.setTitle("Error Initializing...", for: .disabled)
+            syncStatusLabel.text = "Please connect to a network. Once connected, the database will begin initializing automatically."
+            displayAlert(title: "Database Initialization Failed.", message: "To resolve, please connect to a network. Once connected, the database will begin initializing automatically.")
         case .synced:
             syncStatusLabel.text = ""
             searchGamesButton.setTitle("Search N64 Database...", for: .normal)
             searchGamesButton.isEnabled = true
         }
+    }
+    
+    // MARK: Alert
+    
+    private func displayAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: Deinitializer
@@ -72,26 +87,11 @@ class StartVC: UIViewController {
         reachability?.stopNotifier()
     }
     
-    // MARK: Actions
-    
-    @IBAction func startSearching(_ sender: Any) {
-        performSegue(withIdentifier: "login", sender: self)
-    }
-    
     // MARK: Reachability
     
-    func checkReachability() {
-        guard let r = reachability else { return }
-        if r.isReachable {
-            syncRealm()
-        } else {
-            setupUI(forState: .cannotSync)
-        }
-    }
-    
     func reachabilityDidChange(_ notification: Notification) {
-        if RealmClient.shared.token == nil {
-            checkReachability()
+        if !RealmClient.shared.isSynced {
+            retrySync()
         }
     }
     
@@ -99,8 +99,9 @@ class StartVC: UIViewController {
     
     func syncRealm() {
         if let _ = RealmClient.shared.token {
-            self.setupUI(forState: .synced)
+            setupUI(forState: .synced)
         } else {
+            setupUI(forState: .startSync)
             RealmClient.shared.syncRealm { (synced, error) in
                 DispatchQueue.main.async {
                     if let _ = error, synced == false {
@@ -110,6 +111,15 @@ class StartVC: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    func retrySync() {
+        guard let reachability = reachability else { return }
+        if reachability.isReachable {
+            syncRealm()
+        } else {
+            setupUI(forState: .cannotSync)
         }
     }
 }
