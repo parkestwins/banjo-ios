@@ -84,8 +84,8 @@ class GameSearchTableVC: RealmSearchVC {
             gameDetailVC.game = game
                         
             if let usRegion = RealmClient.shared.realm.objects(Region.self).filter("abbreviation = 'US'").first {
-                let sortedReleases = game.releases.sorted(byProperty: "date")
-                let usReleases = game.releases.filter("region == %@", usRegion).sorted(byProperty: "date")
+                let sortedReleases = game.releases.sorted(byKeyPath: "date")
+                let usReleases = game.releases.filter("region == %@", usRegion).sorted(byKeyPath: "date")
                 
                 if usReleases.count > 0 {
                     gameDetailVC.selectedRelease = usReleases.first
