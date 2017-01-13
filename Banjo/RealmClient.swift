@@ -53,8 +53,8 @@ class RealmClient {
     }
     
     private func realmSynced() -> Bool {
-        // if sync user is authenticated and realm is populated, then user is already synced
-        if let user = SyncUser.current, realm.objects(Game.self).count > 0 {
+        // if user is authenticated and realm has been populated before, then user already synced
+        if let user = SyncUser.current, UserDefaults.standard.bool(forKey: "SyncedBefore") {
             setConfigurationAndTokenWithUser(user)
             return true
         }
@@ -67,6 +67,8 @@ class RealmClient {
         
         token = realm.addNotificationBlock { _ in
             NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+            
+            UserDefaults.standard.set(true, forKey: "SyncedBefore")
         }
     }
     
