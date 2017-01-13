@@ -53,10 +53,12 @@ class RealmClient {
     }
     
     private func realmSynced() -> Bool {
-        if let user = SyncUser.current {
+        // if sync user is authenticated and realm is populated, then user is already synced
+        if let user = SyncUser.current, realm.objects(Game.self).count > 0 {
             setConfigurationAndTokenWithUser(user)
             return true
         }
+        // otherwise, user is not synced, try again
         return false
     }
     
