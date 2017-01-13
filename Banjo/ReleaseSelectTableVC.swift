@@ -20,12 +20,12 @@ class ReleaseSelectTableVC: UITableViewController {
     
     // MARK: Life Cycle
     
-    override func viewDidLoad() {        
-        setupUI()
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
             self.tableView.reloadData()
         }
+        setupUI()
     }
     
     // MARK: Deinitializer
@@ -36,7 +36,7 @@ class ReleaseSelectTableVC: UITableViewController {
     
     // MARK: Setup
     
-    func setupUI() {
+    private func setupUI() {
         title = "Select Release"
         let gameCellNib = UINib(nibName: "ReleaseCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)

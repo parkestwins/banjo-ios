@@ -18,46 +18,77 @@ import Realm.Dynamic
 
 class RealmClient {
 
-    // MARK: Notification Tokens
+    // MARK: Properties
     
     var token: RLMNotificationToken?
     
-    // MARK: Realms
-    
+    var isSynced: Bool {
+        return SyncUser.current != nil
+    }
     var realm: Realm {
         return try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     }
     var rlmRealm: RLMRealm {
         let configuration = toRLMConfiguration(configuration: Realm.Configuration.defaultConfiguration)
         return try! RLMRealm(configuration: configuration)
+    }    
+    
+    // MARK: Sync Realm
+    
+    func syncRealm(completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        if realmSynced() {
+            // we're already synced before
+            completionHandler(true, nil)
+        } else {
+            // never synced before, must login to sync
+            logInWithCompletionHandler(completionHandler)
+        }
     }
     
-    // MARK: Sync to Realm
+    func resyncRealm(completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        SyncUser.current?.logOut()
+        syncRealm(completionHandler: completionHandler)
+    }
     
-    func syncToRealm(completionHandler: @escaping (Error?) -> Void) {
-                        
+    private func realmSynced() -> Bool {
+        // if user is authenticated and realm has been populated before, then user already synced
+        if let user = SyncUser.current, UserDefaults.standard.bool(forKey: "SyncedBefore") {
+            setConfigurationAndTokenWithUser(user)
+            return true
+        }
+        // otherwise, user is not synced, try again
+        return false
+    }
+    
+    private func setConfigurationAndTokenWithUser(_ user: SyncUser) {
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
+        
+        token = realm.addNotificationBlock { _ in
+            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+            
+            UserDefaults.standard.set(true, forKey: "SyncedBefore")
+        }
+    }
+    
+    private func logInWithCompletionHandler(_ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        
         SyncUser.logIn(with: .usernamePassword(username: RealmConstants.username, password: RealmConstants.password, register: false), server: URL(string: RealmConstants.liveServer)!) { user, error in
+            
             guard let user = user else {
-                completionHandler(error)
+                completionHandler(false, error)
                 return
             }
             
             DispatchQueue.main.async {
-                Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
-                
-                // notify us when the realm changes
-                self.token = self.realm.addNotificationBlock { _ in
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
-                }
-                
-                completionHandler(nil)                
+                self.setConfigurationAndTokenWithUser(user)
+                completionHandler(true, nil)
             }
         }
     }
     
     // MARK: Utility
     
-    func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
+    private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
         let rlmConfiguration = RLMRealmConfiguration()
         if configuration.fileURL != nil {
             rlmConfiguration.fileURL = configuration.fileURL

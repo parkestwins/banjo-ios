@@ -22,12 +22,21 @@ class GameSearchTableVC: RealmSearchVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            self.tableView.reloadData()
+        }
         setupUI()
+    }
+    
+    // MARK: Deinitializer
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: Setup
     
-    func setupUI() {
+    private func setupUI() {
         title = "N64 Games"
         let gameCellNib = UINib(nibName: "GameCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
@@ -75,8 +84,8 @@ class GameSearchTableVC: RealmSearchVC {
             gameDetailVC.game = game
                         
             if let usRegion = RealmClient.shared.realm.objects(Region.self).filter("abbreviation = 'US'").first {
-                let sortedReleases = game.releases.sorted(byProperty: "date")
-                let usReleases = game.releases.filter("region == %@", usRegion).sorted(byProperty: "date")
+                let sortedReleases = game.releases.sorted(byKeyPath: "date")
+                let usReleases = game.releases.filter("region == %@", usRegion).sorted(byKeyPath: "date")
                 
                 if usReleases.count > 0 {
                     gameDetailVC.selectedRelease = usReleases.first

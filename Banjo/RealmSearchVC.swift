@@ -268,8 +268,8 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
             var results = (predicate != nil) ? realm?.objects(entityName!, with: predicate!) : realm?.allObjects(entityName!)
             
             if (sortPropertyKey != nil) {
-                
-                let sort = RLMSortDescriptor(property: sortPropertyKey!, ascending: sortAscending)
+                                
+                let sort = RLMSortDescriptor(keyPath: sortPropertyKey!, ascending: sortAscending)
                 
                 results = results?.sortedResults(using: [sort])
             }

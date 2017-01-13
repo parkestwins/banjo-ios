@@ -12,6 +12,12 @@ import UIKit
 
 class GenreCollectionView: UICollectionView {
     
+    // MARK: Properties
+    
+    override var intrinsicContentSize: CGSize {
+        return contentSize
+    }
+    
     // MARK: UIView
     
     override func layoutSubviews() {
@@ -19,9 +25,5 @@ class GenreCollectionView: UICollectionView {
         if bounds.size != intrinsicContentSize {
             invalidateIntrinsicContentSize()
         }
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return contentSize
     }
 }
