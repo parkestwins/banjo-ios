@@ -26,8 +26,8 @@ class FirebaseClient {
 
     // MARK: Properties
     
-    let imageCache = NSCache<NSString, UIImage>()
-    let cachedEnabled = true
+    private let imageCache = NSCache<NSString, UIImage>()
+    private let cachedEnabled = true
     
     // MARK: Config
     

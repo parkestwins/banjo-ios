@@ -36,7 +36,7 @@ class ReleaseSelectTableVC: UITableViewController {
     
     // MARK: Setup
     
-    func setupUI() {
+    private func setupUI() {
         title = "Select Release"
         let gameCellNib = UINib(nibName: "ReleaseCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)

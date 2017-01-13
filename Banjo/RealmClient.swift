@@ -22,18 +22,16 @@ class RealmClient {
     
     var token: RLMNotificationToken?
     
-    // MARK: Computed Properties
-    
+    var isSynced: Bool {
+        return SyncUser.current != nil
+    }
     var realm: Realm {
         return try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     }
     var rlmRealm: RLMRealm {
         let configuration = toRLMConfiguration(configuration: Realm.Configuration.defaultConfiguration)
         return try! RLMRealm(configuration: configuration)
-    }
-    var isSynced: Bool {
-        return SyncUser.current != nil
-    }
+    }    
     
     // MARK: Sync Realm
     
@@ -90,7 +88,7 @@ class RealmClient {
     
     // MARK: Utility
     
-    func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
+    private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
         let rlmConfiguration = RLMRealmConfiguration()
         if configuration.fileURL != nil {
             rlmConfiguration.fileURL = configuration.fileURL

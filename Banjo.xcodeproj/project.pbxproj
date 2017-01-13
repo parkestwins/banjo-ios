@@ -16,7 +16,6 @@
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
 		A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */; };
-		A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */; };
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
@@ -60,7 +59,6 @@
 		A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92C2F5D1D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92C2F5F1D3DE25A001C6E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MDLMaterial+Textures.swift"; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchTableVC.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 		A9ADA1201E16DF53004968E1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A93F2E471D43C70B007BCE7B /* MDLMaterial+Textures.swift */,
 				A9DEC1AD1E15F5280099A14F /* NSDate+ToString.swift */,
 				A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */,
 				A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */,
@@ -438,7 +435,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93F2E481D43C70B007BCE7B /* MDLMaterial+Textures.swift in Sources */,
 				A9F4E3691E1D2B1F001169BE /* Game.swift in Sources */,
 				A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */,
 				A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */,

@@ -54,7 +54,7 @@ class StartVC: UIViewController {
     
     // MARK: Setup UI
     
-    func setupUI(forState: StartVCState) {
+    private func setupUI(forState: StartVCState) {
         switch (forState) {
         case .startSync:
             searchGamesButton.setTitle("Initializing Database...", for: .normal)
@@ -114,7 +114,7 @@ class StartVC: UIViewController {
     
     // MARK: Sync Realm
     
-    func syncRealm() {
+    private func syncRealm() {
         if let _ = RealmClient.shared.token {
             setupUI(forState: .synced)
         } else {

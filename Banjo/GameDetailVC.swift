@@ -78,7 +78,7 @@ class GameDetailVC: UIViewController {
     
     // MARK: Setup UI
     
-    func setupUI() {
+    private func setupUI() {
         let genreCellNib = UINib(nibName: "GenreCell", bundle: nil)
         let genreCellLayout = GenreCellLayout()
         genreCellLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -89,7 +89,7 @@ class GameDetailVC: UIViewController {
         setupUIForRelease()
     }
     
-    func setupUIForRelease() {
+    private func setupUIForRelease() {
         if let game = game, let release = selectedRelease {
             
             // reset image
@@ -155,7 +155,7 @@ class GameDetailVC: UIViewController {
         }
     }
     
-    func playersLabelText(game: Game) -> (Bool, String)? {
+    private func playersLabelText(game: Game) -> (Bool, String)? {
         let players = (game.playersMin.value, game.playersMax.value)
         switch(players) {
         case (nil, nil):
@@ -225,7 +225,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
 
 extension GameDetailVC: UICollectionViewDelegateFlowLayout {
     
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         configureCell(genreCell: self.sizingCell!, forIndexPath: indexPath)
         return self.sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
     }

@@ -36,7 +36,7 @@ class GameSearchTableVC: RealmSearchVC {
     
     // MARK: Setup
     
-    func setupUI() {
+    private func setupUI() {
         title = "N64 Games"
         let gameCellNib = UINib(nibName: "GameCell", bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
