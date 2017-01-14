@@ -10,8 +10,7 @@
 
 class RealmConstants {
     
-    static let username = "readonly@parkestwins.com"
-    static let password = "readonly"
+    static let anonymousPassword = "readonly"
     static let liveServer = "http://45.55.65.37:9080"
     static let liveRealm = "realm://45.55.65.37:9080/19ebf526e022f8aec47c6c30eb8149c6/banjo"
     static let testServer = "http://127.0.0.1:9080"
