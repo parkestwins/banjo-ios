@@ -16,7 +16,13 @@ class GameSearchTableVC: RealmSearchVC {
     // MARK: Properties
     
     private let reuseIdentifier = AppConstants.IDs.gameCell
-    private var activityIndicator: UIActivityIndicatorView? = nil
+    private lazy var activityIndicator: UIActivityIndicatorView! = {
+        let indicator = UIActivityIndicatorView()
+        indicator.isHidden = false
+        indicator.hidesWhenStopped = true
+        indicator.activityIndicatorViewStyle = .gray
+        return indicator
+    }()
     
     // MARK: Life Cycle
     
@@ -25,9 +31,7 @@ class GameSearchTableVC: RealmSearchVC {
         navigationController?.isNavigationBarHidden = false
         
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
-            if self.activityIndicator != nil {
-                self.removeActivityIndicator()
-            }
+            self.hideActivityIndicator()
             self.tableView.reloadData()
         }
         setupUI()
@@ -37,7 +41,7 @@ class GameSearchTableVC: RealmSearchVC {
         super.viewWillAppear(animated)
         // if data is still loading, show activity indicator
         if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: 0) == 0 {
-            createAndShowActivityIndicator()
+            showActivityIndicator()
         }
     }
     
@@ -55,26 +59,17 @@ class GameSearchTableVC: RealmSearchVC {
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
     
-    private func createAndShowActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
-        if let activityIndicator = activityIndicator {
-            activityIndicator.center = view.center
-            activityIndicator.isHidden = false
-            activityIndicator.activityIndicatorViewStyle = .gray
-            activityIndicator.startAnimating()
-            tableView.backgroundView = activityIndicator
-            tableView.separatorStyle = .none
-        }
+    private func showActivityIndicator() {
+        activityIndicator.frame = view.bounds
+        tableView.backgroundView = activityIndicator
+        tableView.separatorStyle = .none
+        activityIndicator.startAnimating()
     }
     
-    private func removeActivityIndicator() {
-        if let activityIndicator = activityIndicator {
-            activityIndicator.stopAnimating()
-            activityIndicator.isHidden = true
-            tableView.backgroundView = nil
-            tableView.separatorStyle = .singleLine
-        }
-        activityIndicator = nil
+    private func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
+        tableView.backgroundView = nil
+        tableView.separatorStyle = .singleLine
     }
     
     // MARK: Actions
