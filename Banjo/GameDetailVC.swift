@@ -93,8 +93,8 @@ class GameDetailVC: UIViewController {
         if let game = game, let release = selectedRelease {
             
             // reset image
-            self.coverLoadingIndicator.startAnimating()
-            self.coverLoadingIndicator.isHidden = false
+            coverLoadingIndicator.startAnimating()
+            coverLoadingIndicator.isHidden = false
             debugCoverLabel.isHidden = true
             coverImageView.image = nil
             
@@ -226,7 +226,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension GameDetailVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        configureCell(genreCell: self.sizingCell!, forIndexPath: indexPath)
-        return self.sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
+        configureCell(genreCell: sizingCell!, forIndexPath: indexPath)
+        return sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
     }
 }
