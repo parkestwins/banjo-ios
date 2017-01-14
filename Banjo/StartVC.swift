@@ -77,15 +77,6 @@ class StartVC: UIViewController {
         }
     }
     
-    // MARK: Alert
-    
-    private func displayAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: AppConstants.Strings.dismiss, style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
     // MARK: Deinitializer
     
     deinit {
