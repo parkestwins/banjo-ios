@@ -23,6 +23,6 @@ class GenreCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         layer.cornerRadius = 4
-        maxWidthConstraint.constant = UIScreen.main.bounds.width - 8 * 2 - 8 * 2
+        maxWidthConstraint.constant = UIScreen.main.bounds.width - 32
     }
 }

@@ -85,12 +85,14 @@ class StartVC: UIViewController {
     }
     
     private func activityIndicatorSetEnabled(_ enabled: Bool) {
-        networkActivityIndicator.isHidden = !enabled
-        if enabled {
-            networkActivityIndicator.startAnimating()
-        } else {
-            networkActivityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            if enabled {
+                self.networkActivityIndicator.startAnimating()
+            } else {
+                self.networkActivityIndicator.stopAnimating()
+            }
         }
+        
     }
     
     // MARK: Deinitializer
