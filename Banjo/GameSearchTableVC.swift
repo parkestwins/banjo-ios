@@ -24,11 +24,6 @@ class GameSearchTableVC: RealmSearchVC {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
         
-        // if data is still loading, show activity indicator
-        if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: 0) == 0 {
-            createAndShowActivityIndicator()
-        }
-        
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
             if self.activityIndicator != nil {
                 self.removeActivityIndicator()
@@ -36,6 +31,14 @@ class GameSearchTableVC: RealmSearchVC {
             self.tableView.reloadData()
         }
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // if data is still loading, show activity indicator
+        if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: 0) == 0 {
+            createAndShowActivityIndicator()
+        }
     }
     
     // MARK: Deinitializer
