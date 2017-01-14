@@ -43,7 +43,10 @@ class FirebaseClient {
         } else {
             FIRStorage.storage().reference(forURL: path).data(withMaxSize: INT64_MAX){ (data, error) in
                 if let error = error {
-                    completionHandler(nil, FirebaseStorageError.fileNotOnFirebase(error.localizedDescription))
+                    DispatchQueue.main.async {
+                        completionHandler(nil, FirebaseStorageError.fileNotOnFirebase(error.localizedDescription))
+                    }
+                    return
                 }
                 if let data = data {
                     let downloadedImage = UIImage(data: data)!
@@ -52,7 +55,9 @@ class FirebaseClient {
                         completionHandler(downloadedImage, nil)
                     }
                 } else {
-                    completionHandler(nil, FirebaseStorageError.fileNoData("no data for image at \(path)"))                    
+                    DispatchQueue.main.async {
+                        completionHandler(nil, FirebaseStorageError.fileNoData("no data for image at \(path)"))
+                    }
                 }
             }
         }

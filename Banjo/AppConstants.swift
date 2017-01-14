@@ -58,8 +58,10 @@ struct AppConstants {
         
         static let failSync = "Database Initialization Failed."
         static let failAuth = "Authorization Failed."
+        static let failCoverLoad = "Could Not Load Cover Image"
         
         static let resolveSync = "To resolve, please connect to a network. Once connected, the database initialization will restart momentarily."
         static let resolveAuthError = "There were issues authorizing this app instance. To resolve, try uninstalling and reinstalling the app."
+        static let resolveCoverLoad = "To resolve, please connect to a network. Once connected, the cover image will load momentarily."
     }
 }

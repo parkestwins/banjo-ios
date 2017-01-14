@@ -66,7 +66,7 @@ class StartVC: UIViewController {
             syncStatusLabel.text = AppConstants.Strings.resolveSync
             activityIndicatorSetEnabled(false)
             searchGamesButtonSetEnabled(false, withText: AppConstants.Strings.startErrorInit)
-            displayAlert(title: AppConstants.Strings.failSync, message: AppConstants.Strings.resolveSync)
+            displayDismissAlert(title: AppConstants.Strings.failSync, message: AppConstants.Strings.resolveSync, dismissHandler: nil)
         case .synced:
             syncStatusLabel.text = ""
             activityIndicatorSetEnabled(false)
@@ -75,7 +75,7 @@ class StartVC: UIViewController {
             syncStatusLabel.text = AppConstants.Strings.resolveAuthError
             activityIndicatorSetEnabled(false)
             searchGamesButtonSetEnabled(false, withText: AppConstants.Strings.startErrorInit)
-            displayAlert(title: AppConstants.Strings.failAuth, message: AppConstants.Strings.resolveAuthError)
+            displayDismissAlert(title: AppConstants.Strings.failAuth, message: AppConstants.Strings.resolveAuthError, dismissHandler: nil)
         }
     }
     

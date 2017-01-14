@@ -12,9 +12,9 @@ import UIKit
 
 extension UIViewController {
 
-    func displayAlert(title: String, message: String) {
+    func displayDismissAlert(title: String, message: String, dismissHandler: ((UIAlertAction) -> Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: AppConstants.Strings.dismiss, style: .default, handler: nil)
+        let dismissAction = UIAlertAction(title: AppConstants.Strings.dismiss, style: .default, handler: dismissHandler)        
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }

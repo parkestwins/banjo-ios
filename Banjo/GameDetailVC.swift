@@ -43,10 +43,10 @@ class GameDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
             self.setupUIForRelease()
         }
-        setupUI()
     }
     
     // MARK: Deinitializer
@@ -145,10 +145,11 @@ class GameDetailVC: UIViewController {
                     self.coverLoadingIndicator.isHidden = true
                     
                     if let error = error {
-                        self.debugCoverLabel.isHidden = false
                         print(error)
+                        self.debugCoverLabel.isHidden = false
+                        self.displayDismissAlert(title: AppConstants.Strings.failCoverLoad, message: AppConstants.Strings.resolveCoverLoad, dismissHandler: nil)
                     } else if let image = image {
-                        self.coverImageView.image = image
+                        self.coverImageView.image = image                        
                     }
                 }
             }
