@@ -29,6 +29,7 @@ class StartVC: UIViewController {
     
     @IBOutlet weak var searchGamesButton: UIButton!    
     @IBOutlet weak var syncStatusLabel: UILabel!
+    @IBOutlet weak var networkActivityIndicator: UIActivityIndicatorView!
     
     // MARK: Life Cycle
     
@@ -58,32 +59,38 @@ class StartVC: UIViewController {
     private func setupUI(forState: StartVCState) {
         switch (forState) {
         case .startSync:
-            searchGamesButton.setTitle(AppConstants.Strings.startInitDatabase, for: .normal)
-            searchGamesButton.isEnabled = false
+            syncStatusLabel.text = ""
+            activityIndicatorSetEnabled(true)
+            searchGamesButtonSetEnabled(false, withText: AppConstants.Strings.startInitDatabase)
         case .cannotSync:
-            searchGamesButton.isEnabled = false
-            searchGamesButton.setTitle(AppConstants.Strings.startErrorInit, for: .disabled)
             syncStatusLabel.text = AppConstants.Strings.resolveSync
-            displayAlert(title: AppConstants.Strings.failSync, message: AppConstants.Strings.resolveSync)
+            activityIndicatorSetEnabled(false)
+            searchGamesButtonSetEnabled(false, withText: AppConstants.Strings.startErrorInit)
+            displayDismissAlert(title: AppConstants.Strings.failSync, message: AppConstants.Strings.resolveSync, dismissHandler: nil)
         case .synced:
             syncStatusLabel.text = ""
-            searchGamesButton.setTitle(AppConstants.Strings.startSearchDatabase, for: .normal)
-            searchGamesButton.isEnabled = true
+            activityIndicatorSetEnabled(false)
+            searchGamesButtonSetEnabled(true, withText: AppConstants.Strings.startSearchDatabase)
         case .failedAuth:
-            searchGamesButton.isEnabled = false
-            searchGamesButton.setTitle(AppConstants.Strings.startErrorInit, for: .disabled)
             syncStatusLabel.text = AppConstants.Strings.resolveAuthError
-            displayAlert(title: AppConstants.Strings.failAuth, message: AppConstants.Strings.resolveAuthError)
+            activityIndicatorSetEnabled(false)
+            searchGamesButtonSetEnabled(false, withText: AppConstants.Strings.startErrorInit)
+            displayDismissAlert(title: AppConstants.Strings.failAuth, message: AppConstants.Strings.resolveAuthError, dismissHandler: nil)
         }
     }
     
-    // MARK: Alert
+    private func searchGamesButtonSetEnabled(_ enabled: Bool, withText: String) {
+        searchGamesButton.setTitle(withText, for: (enabled) ? .normal : .disabled)
+        searchGamesButton.isEnabled = enabled
+    }
     
-    private func displayAlert(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: AppConstants.Strings.dismiss, style: .default, handler: nil)
-        alertController.addAction(dismissAction)
-        present(alertController, animated: true, completion: nil)
+    private func activityIndicatorSetEnabled(_ enabled: Bool) {
+        networkActivityIndicator.isHidden = !enabled
+        if enabled {
+            networkActivityIndicator.startAnimating()
+        } else {
+            networkActivityIndicator.stopAnimating()
+        }
     }
     
     // MARK: Deinitializer

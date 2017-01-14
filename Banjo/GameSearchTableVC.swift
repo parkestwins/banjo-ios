@@ -16,16 +16,29 @@ class GameSearchTableVC: RealmSearchVC {
     // MARK: Properties
     
     private let reuseIdentifier = AppConstants.IDs.gameCell
+    private var activityIndicator: UIActivityIndicatorView? = nil
     
     // MARK: Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = false
+        
         NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+            if self.activityIndicator != nil {
+                self.removeActivityIndicator()
+            }
             self.tableView.reloadData()
         }
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // if data is still loading, show activity indicator
+        if tableView.dataSource?.tableView(tableView, numberOfRowsInSection: 0) == 0 {
+            createAndShowActivityIndicator()
+        }
     }
     
     // MARK: Deinitializer
@@ -40,6 +53,28 @@ class GameSearchTableVC: RealmSearchVC {
         title = AppConstants.Strings.searchTitle
         let gameCellNib = UINib(nibName: AppConstants.Nibs.gameCell, bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
+    }
+    
+    private func createAndShowActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        if let activityIndicator = activityIndicator {
+            activityIndicator.center = view.center
+            activityIndicator.isHidden = false
+            activityIndicator.activityIndicatorViewStyle = .gray
+            activityIndicator.startAnimating()
+            tableView.backgroundView = activityIndicator
+            tableView.separatorStyle = .none
+        }
+    }
+    
+    private func removeActivityIndicator() {
+        if let activityIndicator = activityIndicator {
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+        }
+        activityIndicator = nil
     }
     
     // MARK: Actions
