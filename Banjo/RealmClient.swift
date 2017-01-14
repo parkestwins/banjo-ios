@@ -17,7 +17,7 @@ import Realm.Dynamic
 // MARK: - RealmClientError
 
 enum RealmClientError: Error {
-    case GenerateAnonymousUserFailed
+    case generateAnonymousUserFailed
 }
 
 // MARK: - RealmClient
@@ -58,7 +58,7 @@ class RealmClient {
     
     private func realmSynced() -> Bool {
         // if user is authenticated and realm has been populated before, then user already synced
-        if let user = SyncUser.current, UserDefaults.standard.bool(forKey: "SyncedBefore") {
+        if let user = SyncUser.current, UserDefaults.standard.bool(forKey: RealmConstants.Defaults.syncedBefore) {
             setConfigurationAndTokenWithUser(user)
             return true
         }
@@ -72,7 +72,7 @@ class RealmClient {
         
         token = realm.addNotificationBlock { _ in
             NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
-            UserDefaults.standard.set(true, forKey: "SyncedBefore")
+            UserDefaults.standard.set(true, forKey: RealmConstants.Defaults.syncedBefore)
         }
     }
     
@@ -80,7 +80,7 @@ class RealmClient {
     
     private func authenticateWithCompletionHandler(_ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
         
-        if let username = UserDefaults.standard.string(forKey: "AnonymousUsername") {
+        if let username = UserDefaults.standard.string(forKey: RealmConstants.Defaults.anonymousUsername) {
             logInWithCompletionHandler(anonymousUser: username, completionHandler)
         } else {
             // realm doesn't support anonymous (readonly) users yet, this is the workaround
@@ -121,7 +121,7 @@ class RealmClient {
                             self.createAnonymousUserAndLoginWithCompletionHandler(retryAttempts: attemptsLeft, completionHandler)
                             
                         } else {
-                            completionHandler(false, RealmClientError.GenerateAnonymousUserFailed)
+                            completionHandler(false, RealmClientError.generateAnonymousUserFailed)
                         }
                         return
                     default:
@@ -134,7 +134,7 @@ class RealmClient {
             }
             
             DispatchQueue.main.async {
-                UserDefaults.standard.set(anonymousUsername, forKey: "AnonymousUsername")
+                UserDefaults.standard.set(anonymousUsername, forKey: RealmConstants.Defaults.anonymousUsername)
                 self.setConfigurationAndTokenWithUser(user)
                 completionHandler(true, nil)
             }

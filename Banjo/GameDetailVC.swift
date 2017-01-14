@@ -16,7 +16,7 @@ class GameDetailVC: UIViewController {
     
     var game: Game?
     var selectedRelease: Release?
-    let reuseIdentifier = "genreCell"
+    let reuseIdentifier = AppConstants.IDs.genreCell
     var sizingCell: GenreCell?
     
     // MARK: Outlets
@@ -59,7 +59,7 @@ class GameDetailVC: UIViewController {
     
     @IBAction func swapRelease(_ sender: Any) {
         if let game = game, game.releases.count > 1 {
-            performSegue(withIdentifier: "showRelease", sender: game)
+            performSegue(withIdentifier: AppConstants.Segues.showRelease, sender: game)
         }
     }
     
@@ -79,7 +79,7 @@ class GameDetailVC: UIViewController {
     // MARK: Setup UI
     
     private func setupUI() {
-        let genreCellNib = UINib(nibName: "GenreCell", bundle: nil)
+        let genreCellNib = UINib(nibName: AppConstants.Nibs.genreCell, bundle: nil)
         let genreCellLayout = GenreCellLayout()
         genreCellLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         genreCollectionView.collectionViewLayout = genreCellLayout
@@ -102,7 +102,7 @@ class GameDetailVC: UIViewController {
             summaryLabel.text = release.summary
             regionSelectButton.title = release.region?.abbreviation
             titleLabel.text = release.specialTitle ?? game.title
-            releaseDateLabel.text = release.date != nil ? release.date!.toString() : "Unreleased"
+            releaseDateLabel.text = release.date != nil ? release.date!.toString() : AppConstants.Strings.unreleased
             
             // number of players
             if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
@@ -129,7 +129,7 @@ class GameDetailVC: UIViewController {
                 ratingLabel.isHidden = false
                 ratingFieldLabel.isHidden = false
                 ratingLabel.text = rating.name
-                ratingFieldLabel.text = "\(ratingSystemAbbrevation) Rating"
+                ratingFieldLabel.text = "\(ratingSystemAbbrevation) \(AppConstants.Strings.rating)"
             } else {
                 ratingLabel.isHidden = true
                 ratingFieldLabel.isHidden = true
@@ -172,7 +172,7 @@ class GameDetailVC: UIViewController {
     // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == "showRelease" {
+        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == AppConstants.Segues.showRelease {
             releaseSelectTableVC.game = game
             releaseSelectTableVC.selectedRelease = selectedRelease
         }

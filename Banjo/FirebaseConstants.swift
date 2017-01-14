@@ -8,7 +8,8 @@
 
 // MARK: - FirebaseConstants
 
-class FirebaseConstants {
+struct FirebaseConstants {
     
     static let storagePrefix = "gs://"
+    static let imageCacheName = "Firebase Image Cache"
 }

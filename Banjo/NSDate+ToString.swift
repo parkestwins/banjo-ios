@@ -20,8 +20,8 @@ extension NSDate {
     
     func toString() -> String {
         let formatter = DateHelper.formatter
-        formatter.dateFormat = "MMMM d, yyyy"
-        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = AppConstants.Settings.dateOutputFormat
+        formatter.locale = Locale(identifier: AppConstants.Settings.dateLocale)
         return formatter.string(from: self as Date)
     }
 }

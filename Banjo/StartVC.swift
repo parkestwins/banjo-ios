@@ -50,7 +50,7 @@ class StartVC: UIViewController {
     // MARK: Actions
     
     @IBAction func startSearching(_ sender: Any) {
-        performSegue(withIdentifier: "login", sender: self)
+        performSegue(withIdentifier: AppConstants.Segues.login, sender: self)
     }
     
     // MARK: Setup UI
@@ -58,22 +58,22 @@ class StartVC: UIViewController {
     private func setupUI(forState: StartVCState) {
         switch (forState) {
         case .startSync:
-            searchGamesButton.setTitle("Initializing Database...", for: .normal)
+            searchGamesButton.setTitle(AppConstants.Strings.startInitDatabase, for: .normal)
             searchGamesButton.isEnabled = false
         case .cannotSync:
             searchGamesButton.isEnabled = false
-            searchGamesButton.setTitle("Error Initializing...", for: .disabled)
-            syncStatusLabel.text = "To resolve, please connect to a network. Once connected, the database will begin initializing automatically."
-            displayAlert(title: "Database Initialization Failed.", message: "To resolve, please connect to a network. Once connected, the database will begin initializing automatically.")
+            searchGamesButton.setTitle(AppConstants.Strings.startErrorInit, for: .disabled)
+            syncStatusLabel.text = AppConstants.Strings.resolveSync
+            displayAlert(title: AppConstants.Strings.failSync, message: AppConstants.Strings.resolveSync)
         case .synced:
             syncStatusLabel.text = ""
-            searchGamesButton.setTitle("Search N64 Database...", for: .normal)
+            searchGamesButton.setTitle(AppConstants.Strings.startSearchDatabase, for: .normal)
             searchGamesButton.isEnabled = true
         case .failedAuth:
             searchGamesButton.isEnabled = false
-            searchGamesButton.setTitle("Error Initializing...", for: .disabled)
-            syncStatusLabel.text = "There were issues authorizing this app instance. To resolve, try uninstalling and reinstalling the app."
-            displayAlert(title: "Authorization Failed.", message: "There were issues authorizing this app instance. To resolve, try uninstalling and reinstalling the app.")
+            searchGamesButton.setTitle(AppConstants.Strings.startErrorInit, for: .disabled)
+            syncStatusLabel.text = AppConstants.Strings.resolveAuthError
+            displayAlert(title: AppConstants.Strings.failAuth, message: AppConstants.Strings.resolveAuthError)
         }
     }
     
@@ -81,7 +81,7 @@ class StartVC: UIViewController {
     
     private func displayAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        let dismissAction = UIAlertAction(title: AppConstants.Strings.dismiss, style: .default, handler: nil)
         alertController.addAction(dismissAction)
         present(alertController, animated: true, completion: nil)
     }
