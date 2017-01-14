@@ -16,7 +16,7 @@ class ReleaseSelectTableVC: UITableViewController {
     
     var game: Game?
     var selectedRelease: Release?
-    let reuseIdentifier = "releaseCell"
+    let reuseIdentifier = AppConstants.IDs.releaseCell
     
     // MARK: Life Cycle
     
@@ -37,8 +37,8 @@ class ReleaseSelectTableVC: UITableViewController {
     // MARK: Setup
     
     private func setupUI() {
-        title = "Select Release"
-        let gameCellNib = UINib(nibName: "ReleaseCell", bundle: nil)
+        title = AppConstants.Strings.selectReleaseTitle
+        let gameCellNib = UINib(nibName: AppConstants.Nibs.releaseCell, bundle: nil)
         tableView.register(gameCellNib, forCellReuseIdentifier: reuseIdentifier)
     }
 }
@@ -85,7 +85,7 @@ extension ReleaseSelectTableVC {
         if let game = game {
             selectedRelease = game.releases[indexPath.row]
             tableView.reloadData()
-            performSegue(withIdentifier: "saveRelease", sender: self)
+            performSegue(withIdentifier: AppConstants.Segues.saveRelease, sender: self)
         }
     }
 }

@@ -64,9 +64,8 @@ class FirebaseClient {
     
     // private init() prevents others from using the default '()' initializer
     private init() {
-        imageCache.name = "Firebase Image Cache"
+        imageCache.name = FirebaseConstants.imageCacheName
         imageCache.countLimit = 1000
-        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB
-        
+        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB        
     }
 }
