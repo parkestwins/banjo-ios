@@ -14,6 +14,7 @@ enum StartVCState {
     case startSync
     case cannotSync
     case synced
+    case failedAuth
 }
 
 // MARK: - StartVC: UIViewController
@@ -62,12 +63,17 @@ class StartVC: UIViewController {
         case .cannotSync:
             searchGamesButton.isEnabled = false
             searchGamesButton.setTitle("Error Initializing...", for: .disabled)
-            syncStatusLabel.text = "Please connect to a network. Once connected, the database will begin initializing automatically."
+            syncStatusLabel.text = "To resolve, please connect to a network. Once connected, the database will begin initializing automatically."
             displayAlert(title: "Database Initialization Failed.", message: "To resolve, please connect to a network. Once connected, the database will begin initializing automatically.")
         case .synced:
             syncStatusLabel.text = ""
             searchGamesButton.setTitle("Search N64 Database...", for: .normal)
             searchGamesButton.isEnabled = true
+        case .failedAuth:
+            searchGamesButton.isEnabled = false
+            searchGamesButton.setTitle("Error Initializing...", for: .disabled)
+            syncStatusLabel.text = "There were issues authorizing this app instance. To resolve, try uninstalling and reinstalling the app."
+            displayAlert(title: "Authorization Failed.", message: "There were issues authorizing this app instance. To resolve, try uninstalling and reinstalling the app.")
         }
     }
     
@@ -121,7 +127,9 @@ class StartVC: UIViewController {
             setupUI(forState: .startSync)
             RealmClient.shared.syncRealm { (synced, error) in
                 DispatchQueue.main.async {
-                    if let _ = error, synced == false {
+                    if let _ = error as? RealmClientError, synced == false {
+                        self.setupUI(forState: .failedAuth)
+                    } else if let _ = error {
                         self.setupUI(forState: .cannotSync)
                     } else {
                         self.setupUI(forState: .synced)

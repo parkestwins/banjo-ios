@@ -16,4 +16,5 @@ class RealmConstants {
     static let testServer = "http://127.0.0.1:9080"
     static let testRealm = "realm://127.0.0.1:9080/8c650c749b2a73d19163694ccbb36b96/banjo45"        
     static let updateNotification = "RealmClient.UpdateDetected"
+    static let retryAttempts = 5
 }

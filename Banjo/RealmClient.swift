@@ -14,6 +14,12 @@ import Foundation
 import RealmSwift
 import Realm.Dynamic
 
+// MARK: - RealmClientError
+
+enum RealmClientError: Error {
+    case GenerateAnonymousUserFailed
+}
+
 // MARK: - RealmClient
 
 class RealmClient {
@@ -41,7 +47,7 @@ class RealmClient {
             completionHandler(true, nil)
         } else {
             // never synced before, must login to sync
-            logInWithCompletionHandler(completionHandler)
+            authenticateWithCompletionHandler(completionHandler)
         }
     }
     
@@ -59,20 +65,33 @@ class RealmClient {
         // otherwise, user is not synced, try again
         return false
     }
-    
+            
     private func setConfigurationAndTokenWithUser(_ user: SyncUser) {
+        // auth successful, save config, begin sync
         Realm.Configuration.defaultConfiguration = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: URL(string: RealmConstants.liveRealm)!))
         
         token = realm.addNotificationBlock { _ in
             NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
-            
             UserDefaults.standard.set(true, forKey: "SyncedBefore")
         }
     }
     
-    private func logInWithCompletionHandler(_ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
-
-        func loginHandler(user: RLMSyncUser?, error: Error?) {
+    // MARK: Authenticate
+    
+    private func authenticateWithCompletionHandler(_ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        
+        if let username = UserDefaults.standard.string(forKey: "AnonymousUsername") {
+            logInWithCompletionHandler(anonymousUser: username, completionHandler)
+        } else {
+            // realm doesn't support anonymous (readonly) users yet, this is the workaround
+            createAnonymousUserAndLoginWithCompletionHandler(retryAttempts: RealmConstants.retryAttempts, completionHandler)
+        }
+    }
+    
+    private func logInWithCompletionHandler(anonymousUser: String, _ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        
+        SyncUser.logIn(with: .usernamePassword(username: anonymousUser, password: RealmConstants.anonymousPassword, register: false), server: URL(string: RealmConstants.liveServer)!) { user, error in
+            
             guard let user = user else {
                 completionHandler(false, error)
                 return
@@ -83,17 +102,41 @@ class RealmClient {
                 completionHandler(true, nil)
             }
         }
+        
+    }
     
-        // realm doesn't support anonymous (readonly) users yet, this is recommended workaround
-        if let username = UserDefaults.standard.string(forKey: "AnonymousUsername") {            
-            SyncUser.logIn(with: .usernamePassword(username: username, password: RealmConstants.anonymousPassword, register: false), server: URL(string: RealmConstants.liveServer)!) { user, error in
-                loginHandler(user: user, error: error)
+    private func createAnonymousUserAndLoginWithCompletionHandler(retryAttempts: Int, _ completionHandler: @escaping (_ synced: Bool, _ error: Error?) -> Void) {
+        
+        let attemptsLeft = retryAttempts - 1
+        let anonymousUsername = NSUUID().uuidString
+        
+        SyncUser.logIn(with: .usernamePassword(username: anonymousUsername, password: RealmConstants.anonymousPassword, register: true), server: URL(string: RealmConstants.liveServer)!) { user, error in
+            
+            guard let user = user else {
+                
+                if let error = error as? NSError, (error.userInfo["statusCode"] as? Int) == 400 {
+                    switch(error.code) {
+                    case RLMSyncAuthError.userAlreadyExists.rawValue, RLMSyncAuthError.invalidCredential.rawValue:
+                        if attemptsLeft > 0 {
+                            self.createAnonymousUserAndLoginWithCompletionHandler(retryAttempts: attemptsLeft, completionHandler)
+                            
+                        } else {
+                            completionHandler(false, RealmClientError.GenerateAnonymousUserFailed)
+                        }
+                        return
+                    default:
+                        break
+                    }
+                }
+                
+                completionHandler(false, error)
+                return
             }
-        } else {
-            let anonymousUsername = NSUUID().uuidString
-            SyncUser.logIn(with: .usernamePassword(username: anonymousUsername, password: RealmConstants.anonymousPassword, register: true), server: URL(string: RealmConstants.liveServer)!) { user, error in
+            
+            DispatchQueue.main.async {
                 UserDefaults.standard.set(anonymousUsername, forKey: "AnonymousUsername")
-                loginHandler(user: user, error: error)
+                self.setConfigurationAndTokenWithUser(user)
+                completionHandler(true, nil)
             }
         }
     }
