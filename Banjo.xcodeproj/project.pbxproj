@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49DAE18D907922C548110233 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */; };
+		6A48AE1FEFB8DA7950C7CA4A /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC862AD3010532FB0A99C011 /* BuddyBuildSDK.framework */; };
+		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
 		A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC01E214CB100F67272 /* RealmClient.swift */; };
 		A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC21E214D0800F67272 /* RealmConstants.swift */; };
 		A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC41E215A9000F67272 /* ReleaseCell.swift */; };
@@ -44,11 +47,21 @@
 		A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36E1E1D2B41001169BE /* Rating.swift */; };
 		A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3701E1D2B4F001169BE /* Release.swift */; };
 		A9F4E3731E1D2B58001169BE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3721E1D2B58001169BE /* Region.swift */; };
+		AB2ED0299DF82E1D51B3C68F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */; };
+		BD19E786F03D6646D7858B81 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC783976688C16D66D56CA4 /* CoreTelephony.framework */; };
+		C87E3E4C98BDFE7D66D5BCB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3502A90CC5EA3FC53311B96 /* AVFoundation.framework */; };
+		C88931C1ECF1B64B439A2045 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F2C09307D96BFDAF189D80 /* QuartzCore.framework */; };
 		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
+		F60A87111746E5A6F26EA2E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF04CF1222D38E89BAED01 /* SystemConfiguration.framework */; };
+		FB2C413DAD5044450039F5DD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3464AFD716B0CBD0F17489D6 /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		27F2C09307D96BFDAF189D80 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Banjo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3464AFD716B0CBD0F17489D6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		38BF04CF1222D38E89BAED01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
 		A926BDC01E214CB100F67272 /* RealmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
 		A926BDC21E214D0800F67272 /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConstants.swift; sourceTree = "<group>"; };
@@ -90,7 +103,13 @@
 		A9F4E36E1E1D2B41001169BE /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		A9F4E3701E1D2B4F001169BE /* Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
 		A9F4E3721E1D2B58001169BE /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		AFC783976688C16D66D56CA4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BC862AD3010532FB0A99C011 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		C4A42A350C6CE11F889892C2 /* Bridging-Header.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
+		D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		D3502A90CC5EA3FC53311B96 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		D4F95771E88568428DF7A17C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +118,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */,
+				6A48AE1FEFB8DA7950C7CA4A /* BuddyBuildSDK.framework in Frameworks */,
+				9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */,
+				FB2C413DAD5044450039F5DD /* CoreText.framework in Frameworks */,
+				BD19E786F03D6646D7858B81 /* CoreTelephony.framework in Frameworks */,
+				F60A87111746E5A6F26EA2E0 /* SystemConfiguration.framework in Frameworks */,
+				C88931C1ECF1B64B439A2045 /* QuartzCore.framework in Frameworks */,
+				C87E3E4C98BDFE7D66D5BCB9 /* AVFoundation.framework in Frameworks */,
+				AB2ED0299DF82E1D51B3C68F /* CoreMedia.framework in Frameworks */,
+				49DAE18D907922C548110233 /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +172,7 @@
 				A92C2F511D3DE25A001C6E9C /* Products */,
 				2BF5F0FFED8AD30AC6160C43 /* Pods */,
 				ED8A8A66597BB82B394B9E04 /* Frameworks */,
+				C4A42A350C6CE11F889892C2 /* Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -302,6 +331,15 @@
 			isa = PBXGroup;
 			children = (
 				31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */,
+				BC862AD3010532FB0A99C011 /* BuddyBuildSDK.framework */,
+				D4F95771E88568428DF7A17C /* AssetsLibrary.framework */,
+				3464AFD716B0CBD0F17489D6 /* CoreText.framework */,
+				AFC783976688C16D66D56CA4 /* CoreTelephony.framework */,
+				38BF04CF1222D38E89BAED01 /* SystemConfiguration.framework */,
+				27F2C09307D96BFDAF189D80 /* QuartzCore.framework */,
+				D3502A90CC5EA3FC53311B96 /* AVFoundation.framework */,
+				0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */,
+				D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -602,7 +640,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -626,7 +664,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
