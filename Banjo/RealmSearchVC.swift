@@ -20,11 +20,12 @@ public protocol RealmSearchResultsDataSource {
     /**
      Called by the search view controller to retrieve the cell for display of a given object
      
-     :param: searchViewController the search view controller instance
-     :param: anObject             the object to be displayed by the cell
-     :param: indexPath            the indexPath that the object resides at
+     - Parameters:
+        - controller: the search view controller instance
+        - object: the object to be displayed by the cell
+        - indexPath: the indexPath that the object resides at
      
-     :return: instance of UITableViewCell that displays the object information
+     - Returns: instance of UITableViewCell that displays the object information
      */
     func searchViewController(controller: RealmSearchVC, cellForObject object: Object, atIndexPath indexPath: IndexPath) -> UITableViewCell
 }
@@ -36,18 +37,20 @@ public protocol RealmSearchResultsDelegate {
     /**
      Called just before an object is selected from the search results table view
      
-     :param: searchViewController the search view controller instance
-     :param: anObject             the object to be selected
-     :param: indexPath            the indexPath that the object resides at
+     - Parameters:
+        - controller: the search view controller instance
+        - anObject: the object to be selected
+        - indexPath: the indexPath that the object resides at
      */
     func searchViewController(controller: RealmSearchVC, willSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
     
     /**
      Called just when an object is selected from the search results table view
      
-     :param: searchViewController the search view controller instance
-     :param: selectedObject       the selected object
-     :param: indexPath            the indexPath that the object resides at
+     - Parameters:
+        - controller: the search view controller instance
+        - anObject: the selected object
+        - indexPath: the indexPath that the object resides at
      */
     func searchViewController(controller: RealmSearchVC, didSelectObject anObject: Object, atIndexPath indexPath: IndexPath)
 }

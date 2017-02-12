@@ -18,9 +18,13 @@ struct RealmConstants {
     static let updateNotification = "RealmClient.UpdateDetected"
     static let retryAttempts = 5    
 
+    // MARK: Keys
+    
     struct Keys {
         static let date = "date"
     }
+    
+    // MARK: Defaults
     
     struct Defaults {
         static let syncedBefore = "SyncedBefore"
