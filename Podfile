@@ -5,4 +5,5 @@ target 'Banjo' do
   pod 'RealmSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
+  pod 'SDWebImage/Core'
 end

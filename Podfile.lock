@@ -31,11 +31,13 @@ PODS:
   - Realm/Headers (2.4.2)
   - RealmSwift (2.4.2):
     - Realm (= 2.4.2)
+  - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Storage
   - RealmSwift
+  - SDWebImage/Core
 
 SPEC CHECKSUMS:
   Firebase: 8e99eb1ff553ad5bcc6072cc3d925bb89c1244d6
@@ -49,7 +51,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 41684ff39485d877d2d3a5b12baee3ad65aa77db
+PODFILE CHECKSUM: 2b3d14efaaaf57455cb4ba0fbd565bf3bd835c58
 
 COCOAPODS: 1.2.0

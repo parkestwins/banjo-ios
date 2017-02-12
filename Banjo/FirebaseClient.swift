@@ -12,6 +12,7 @@
 
 import Firebase
 import Foundation
+import SDWebImage
 
 // MARK: - FirebaseStorageError: Error
 
@@ -26,7 +27,8 @@ class FirebaseClient {
 
     // MARK: Properties
     
-    private let imageCache = NSCache<NSString, UIImage>()
+    private let imageCache = SDImageCache.shared()
+    // private let imageCache = NSCache<NSString, UIImage>()
     private let cachedEnabled = true
     
     // MARK: Config
@@ -38,7 +40,7 @@ class FirebaseClient {
     // MARK: In-Memory Image Caching    
     
     func getImage(path: String, completionHandler: @escaping (UIImage?, Error?) -> Void) {
-        if let cachedImage = imageCache.object(forKey: path as NSString), cachedEnabled == true {
+        if let cachedImage = imageCache.imageFromCache(forKey: path), cachedEnabled == true {
             completionHandler(cachedImage, nil)
         } else {
             FIRStorage.storage().reference(forURL: path).data(withMaxSize: INT64_MAX){ (data, error) in
@@ -50,7 +52,7 @@ class FirebaseClient {
                 }
                 if let data = data {
                     let downloadedImage = UIImage(data: data)!
-                    self.imageCache.setObject(downloadedImage, forKey: path as NSString, cost: data.count)
+                    self.imageCache.store(downloadedImage, forKey: path, completion: nil)
                     DispatchQueue.main.async {
                         completionHandler(downloadedImage, nil)
                     }
@@ -68,9 +70,5 @@ class FirebaseClient {
     static let shared = FirebaseClient()
     
     // private init() prevents others from using the default '()' initializer
-    private init() {
-        imageCache.name = FirebaseConstants.imageCacheName
-        imageCache.countLimit = 1000
-        imageCache.totalCostLimit = 10 * 1024 * 1024 // max 10MB        
-    }
+    private init() {}
 }
