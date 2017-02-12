@@ -22,6 +22,8 @@
 		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
+		A998969F1E51033800CF0D67 /* BanjoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998969E1E51033800CF0D67 /* BanjoUITests.swift */; };
+		A99896A71E51053100CF0D67 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99896A61E51053100CF0D67 /* SnapshotHelper.swift */; };
 		A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99DF74A1E155100009C3091 /* GoogleService-Info.plist */; };
 		A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */; };
 		A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */; };
@@ -56,6 +58,16 @@
 		FB2C413DAD5044450039F5DD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3464AFD716B0CBD0F17489D6 /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A99896A11E51033800CF0D67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A92C2F481D3DE25A001C6E9C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A92C2F4F1D3DE25A001C6E9C;
+			remoteInfo = Banjo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		27F2C09307D96BFDAF189D80 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -78,6 +90,10 @@
 		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchTableVC.swift; sourceTree = "<group>"; };
 		A95D56C71E0DFB6C008399B2 /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
+		A998969C1E51033800CF0D67 /* BanjoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BanjoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A998969E1E51033800CF0D67 /* BanjoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjoUITests.swift; sourceTree = "<group>"; };
+		A99896A01E51033800CF0D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99896A61E51053100CF0D67 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		A99DF74A1E155100009C3091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ToNSDate.swift"; sourceTree = "<group>"; };
 		A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexAndColors.swift"; sourceTree = "<group>"; };
@@ -130,6 +146,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A99896991E51033800CF0D67 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				A92C2F521D3DE25A001C6E9C /* Banjo */,
+				A998969D1E51033800CF0D67 /* BanjoUITests */,
 				A92C2F511D3DE25A001C6E9C /* Products */,
 				2BF5F0FFED8AD30AC6160C43 /* Pods */,
 				ED8A8A66597BB82B394B9E04 /* Frameworks */,
@@ -180,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				A92C2F501D3DE25A001C6E9C /* Banjo.app */,
+				A998969C1E51033800CF0D67 /* BanjoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +252,16 @@
 				A95D56C71E0DFB6C008399B2 /* StartVC.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A998969D1E51033800CF0D67 /* BanjoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A998969E1E51033800CF0D67 /* BanjoUITests.swift */,
+				A99896A61E51053100CF0D67 /* SnapshotHelper.swift */,
+				A99896A01E51033800CF0D67 /* Info.plist */,
+			);
+			path = BanjoUITests;
 			sourceTree = "<group>";
 		};
 		A9ADA11D1E16DD72004968E1 /* Views */ = {
@@ -367,13 +402,31 @@
 			productReference = A92C2F501D3DE25A001C6E9C /* Banjo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A998969B1E51033800CF0D67 /* BanjoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99896A51E51033800CF0D67 /* Build configuration list for PBXNativeTarget "BanjoUITests" */;
+			buildPhases = (
+				A99896981E51033800CF0D67 /* Sources */,
+				A99896991E51033800CF0D67 /* Frameworks */,
+				A998969A1E51033800CF0D67 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A99896A21E51033800CF0D67 /* PBXTargetDependency */,
+			);
+			name = BanjoUITests;
+			productName = BanjoUITests;
+			productReference = A998969C1E51033800CF0D67 /* BanjoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A92C2F481D3DE25A001C6E9C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = ParkesTwins;
 				TargetAttributes = {
@@ -386,6 +439,12 @@
 								enabled = 1;
 							};
 						};
+					};
+					A998969B1E51033800CF0D67 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 3Y3M3A69VC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A92C2F4F1D3DE25A001C6E9C;
 					};
 				};
 			};
@@ -403,6 +462,7 @@
 			projectRoot = "";
 			targets = (
 				A92C2F4F1D3DE25A001C6E9C /* Banjo */,
+				A998969B1E51033800CF0D67 /* BanjoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -421,6 +481,13 @@
 				A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */,
 				A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */,
 				A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A998969A1E51033800CF0D67 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +577,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A99896981E51033800CF0D67 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A998969F1E51033800CF0D67 /* BanjoUITests.swift in Sources */,
+				A99896A71E51053100CF0D67 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A99896A21E51033800CF0D67 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A92C2F4F1D3DE25A001C6E9C /* Banjo */;
+			targetProxy = A99896A11E51033800CF0D67 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A92C2F571D3DE25A001C6E9C /* Main.storyboard */ = {
@@ -669,6 +753,37 @@
 			};
 			name = Release;
 		};
+		A99896A31E51033800CF0D67 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 3Y3M3A69VC;
+				INFOPLIST_FILE = BanjoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Banjo;
+			};
+			name = Debug;
+		};
+		A99896A41E51033800CF0D67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = 3Y3M3A69VC;
+				INFOPLIST_FILE = BanjoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Banjo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -689,6 +804,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A99896A51E51033800CF0D67 /* Build configuration list for PBXNativeTarget "BanjoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99896A31E51033800CF0D67 /* Debug */,
+				A99896A41E51033800CF0D67 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
