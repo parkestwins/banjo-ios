@@ -12,7 +12,7 @@ struct RealmConstants {
     
     static let anonymousPassword = "readonly"
     static let liveServer = "http://45.55.65.37:9080"
-    static let liveRealm = "realm://45.55.65.37:9080/19ebf526e022f8aec47c6c30eb8149c6/banjo"
+    static let liveRealm = "realm://45.55.65.37:9080/39c74ed4530102e9967ea983b0d9d10e/banjo"
     static let testServer = "http://127.0.0.1:9080"
     static let testRealm = "realm://127.0.0.1:9080/8c650c749b2a73d19163694ccbb36b96/banjo45"        
     static let updateNotification = "RealmClient.UpdateDetected"
