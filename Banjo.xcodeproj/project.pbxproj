@@ -386,6 +386,7 @@
 				A92C2F4E1D3DE25A001C6E9C /* Resources */,
 				AD20A5F58D5E0EE72DDE6434 /* [CP] Embed Pods Frameworks */,
 				0AC39DC56B842C2DE5222A0C /* [CP] Copy Pods Resources */,
+				A9A1F8271E5139400050F762 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -518,6 +519,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A9A1F8271E5139400050F762 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" b987616e1a3e27c4bda7906d4c30b13800145ce8 dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d";
+		};
 		AD20A5F58D5E0EE72DDE6434 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,7 +646,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
