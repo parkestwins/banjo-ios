@@ -6,4 +6,6 @@ target 'Banjo' do
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
   pod 'SDWebImage/Core'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
