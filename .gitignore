@@ -44,3 +44,5 @@ fastlane/screenshots
 fastlane/test_output
 # ignore temp certs
 *.cer
+*.mobileprovision
+*.dSYM.zip
