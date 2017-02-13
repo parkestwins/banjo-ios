@@ -1,0 +1,3 @@
+app_identifier "com.ParkesTwins.Banjo" # The bundle identifier of your app
+apple_id "parkesfjarrod@gmail.com" # Your Apple email address
+team_id "3Y3M3A69VC"  # Developer Portal Team ID
