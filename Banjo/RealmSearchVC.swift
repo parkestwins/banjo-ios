@@ -69,11 +69,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     public var resultsDelegate: RealmSearchResultsDelegate!
     
     /// The entity (Realm object) name
-    @IBInspectable public var entityName: String? {
-        didSet {
-            refreshSearchResults()
-        }
-    }
+    let entityType = Game.self
     
     /// The keyPath on the entity that will be searched against.
     @IBInspectable public var searchPropertyKeyPath: String? {
@@ -130,7 +126,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     }
 
     /// The underlying search results
-    public var searchResults: RLMResults<RLMObject>?
+    public var searchResults: Results<Object>?
     
     /// The search bar for the controller
     public var searchBar: UISearchBar {
@@ -227,7 +223,7 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
     
     private func updateResults(predicate: NSPredicate?) {
         
-        if let results = searchResults(entityName: entityName, inRealm: RealmClient.shared.rlmRealm, predicate: predicate, sortPropertyKey: sortPropertyKey, sortAscending: sortAscending) {
+        if let results = searchResults(entityType: entityType, inRealm: RealmClient.shared.realm, predicate: predicate, sortPropertyKey: sortPropertyKey, sortAscending: sortAscending) {
             
             if (!isViewLoaded) {
                 return
@@ -264,17 +260,15 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
         return basePredicate
     }
     
-    private func searchResults(entityName: String?, inRealm realm: RLMRealm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> RLMResults<RLMObject>? {
+    private func searchResults(entityType: Object.Type?, inRealm realm: Realm?, predicate: NSPredicate?, sortPropertyKey: String?, sortAscending: Bool) -> Results<Object>? {
         
-        if entityName != nil && realm != nil {
+        if entityType != nil && realm != nil {
             
-            var results = (predicate != nil) ? realm?.objects(entityName!, with: predicate!) : realm?.allObjects(entityName!)
+            var results = (predicate != nil) ? realm?.objects(entityType!).filter(predicate!) : realm?.objects(entityType!)
             
-            if (sortPropertyKey != nil) {
-                                
-                let sort = RLMSortDescriptor(keyPath: sortPropertyKey!, ascending: sortAscending)
-                
-                results = results?.sortedResults(using: [sort])
+            if let sortPropertyKey = sortPropertyKey {
+
+                results = results?.sorted(byKeyPath: sortPropertyKey, ascending: sortAscending)
             }
             
             return results
@@ -300,8 +294,8 @@ public class RealmSearchVC: UITableViewController, RealmSearchResultsDataSource,
 extension RealmSearchVC {
     
     public override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if let results = searchResults {
-            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
+        if let results = searchResults {            
+            let baseObject = results[indexPath.row] as RLMObjectBase
             let object = baseObject as! Object
             
             resultsDelegate.searchViewController(controller: self, willSelectObject: object, atIndexPath: indexPath)
@@ -322,7 +316,7 @@ extension RealmSearchVC {
         }
         
         if let results = searchResults {
-            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
+            let baseObject = results[indexPath.row] as RLMObjectBase
             let object = baseObject as! Object
             
             resultsDelegate.searchViewController(controller: self, didSelectObject: object, atIndexPath: indexPath)
@@ -345,7 +339,7 @@ extension RealmSearchVC {
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let results = searchResults {
-            let baseObject = results.object(at: UInt(indexPath.row)) as RLMObjectBase
+            let baseObject = results[indexPath.row] as RLMObjectBase
             let object = baseObject as! Object            
             let cell = resultsDataSource.searchViewController(controller: self, cellForObject: object, atIndexPath: indexPath)
             

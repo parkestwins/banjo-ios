@@ -34,10 +34,6 @@ class RealmClient {
     var realm: Realm {
         return try! Realm(configuration: Realm.Configuration.defaultConfiguration)
     }
-    var rlmRealm: RLMRealm {
-        let configuration = toRLMConfiguration(configuration: Realm.Configuration.defaultConfiguration)
-        return try! RLMRealm(configuration: configuration)
-    }    
     
     // MARK: Sync Realm
     
@@ -73,7 +69,7 @@ class RealmClient {
         token = realm.addNotificationBlock { _ in
             NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
             UserDefaults.standard.set(true, forKey: RealmConstants.Defaults.syncedBefore)
-        }
+        }                
     }
     
     // MARK: Authenticate
@@ -140,28 +136,7 @@ class RealmClient {
             }
         }
     }
-    
-    // MARK: Utility
-    
-    private func toRLMConfiguration(configuration: Realm.Configuration) -> RLMRealmConfiguration {
-        let rlmConfiguration = RLMRealmConfiguration()
-        if configuration.fileURL != nil {
-            rlmConfiguration.fileURL = configuration.fileURL
-        }
-        
-        if configuration.inMemoryIdentifier != nil {
-            rlmConfiguration.inMemoryIdentifier = configuration.inMemoryIdentifier
-        }
-        
-        if configuration.syncConfiguration != nil {
-            rlmConfiguration.syncConfiguration = RLMSyncConfiguration(user: (configuration.syncConfiguration?.user)!, realmURL: (configuration.syncConfiguration?.realmURL)!)
-        }
-        rlmConfiguration.encryptionKey = configuration.encryptionKey
-        rlmConfiguration.readOnly = configuration.readOnly
-        rlmConfiguration.schemaVersion = configuration.schemaVersion
-        return rlmConfiguration
-    }
-        
+            
     // MARK: Singleton
     
     static let shared = RealmClient()

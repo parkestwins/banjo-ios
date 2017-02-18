@@ -112,7 +112,7 @@ class GameSearchTableVC: RealmSearchVC {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let game = sender as? Game, let gameDetailVC = segue.destination as? GameDetailVC, segue.identifier == AppConstants.Segues.showDetail {
             gameDetailVC.game = game
-                        
+            
             if let usRegion = RealmClient.shared.realm.objects(Region.self).filter("abbreviation = 'US'").first {
                 let sortedReleases = game.releases.sorted(byKeyPath: RealmConstants.Keys.date)
                 let usReleases = game.releases.filter("region == %@", usRegion).sorted(byKeyPath: RealmConstants.Keys.date)
