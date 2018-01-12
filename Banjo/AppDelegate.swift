@@ -22,15 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // configure dependencies
         Fabric.with([Crashlytics.self])
         FirebaseClient.shared.configure()
-        setupGlobalAppearances()
+
+        // set main window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let startVC = StartVC.loadFromNib(bundle: Bundle.main)
+        let nvc = UINavigationController(rootViewController: startVC)
+        window?.rootViewController = nvc
+        
         return true
-    }
-    
-    // MARK: Global UI Settings
-    
-    private func setupGlobalAppearances() {
-        UIApplication.shared.statusBarStyle = .lightContent
     }
 }

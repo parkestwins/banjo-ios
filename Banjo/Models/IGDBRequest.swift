@@ -77,8 +77,10 @@ public enum IGDBRequest {
             return [
                 URLQueryItem(name: "search", value: query),
                 URLQueryItem(name: "filter[platforms][eq]", value: "\(Platform.n64.rawValue)"),
+                URLQueryItem(name: "filter[release_dates.region][anyi]", value: "\(Region.northAmerica.rawValue)"),
+                URLQueryItem(name: "filter[esrb][exists]", value: ""),
                 URLQueryItem(name: "limit", value: "50"),
-                URLQueryItem(name: "fields", value: "name")
+                URLQueryItem(name: "fields", value: "name,first_release_date")
             ]
         case .getGameExpanded:
             return [

@@ -8,9 +8,9 @@
 
 import UIKit
 
-// MARK: - GameDetailVC: UIViewController
+// MARK: - GameDetailVC: UIViewController, NibLoadable
 
-class GameDetailVC: UIViewController {
+class GameDetailVC: UIViewController, NibLoadable {
     
     // MARK: Properties
     
@@ -43,36 +43,10 @@ class GameDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
-//            self.setupUIForRelease()
-//        }
-    }
-    
-    // MARK: Deinitializer
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    // MARK: Actions
-    
-    @IBAction func swapRelease(_ sender: Any) {
-//        if let game = game, game.releases.count > 1 {
-//            performSegue(withIdentifier: AppConstants.Segues.showRelease, sender: game)
-//        }
     }
     
     @IBAction func backToSearch(_ sender: Any) {
         let _ = navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
-//        if let releasesTableVC = segue.source as? ReleaseSelectTableVC {
-//            if let newSelectedRelease = releasesTableVC.selectedRelease {
-//                selectedRelease = newSelectedRelease
-//                setupUIForRelease()
-//            }
-//        }
     }
     
     // MARK: Setup UI
@@ -97,11 +71,12 @@ class GameDetailVC: UIViewController {
             debugCoverLabel.isHidden = true
             coverImageView.image = nil
             
-//            publisherLabel.text = release.publisher
-//            summaryLabel.text = release.summary
-//            regionSelectButton.title = release.region?.abbreviation
-//            titleLabel.text = release.specialTitle ?? game.title
-//            releaseDateLabel.text = release.date != nil ? release.date!.toString() : AppConstants.Strings.unreleased
+            developerLabel.text = "\(game.developers)"
+            publisherLabel.text = "\(game.publishers)"
+            summaryLabel.text = game.summary
+            // regionSelectButton.title = game.
+            titleLabel.text = game.name
+            releaseDateLabel.text = "\(game.firstReleaseDate)"
             
             // number of players
             if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
@@ -112,16 +87,6 @@ class GameDetailVC: UIViewController {
                 playersImage.isHidden = true
                 playersLabel.isHidden = true
             }
-            
-            // developer
-//            if let developer = release.developer {
-//                developerLabel.isHidden = false
-//                developerFieldLabel.isHidden = false
-//                developerLabel.text = developer
-//            } else {
-//                developerLabel.isHidden = true
-//                developerFieldLabel.isHidden = true
-//            }
             
             // game rating
 //            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
@@ -135,23 +100,14 @@ class GameDetailVC: UIViewController {
 //            }
             
             // cover image
-//            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
-//
-//                FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
-//
-//                    // stop activity indicator
-//                    self.coverLoadingIndicator.stopAnimating()
-//                    self.coverLoadingIndicator.isHidden = true
-//
-//                    if let error = error {
-//                        print(error)
-//                        self.debugCoverLabel.isHidden = false
-//                        self.displayDismissAlert(title: AppConstants.Strings.failCoverLoad, message: AppConstants.Strings.resolveCoverLoad, dismissHandler: nil)
-//                    } else if let image = image {
-//                        self.coverImageView.image = image
-//                    }
-//                }
-//            }
+            // FIXME: check cache for image
+            
+            let filePath = game.cover.url as NSString
+            let fileExtension = filePath.pathExtension
+            
+            if let url = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)"), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                coverImageView.image = image
+            }
         }
     }
     
@@ -168,15 +124,6 @@ class GameDetailVC: UIViewController {
 //            return (true, "\(min!) - \(max!)")
 //        }
         return (true, "")
-    }
-    
-    // MARK: Segues
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == AppConstants.Segues.showRelease {
-//            releaseSelectTableVC.game = game
-//            releaseSelectTableVC.selectedRelease = selectedRelease
-//        }
     }
 }
 

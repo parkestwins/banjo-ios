@@ -13,9 +13,11 @@ import Foundation
 struct GamePartial: Codable {
     let id: Int
     let name: String
+    let firstReleaseDate: Int
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case firstReleaseDate = "first_release_date"
     }
 }

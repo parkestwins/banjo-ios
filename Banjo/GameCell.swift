@@ -15,5 +15,5 @@ class GameCell: UITableViewCell {
     // MARK: Outlets
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var developerPublisherLabel: UILabel!    
+    @IBOutlet weak var releaseDateLabel: UILabel!    
 }
