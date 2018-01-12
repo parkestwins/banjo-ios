@@ -24,8 +24,7 @@ class GameDetailVC: UIViewController, NibLoadable {
     @IBOutlet weak var platformLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var developerLabel: UILabel!
-    @IBOutlet weak var publisherLabel: UILabel!
-    @IBOutlet weak var playersLabel: UILabel!
+    @IBOutlet weak var publisherLabel: UILabel!    
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var ratingFieldLabel: UILabel!
@@ -58,10 +57,11 @@ class GameDetailVC: UIViewController, NibLoadable {
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
-        setupUIForRelease()
+        
+        setupUIForGame()
     }
     
-    private func setupUIForRelease() {
+    private func setupUIForGame() {
         if let game = game {
             
             // reset image
@@ -75,23 +75,15 @@ class GameDetailVC: UIViewController, NibLoadable {
             summaryLabel.text = game.summary
             titleLabel.text = game.name
             releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
-            
-            // number of players
-            if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
-                playersImage.isHidden = false
-                playersLabel.isHidden = false
-                playersLabel.text = playersLabelTuple.1
-            } else {
-                playersImage.isHidden = true
-                playersLabel.isHidden = true
-            }
-            
+                        
             ratingFieldLabel.text = "ESRB Rating"
             ratingLabel.text = game.esrb.rating.name
+            
+            // FIXME: currently using last game mode to determine player image
+            playersImage.image = game.gameModes[game.gameModes.count - 1].image
 
             // cover image
             // FIXME: check cache for image
-            
             let filePath = game.cover.url as NSString
             let fileExtension = filePath.pathExtension
             
@@ -99,21 +91,6 @@ class GameDetailVC: UIViewController, NibLoadable {
                 coverImageView.image = image
             }
         }
-    }
-    
-    private func playersLabelText(game: Game) -> (Bool, String)? {
-//        let players = (game.playersMin.value, game.playersMax.value)
-//        switch(players) {
-//        case (nil, nil):
-//            return (false, "")
-//        case (let min, nil):
-//            return (true, "\(min!)")
-//        case (nil, let max):
-//            return (true, "\(max!)")
-//        case (let min, let max):
-//            return (true, "\(min!) - \(max!)")
-//        }
-        return (true, "")
     }
 }
 

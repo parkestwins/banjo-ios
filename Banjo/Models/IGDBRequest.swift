@@ -84,7 +84,7 @@ public enum IGDBRequest {
             ]
         case .getGameExpanded:
             return [
-                URLQueryItem(name: "fields", value: "name,summary,genres,category,player_perspectives,game_modes,themes,first_release_date,release_dates,screenshots,cover,esrb,pegi"),
+                URLQueryItem(name: "fields", value: "name,summary,genres,category,game_modes,first_release_date,release_dates,screenshots,cover,esrb"),
                 URLQueryItem(name: "expand", value: "publishers,developers")
             ]
         default:

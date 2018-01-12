@@ -14,7 +14,7 @@ struct ReleaseDate: Codable {
     let category: GameCategory
     let platform: Platform
     let date: Int
-    let region: Region
+    let region: Region?
     let human: String
     let year: Int
     let month: Int

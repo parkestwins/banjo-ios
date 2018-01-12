@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: - GameMode: Int, Codable
 
@@ -16,4 +17,14 @@ enum GameMode: Int, Codable {
     case coop
     case splitScreen
     case mmo
+    
+    var image: UIImage {
+        switch self {
+        case .single: return #imageLiteral(resourceName: "single")
+        case .multi: return #imageLiteral(resourceName: "multi")
+        case .coop: return #imageLiteral(resourceName: "coop")
+        case .splitScreen: return #imageLiteral(resourceName: "coop")
+        case .mmo: return #imageLiteral(resourceName: "multi")
+        }
+    }
 }

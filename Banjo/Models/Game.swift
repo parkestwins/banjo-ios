@@ -15,18 +15,18 @@ struct Game: Codable {
     let name: String
     let summary: String
     let category: GameCategory
-    let playerPerspectives: [PlayerPerspective]
+    // let playerPerspectives: [PlayerPerspective]
     let gameModes: [GameMode]
     let developers: [Developer]
     let publishers: [Publisher]
     let genres: [Genre]
-    let themes: [Theme]
+    // let themes: [Theme]
     let firstReleaseDate: Int
     let releaseDates: [ReleaseDate]
     let screenshots: [Cover]
     let cover: Cover
     let esrb: ESRB
-    let pegi: PEGI
+    // let pegi: PEGI
     
     var developersString: String {
         return developers.reduce("") { (result, developer) -> String in
@@ -45,17 +45,17 @@ struct Game: Codable {
         case name
         case summary
         case category
-        case playerPerspectives = "player_perspectives"
+        // case playerPerspectives = "player_perspectives"
         case gameModes = "game_modes"
         case developers
         case publishers
-        case themes
+        // case themes
         case genres
         case firstReleaseDate = "first_release_date"
         case releaseDates = "release_dates"
         case screenshots
         case cover
         case esrb
-        case pegi
+        // case pegi
     }        
 }
