@@ -27,6 +27,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98q-08-OQv">
                     <rect key="frame" x="51" y="349.5" width="273" height="48"/>
                     <color key="backgroundColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="0.2043833893" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" label="searchButton"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="PkX-Ft-KI0"/>
                         <constraint firstAttribute="width" constant="273" id="oSH-6F-0PB"/>
@@ -53,14 +54,22 @@
                         <constraint firstAttribute="height" constant="24" id="jop-PX-Drd"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App powered by IGDB." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBa-WH-g7k">
+                    <rect key="frame" x="91" y="421" width="193" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="oBa-WH-g7k" firstAttribute="top" secondItem="98q-08-OQv" secondAttribute="bottom" constant="23.5" id="2TN-5W-HcQ"/>
                 <constraint firstItem="98q-08-OQv" firstAttribute="centerY" secondItem="srb-uu-L7t" secondAttribute="centerY" constant="40" id="5hO-yW-S69"/>
                 <constraint firstItem="98q-08-OQv" firstAttribute="centerX" secondItem="srb-uu-L7t" secondAttribute="centerX" id="7Ne-4g-ZrZ"/>
                 <constraint firstItem="hbO-d5-BZx" firstAttribute="leading" secondItem="98q-08-OQv" secondAttribute="trailing" constant="-35" id="NTV-RJ-6jq"/>
                 <constraint firstItem="fQC-Wf-J7c" firstAttribute="centerY" secondItem="srb-uu-L7t" secondAttribute="centerY" constant="-80" id="OBB-DZ-eaT"/>
                 <constraint firstItem="hbO-d5-BZx" firstAttribute="centerY" secondItem="98q-08-OQv" secondAttribute="centerY" id="W5k-Ek-vwi"/>
+                <constraint firstItem="oBa-WH-g7k" firstAttribute="centerX" secondItem="98q-08-OQv" secondAttribute="centerX" id="mZh-wC-Jlf"/>
                 <constraint firstItem="fQC-Wf-J7c" firstAttribute="centerX" secondItem="srb-uu-L7t" secondAttribute="centerX" id="zJu-jo-M4l"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="jJd-pY-MDO"/>
