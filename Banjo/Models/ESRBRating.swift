@@ -18,4 +18,16 @@ enum ESRBRating: Int, Codable {
     case teen
     case mature
     case adultOnly
+    
+    var name: String {
+        switch self {
+        case .ratingPending: return "Rating Pending"
+        case .earlyChildhood: return "Early Childhood"
+        case .everyone: return "Everyone"
+        case .everyone10Plus: return "Everyone 10+"
+        case .teen: return "Teen"
+        case .mature: return "Mature"
+        case .adultOnly: return "Adult Only"
+        }
+    }
 }

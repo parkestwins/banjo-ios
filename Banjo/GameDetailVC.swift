@@ -70,12 +70,11 @@ class GameDetailVC: UIViewController, NibLoadable {
             debugCoverLabel.isHidden = true
             coverImageView.image = nil
             
-            developerLabel.text = "\(game.developers)"
-            publisherLabel.text = "\(game.publishers)"
+            developerLabel.text = game.developersString
+            publisherLabel.text = game.publishersString
             summaryLabel.text = game.summary
-            // regionSelectButton.title = game.
             titleLabel.text = game.name
-            releaseDateLabel.text = "\(game.firstReleaseDate)"
+            releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
             
             // number of players
             if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
@@ -87,17 +86,9 @@ class GameDetailVC: UIViewController, NibLoadable {
                 playersLabel.isHidden = true
             }
             
-            // game rating
-//            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
-//                ratingLabel.isHidden = false
-//                ratingFieldLabel.isHidden = false
-//                ratingLabel.text = rating.name
-//                ratingFieldLabel.text = "\(ratingSystemAbbrevation) \(AppConstants.Strings.rating)"
-//            } else {
-//                ratingLabel.isHidden = true
-//                ratingFieldLabel.isHidden = true
-//            }
-            
+            ratingFieldLabel.text = "ESRB Rating"
+            ratingLabel.text = game.esrb.rating.name
+
             // cover image
             // FIXME: check cache for image
             

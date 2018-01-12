@@ -28,6 +28,18 @@ struct Game: Codable {
     let esrb: ESRB
     let pegi: PEGI
     
+    var developersString: String {
+        return developers.reduce("") { (result, developer) -> String in
+            return result + (developer.name ?? "")
+        }
+    }
+    
+    var publishersString: String {
+        return publishers.reduce("") { (result, publisher) -> String in
+            return result + (publisher.name ?? "")
+        }
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -45,5 +57,5 @@ struct Game: Codable {
         case cover
         case esrb
         case pegi
-    }
+    }        
 }
