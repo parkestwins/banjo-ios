@@ -87,8 +87,14 @@ class GameDetailVC: UIViewController, NibLoadable {
             let filePath = game.cover.url as NSString
             let fileExtension = filePath.pathExtension
             
-            if let url = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)"), let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                coverImageView.image = image
+            if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)") {
+                SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
+                    if let image = image {
+                        self.coverImageView.image = image
+                    } else if let error = error {
+                        print(error)
+                    }
+                }
             }
         }
     }

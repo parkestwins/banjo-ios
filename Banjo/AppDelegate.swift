@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // configure dependencies
-        Fabric.with([Crashlytics.self])
-        FirebaseClient.shared.configure()
+        Fabric.with([Crashlytics.self])        
 
         // set global theme options
         UIApplication.shared.statusBarStyle = .lightContent

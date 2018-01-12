@@ -30,12 +30,8 @@
 		4E12D4892009210F004BC116 /* ReleaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4742009210F004BC116 /* ReleaseDate.swift */; };
 		4E12D48A2009210F004BC116 /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4752009210F004BC116 /* IGDBRequest.swift */; };
 		4E12D48C2009211A004BC116 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48B2009211A004BC116 /* Reachability.swift */; };
-		4E12D49020092121004BC116 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48D20092121004BC116 /* FirebaseClient.swift */; };
-		4E12D49120092121004BC116 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48E20092121004BC116 /* FirebaseConstants.swift */; };
+		4E12D49020092121004BC116 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48D20092121004BC116 /* SimpleCache.swift */; };
 		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
-		A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC41E215A9000F67272 /* ReleaseCell.swift */; };
-		A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A926BDC51E215A9000F67272 /* ReleaseCell.xib */; };
-		A926BDC91E215E8200F67272 /* ReleaseSelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
@@ -119,12 +115,8 @@
 		4E12D4742009210F004BC116 /* ReleaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseDate.swift; sourceTree = "<group>"; };
 		4E12D4752009210F004BC116 /* IGDBRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
 		4E12D48B2009211A004BC116 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
-		4E12D48D20092121004BC116 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
-		4E12D48E20092121004BC116 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
+		4E12D48D20092121004BC116 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
-		A926BDC41E215A9000F67272 /* ReleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
-		A926BDC51E215A9000F67272 /* ReleaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseCell.xib; sourceTree = "<group>"; };
-		A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseSelectTableVC.swift; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92C2F581D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,19 +227,10 @@
 				4E12D46D2009210F004BC116 /* Theme.swift */,
 				4E12D46E2009210F004BC116 /* TimeToBeat.swift */,
 				4E12D45E200920B3004BC116 /* Reachability */,
-				4E12D45D200920AB004BC116 /* Clients */,
+				4E12D48D20092121004BC116 /* SimpleCache.swift */,
 				A9D74336200962E900B1269A /* BanjoFormatter.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		4E12D45D200920AB004BC116 /* Clients */ = {
-			isa = PBXGroup;
-			children = (
-				4E12D48D20092121004BC116 /* FirebaseClient.swift */,
-				4E12D48E20092121004BC116 /* FirebaseConstants.swift */,
-			);
-			path = Clients;
 			sourceTree = "<group>";
 		};
 		4E12D45E200920B3004BC116 /* Reachability */ = {
@@ -328,7 +311,6 @@
 		A95D56C91E0E080C008399B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */,
 				A95D56C71E0DFB6C008399B2 /* StartVC.swift */,
 				A95D56C51E0DEB72008399B2 /* GameSearchVC.swift */,
 				A9D7432C200946F000B1269A /* GameSearchDataSource.swift */,
@@ -387,7 +369,6 @@
 			children = (
 				A9DEC1B81E161B050099A14F /* GenreCell.xib */,
 				A9DB11761E15770500B8DA2B /* GameCell.xib */,
-				A926BDC51E215A9000F67272 /* ReleaseCell.xib */,
 			);
 			name = Nibs;
 			sourceTree = "<group>";
@@ -397,7 +378,6 @@
 			children = (
 				A9DEC1B71E161B050099A14F /* GenreCell.swift */,
 				A9DB11751E15770500B8DA2B /* GameCell.swift */,
-				A926BDC41E215A9000F67272 /* ReleaseCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -549,7 +529,6 @@
 				A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */,
 				A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */,
 				A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */,
-				A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */,
 				A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */,
 				A9ADA1281E16E8D4004968E1 /* SourceSansPro-Semibold.otf in Resources */,
 				A9D7433120094C0600B1269A /* GameSearchVC.xib in Resources */,
@@ -619,17 +598,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -651,12 +624,10 @@
 				4E12D4852009210F004BC116 /* GameRaw.swift in Sources */,
 				4E12D4882009210F004BC116 /* GameMode.swift in Sources */,
 				A9D74326200942E900B1269A /* UIViewController+NibLoadable.swift in Sources */,
-				A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */,
-				4E12D49020092121004BC116 /* FirebaseClient.swift in Sources */,
+				4E12D49020092121004BC116 /* SimpleCache.swift in Sources */,
 				4E12D47A2009210F004BC116 /* Publisher.swift in Sources */,
 				4E12D4772009210F004BC116 /* ESRB.swift in Sources */,
 				4E12D47B2009210F004BC116 /* AlternativeName.swift in Sources */,
-				A926BDC91E215E8200F67272 /* ReleaseSelectTableVC.swift in Sources */,
 				4E12D4892009210F004BC116 /* ReleaseDate.swift in Sources */,
 				A9DEC1AE1E15F5280099A14F /* NSDate+ToString.swift in Sources */,
 				4E12D47C2009210F004BC116 /* Developer.swift in Sources */,
@@ -665,7 +636,6 @@
 				A9512E69200853C80063493C /* HTTPMethod.swift in Sources */,
 				A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */,
 				A9DEC1B61E1615DB0099A14F /* GenreCellLayout.swift in Sources */,
-				4E12D49120092121004BC116 /* FirebaseConstants.swift in Sources */,
 				A9D7433320094F7200B1269A /* UITableView+RegisterNibs.swift in Sources */,
 				4E12D48A2009210F004BC116 /* IGDBRequest.swift in Sources */,
 				4E12D4822009210F004BC116 /* Theme.swift in Sources */,
