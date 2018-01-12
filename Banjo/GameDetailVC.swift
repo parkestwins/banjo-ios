@@ -31,8 +31,7 @@ class GameDetailVC: UIViewController, NibLoadable {
     @IBOutlet weak var ratingFieldLabel: UILabel!
     @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var debugCoverLabel: UILabel!    
-    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var regionSelectButton: UIBarButtonItem!
+    @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!    
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playersImage: UIImageView!
     @IBOutlet weak var detailScrollView: UIScrollView!
@@ -164,7 +163,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
             default:
                 genreCell.backgroundColor = .banjoBrickOrange
             }
-            genreCell.nameLabel.text = "\(genre)"
+            genreCell.nameLabel.text = genre.name
         }
     }
 }

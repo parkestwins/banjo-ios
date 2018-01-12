@@ -397,12 +397,6 @@
                                 <action selector="backToSearch:" destination="vy9-kH-GaH" id="OFe-Fx-og6"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="US" id="p2t-DU-A6S">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="swapRelease:" destination="vy9-kH-GaH" id="cs2-4O-VDo"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="coverImageView" destination="Xmv-fY-S0Z" id="tuc-Qc-zjq"/>
@@ -418,7 +412,6 @@
                         <outlet property="publisherLabel" destination="dlg-fX-TNi" id="rIJ-Lc-d62"/>
                         <outlet property="ratingFieldLabel" destination="eAy-k6-ouS" id="fm3-bI-WMZ"/>
                         <outlet property="ratingLabel" destination="YIh-1q-KDO" id="9Fj-ws-Ktk"/>
-                        <outlet property="regionSelectButton" destination="p2t-DU-A6S" id="xQl-y9-Sf2"/>
                         <outlet property="releaseDateLabel" destination="pRn-Gp-0M1" id="pFk-4N-Xzq"/>
                         <outlet property="summaryLabel" destination="i7N-5M-guk" id="gK5-PL-fJB"/>
                         <outlet property="titleLabel" destination="SbX-v5-sut" id="jhH-3q-bqI"/>
