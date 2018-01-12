@@ -22,7 +22,7 @@ extension UIColor {
             cString.remove(at: cString.startIndex)
         }
         
-        if cString.characters.count != 6 {
+        if cString.count != 6 {
             self.init(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
         } else {
             var rgbHex: UInt32 = 0

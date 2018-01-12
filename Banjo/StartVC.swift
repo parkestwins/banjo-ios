@@ -37,10 +37,10 @@ class StartVC: UIViewController {
         super.viewDidLoad()
         
         // start listening for reachability changes
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
-        _ = reachability?.startNotifier()
-        
-        syncRealm()
+//        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityDidChange(_:)), name: NSNotification.Name(rawValue: ReachabilityDidChangeNotificationName), object: nil)
+//        _ = reachability?.startNotifier()
+//        
+//        syncRealm()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,43 +108,43 @@ class StartVC: UIViewController {
         guard let reachability = reachability else { return }
         if reachability.isReachable {
             // if never synced before, try syncing for the first time
-            if !RealmClient.shared.isSynced {
-                syncRealm()
-            } else {
-                // otherwise, resync (logout, then login) to continue getting updates
-                RealmClient.shared.resyncRealm { (synced, error) in
-                    if let error = error {
-                        // fail silently, this could be called from anywhere
-                        print(error)
-                    }
-                    if synced == true {
-                        DispatchQueue.main.async {
-                            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
-                        }
-                    }
-                }
-            }
+//            if !RealmClient.shared.isSynced {
+//                syncRealm()
+//            } else {
+//                // otherwise, resync (logout, then login) to continue getting updates
+//                RealmClient.shared.resyncRealm { (synced, error) in
+//                    if let error = error {
+//                        // fail silently, this could be called from anywhere
+//                        print(error)
+//                    }
+//                    if synced == true {
+//                        DispatchQueue.main.async {
+//                            NotificationCenter.default.post(name: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil)
+//                        }
+//                    }
+//                }
+//            }
         }
     }
     
     // MARK: Sync Realm
     
-    private func syncRealm() {
-        if let _ = RealmClient.shared.token {
-            setupUI(forState: .synced)
-        } else {
-            setupUI(forState: .startSync)
-            RealmClient.shared.syncRealm { (synced, error) in
-                DispatchQueue.main.async {
-                    if let _ = error as? RealmClientError, synced == false {
-                        self.setupUI(forState: .failedAuth)
-                    } else if let _ = error {
-                        self.setupUI(forState: .cannotSync)
-                    } else {
-                        self.setupUI(forState: .synced)
-                    }
-                }
-            }
-        }
-    }
+//    private func syncRealm() {
+//        if let _ = RealmClient.shared.token {
+//            setupUI(forState: .synced)
+//        } else {
+//            setupUI(forState: .startSync)
+//            RealmClient.shared.syncRealm { (synced, error) in
+//                DispatchQueue.main.async {
+//                    if let _ = error as? RealmClientError, synced == false {
+//                        self.setupUI(forState: .failedAuth)
+//                    } else if let _ = error {
+//                        self.setupUI(forState: .cannotSync)
+//                    } else {
+//                        self.setupUI(forState: .synced)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

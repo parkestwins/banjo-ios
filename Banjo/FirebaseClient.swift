@@ -34,7 +34,7 @@ class FirebaseClient {
     // MARK: Config
     
     func configure() {
-        FIRApp.configure()
+        FirebaseApp.configure()
     }
     
     // MARK: In-Memory Image Caching    
@@ -43,7 +43,7 @@ class FirebaseClient {
         if let cachedImage = imageCache.imageFromCache(forKey: path), cachedEnabled == true {
             completionHandler(cachedImage, nil)
         } else {
-            FIRStorage.storage().reference(forURL: path).data(withMaxSize: INT64_MAX){ (data, error) in
+            Storage.storage().reference(forURL: path).getData(maxSize: INT64_MAX){ (data, error) in
                 if let error = error {
                     DispatchQueue.main.async {
                         completionHandler(nil, FirebaseStorageError.fileNotOnFirebase(error.localizedDescription))

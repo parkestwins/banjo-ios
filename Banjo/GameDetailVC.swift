@@ -15,7 +15,6 @@ class GameDetailVC: UIViewController {
     // MARK: Properties
     
     var game: Game?
-    var selectedRelease: Release?
     let reuseIdentifier = AppConstants.IDs.genreCell
     var sizingCell: GenreCell?
     
@@ -44,9 +43,9 @@ class GameDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
-            self.setupUIForRelease()
-        }
+//        NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: RealmConstants.updateNotification), object: nil, queue: nil) { notification in
+//            self.setupUIForRelease()
+//        }
     }
     
     // MARK: Deinitializer
@@ -58,9 +57,9 @@ class GameDetailVC: UIViewController {
     // MARK: Actions
     
     @IBAction func swapRelease(_ sender: Any) {
-        if let game = game, game.releases.count > 1 {
-            performSegue(withIdentifier: AppConstants.Segues.showRelease, sender: game)
-        }
+//        if let game = game, game.releases.count > 1 {
+//            performSegue(withIdentifier: AppConstants.Segues.showRelease, sender: game)
+//        }
     }
     
     @IBAction func backToSearch(_ sender: Any) {
@@ -68,12 +67,12 @@ class GameDetailVC: UIViewController {
     }
     
     @IBAction func saveSelectedRelease(segue: UIStoryboardSegue) {
-        if let releasesTableVC = segue.source as? ReleaseSelectTableVC {
-            if let newSelectedRelease = releasesTableVC.selectedRelease {
-                selectedRelease = newSelectedRelease
-                setupUIForRelease()
-            }
-        }
+//        if let releasesTableVC = segue.source as? ReleaseSelectTableVC {
+//            if let newSelectedRelease = releasesTableVC.selectedRelease {
+//                selectedRelease = newSelectedRelease
+//                setupUIForRelease()
+//            }
+//        }
     }
     
     // MARK: Setup UI
@@ -90,7 +89,7 @@ class GameDetailVC: UIViewController {
     }
     
     private func setupUIForRelease() {
-        if let game = game, let release = selectedRelease {
+        if let game = game {
             
             // reset image
             coverLoadingIndicator.startAnimating()
@@ -98,11 +97,11 @@ class GameDetailVC: UIViewController {
             debugCoverLabel.isHidden = true
             coverImageView.image = nil
             
-            publisherLabel.text = release.publisher
-            summaryLabel.text = release.summary
-            regionSelectButton.title = release.region?.abbreviation
-            titleLabel.text = release.specialTitle ?? game.title
-            releaseDateLabel.text = release.date != nil ? release.date!.toString() : AppConstants.Strings.unreleased
+//            publisherLabel.text = release.publisher
+//            summaryLabel.text = release.summary
+//            regionSelectButton.title = release.region?.abbreviation
+//            titleLabel.text = release.specialTitle ?? game.title
+//            releaseDateLabel.text = release.date != nil ? release.date!.toString() : AppConstants.Strings.unreleased
             
             // number of players
             if let playersLabelTuple = playersLabelText(game: game), playersLabelTuple.0 {
@@ -115,68 +114,69 @@ class GameDetailVC: UIViewController {
             }
             
             // developer
-            if let developer = release.developer {
-                developerLabel.isHidden = false
-                developerFieldLabel.isHidden = false
-                developerLabel.text = developer
-            } else {
-                developerLabel.isHidden = true
-                developerFieldLabel.isHidden = true
-            }
+//            if let developer = release.developer {
+//                developerLabel.isHidden = false
+//                developerFieldLabel.isHidden = false
+//                developerLabel.text = developer
+//            } else {
+//                developerLabel.isHidden = true
+//                developerFieldLabel.isHidden = true
+//            }
             
             // game rating
-            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
-                ratingLabel.isHidden = false
-                ratingFieldLabel.isHidden = false
-                ratingLabel.text = rating.name
-                ratingFieldLabel.text = "\(ratingSystemAbbrevation) \(AppConstants.Strings.rating)"
-            } else {
-                ratingLabel.isHidden = true
-                ratingFieldLabel.isHidden = true
-            }
+//            if let rating = release.rating, let ratingSystemAbbrevation = rating.system?.abbreviation {
+//                ratingLabel.isHidden = false
+//                ratingFieldLabel.isHidden = false
+//                ratingLabel.text = rating.name
+//                ratingFieldLabel.text = "\(ratingSystemAbbrevation) \(AppConstants.Strings.rating)"
+//            } else {
+//                ratingLabel.isHidden = true
+//                ratingFieldLabel.isHidden = true
+//            }
             
             // cover image
-            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
-                
-                FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
-                    
-                    // stop activity indicator
-                    self.coverLoadingIndicator.stopAnimating()
-                    self.coverLoadingIndicator.isHidden = true
-                    
-                    if let error = error {
-                        print(error)
-                        self.debugCoverLabel.isHidden = false
-                        self.displayDismissAlert(title: AppConstants.Strings.failCoverLoad, message: AppConstants.Strings.resolveCoverLoad, dismissHandler: nil)
-                    } else if let image = image {
-                        self.coverImageView.image = image                        
-                    }
-                }
-            }
+//            if let coverImagePath = release.coverImagePath, coverImagePath.hasPrefix(FirebaseConstants.storagePrefix) {
+//
+//                FirebaseClient.shared.getImage(path: coverImagePath) { image, error in
+//
+//                    // stop activity indicator
+//                    self.coverLoadingIndicator.stopAnimating()
+//                    self.coverLoadingIndicator.isHidden = true
+//
+//                    if let error = error {
+//                        print(error)
+//                        self.debugCoverLabel.isHidden = false
+//                        self.displayDismissAlert(title: AppConstants.Strings.failCoverLoad, message: AppConstants.Strings.resolveCoverLoad, dismissHandler: nil)
+//                    } else if let image = image {
+//                        self.coverImageView.image = image
+//                    }
+//                }
+//            }
         }
     }
     
     private func playersLabelText(game: Game) -> (Bool, String)? {
-        let players = (game.playersMin.value, game.playersMax.value)
-        switch(players) {
-        case (nil, nil):
-            return (false, "")
-        case (let min, nil):
-            return (true, "\(min!)")
-        case (nil, let max):
-            return (true, "\(max!)")
-        case (let min, let max):
-            return (true, "\(min!) - \(max!)")
-        }
+//        let players = (game.playersMin.value, game.playersMax.value)
+//        switch(players) {
+//        case (nil, nil):
+//            return (false, "")
+//        case (let min, nil):
+//            return (true, "\(min!)")
+//        case (nil, let max):
+//            return (true, "\(max!)")
+//        case (let min, let max):
+//            return (true, "\(min!) - \(max!)")
+//        }
+        return (true, "")
     }
     
     // MARK: Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == AppConstants.Segues.showRelease {
-            releaseSelectTableVC.game = game
-            releaseSelectTableVC.selectedRelease = selectedRelease
-        }
+//        if let game = sender as? Game, let releaseSelectTableVC = segue.destination as? ReleaseSelectTableVC, segue.identifier == AppConstants.Segues.showRelease {
+//            releaseSelectTableVC.game = game
+//            releaseSelectTableVC.selectedRelease = selectedRelease
+//        }
     }
 }
 
@@ -217,7 +217,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
             default:
                 genreCell.backgroundColor = .banjoBrickOrange
             }
-            genreCell.nameLabel.text = genre.name.uppercased()
+            genreCell.nameLabel.text = "\(genre)"
         }
     }
 }

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		49DAE18D907922C548110233 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */; };
 		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
-		A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC01E214CB100F67272 /* RealmClient.swift */; };
-		A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC21E214D0800F67272 /* RealmConstants.swift */; };
 		A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC41E215A9000F67272 /* ReleaseCell.swift */; };
 		A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A926BDC51E215A9000F67272 /* ReleaseCell.xib */; };
 		A926BDC91E215E8200F67272 /* ReleaseSelectTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */; };
@@ -18,7 +16,14 @@
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
 		A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */; };
-		A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */; };
+		A9512E5D200853270063493C /* IGDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E5B200853270063493C /* IGDB.swift */; };
+		A9512E5E200853270063493C /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E5C200853270063493C /* IGDBRequest.swift */; };
+		A9512E65200853C80063493C /* ParseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E60200853C80063493C /* ParseOperation.swift */; };
+		A9512E66200853C80063493C /* OperationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E61200853C80063493C /* OperationState.swift */; };
+		A9512E67200853C80063493C /* FetchOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E62200853C80063493C /* FetchOperation.swift */; };
+		A9512E68200853C80063493C /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E63200853C80063493C /* BaseOperation.swift */; };
+		A9512E69200853C80063493C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9512E64200853C80063493C /* HTTPMethod.swift */; };
+		A95D56C41E0DE7D6008399B2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C31E0DE7D6008399B2 /* SearchVC.swift */; };
 		A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */; };
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
 		A998969F1E51033800CF0D67 /* BanjoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998969E1E51033800CF0D67 /* BanjoUITests.swift */; };
@@ -41,13 +46,6 @@
 		A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DEC1B81E161B050099A14F /* GenreCell.xib */; };
 		A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */; };
 		A9E5F3D81E2A885F00797DFC /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5F3D71E2A885F00797DFC /* UIViewController+Alert.swift */; };
-		A9F4E3671E1D2B14001169BE /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3661E1D2B14001169BE /* Platform.swift */; };
-		A9F4E3691E1D2B1F001169BE /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3681E1D2B1F001169BE /* Game.swift */; };
-		A9F4E36B1E1D2B29001169BE /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36A1E1D2B29001169BE /* Genre.swift */; };
-		A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */; };
-		A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E36E1E1D2B41001169BE /* Rating.swift */; };
-		A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3701E1D2B4F001169BE /* Release.swift */; };
-		A9F4E3731E1D2B58001169BE /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F4E3721E1D2B58001169BE /* Region.swift */; };
 		AB2ED0299DF82E1D51B3C68F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */; };
 		BD19E786F03D6646D7858B81 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC783976688C16D66D56CA4 /* CoreTelephony.framework */; };
 		C87E3E4C98BDFE7D66D5BCB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3502A90CC5EA3FC53311B96 /* AVFoundation.framework */; };
@@ -74,8 +72,6 @@
 		3464AFD716B0CBD0F17489D6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		38BF04CF1222D38E89BAED01 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
-		A926BDC01E214CB100F67272 /* RealmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
-		A926BDC21E214D0800F67272 /* RealmConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConstants.swift; sourceTree = "<group>"; };
 		A926BDC41E215A9000F67272 /* ReleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
 		A926BDC51E215A9000F67272 /* ReleaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseCell.xib; sourceTree = "<group>"; };
 		A926BDC81E215E8200F67272 /* ReleaseSelectTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseSelectTableVC.swift; sourceTree = "<group>"; };
@@ -85,8 +81,15 @@
 		A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92C2F5D1D3DE25A001C6E9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92C2F5F1D3DE25A001C6E9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9512E5B200853270063493C /* IGDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGDB.swift; sourceTree = "<group>"; };
+		A9512E5C200853270063493C /* IGDBRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
+		A9512E60200853C80063493C /* ParseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseOperation.swift; sourceTree = "<group>"; };
+		A9512E61200853C80063493C /* OperationState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationState.swift; sourceTree = "<group>"; };
+		A9512E62200853C80063493C /* FetchOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchOperation.swift; sourceTree = "<group>"; };
+		A9512E63200853C80063493C /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		A9512E64200853C80063493C /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		A951627F1E0D77690056F9E2 /* Banjo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Banjo.entitlements; sourceTree = "<group>"; };
-		A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSearchVC.swift; sourceTree = "<group>"; };
+		A95D56C31E0DE7D6008399B2 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		A95D56C51E0DEB72008399B2 /* GameSearchTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSearchTableVC.swift; sourceTree = "<group>"; };
 		A95D56C71E0DFB6C008399B2 /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		A998969C1E51033800CF0D67 /* BanjoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BanjoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,13 +114,6 @@
 		A9DEC1B81E161B050099A14F /* GenreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenreCell.xib; sourceTree = "<group>"; };
 		A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionView.swift; sourceTree = "<group>"; };
 		A9E5F3D71E2A885F00797DFC /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
-		A9F4E3661E1D2B14001169BE /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
-		A9F4E3681E1D2B1F001169BE /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		A9F4E36A1E1D2B29001169BE /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingSystem.swift; sourceTree = "<group>"; };
-		A9F4E36E1E1D2B41001169BE /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
-		A9F4E3701E1D2B4F001169BE /* Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Release.swift; sourceTree = "<group>"; };
-		A9F4E3721E1D2B58001169BE /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		AFC783976688C16D66D56CA4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C7888E8A7DD6186D94AF32E1 /* Pods-Banjo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.debug.xcconfig"; sourceTree = "<group>"; };
 		D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
@@ -164,13 +160,8 @@
 		A926BDBE1E214C9300F67272 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				A9F4E3681E1D2B1F001169BE /* Game.swift */,
-				A9F4E36A1E1D2B29001169BE /* Genre.swift */,
-				A9F4E3661E1D2B14001169BE /* Platform.swift */,
-				A9F4E36E1E1D2B41001169BE /* Rating.swift */,
-				A9F4E36C1E1D2B37001169BE /* RatingSystem.swift */,
-				A9F4E3721E1D2B58001169BE /* Region.swift */,
-				A9F4E3701E1D2B4F001169BE /* Release.swift */,
+				A9512E5B200853270063493C /* IGDB.swift */,
+				A9512E5C200853270063493C /* IGDBRequest.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -207,6 +198,8 @@
 		A92C2F521D3DE25A001C6E9C /* Banjo */ = {
 			isa = PBXGroup;
 			children = (
+				A9512E64200853C80063493C /* HTTPMethod.swift */,
+				A9512E5F200853C80063493C /* Operations */,
 				A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */,
 				A9B40CFB1E29D6D000F473D8 /* AppConstants.swift */,
 				A9ADA1211E16DF6F004968E1 /* Models */,
@@ -236,6 +229,17 @@
 				A92C2F5F1D3DE25A001C6E9C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9512E5F200853C80063493C /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				A9512E60200853C80063493C /* ParseOperation.swift */,
+				A9512E61200853C80063493C /* OperationState.swift */,
+				A9512E62200853C80063493C /* FetchOperation.swift */,
+				A9512E63200853C80063493C /* BaseOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 		A95D56C91E0E080C008399B2 /* Controllers */ = {
@@ -319,9 +323,7 @@
 		A9D3E34A1E227CF80036D735 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				A926BDC01E214CB100F67272 /* RealmClient.swift */,
-				A926BDC21E214D0800F67272 /* RealmConstants.swift */,
-				A95D56C31E0DE7D6008399B2 /* RealmSearchVC.swift */,
+				A95D56C31E0DE7D6008399B2 /* SearchVC.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -428,7 +430,7 @@
 					A92C2F4F1D3DE25A001C6E9C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 3Y3M3A69VC;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -439,6 +441,7 @@
 					A998969B1E51033800CF0D67 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 3Y3M3A69VC;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A92C2F4F1D3DE25A001C6E9C;
 					};
@@ -496,13 +499,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Banjo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0AC39DC56B842C2DE5222A0C /* [CP] Copy Pods Resources */ = {
@@ -539,9 +545,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Banjo/Pods-Banjo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -555,32 +570,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9F4E3691E1D2B1F001169BE /* Game.swift in Sources */,
 				A9DB117A1E15895900B8DA2B /* GameDetailVC.swift in Sources */,
-				A9F4E36D1E1D2B37001169BE /* RatingSystem.swift in Sources */,
-				A95D56C41E0DE7D6008399B2 /* RealmSearchVC.swift in Sources */,
+				A9512E66200853C80063493C /* OperationState.swift in Sources */,
+				A9512E5D200853270063493C /* IGDB.swift in Sources */,
+				A95D56C41E0DE7D6008399B2 /* SearchVC.swift in Sources */,
+				A9512E5E200853270063493C /* IGDBRequest.swift in Sources */,
 				A9D3E34C1E227D0C0036D735 /* FirebaseClient.swift in Sources */,
-				A9F4E3711E1D2B4F001169BE /* Release.swift in Sources */,
 				A9B1FA921E2311D40046B2A3 /* Reachability.swift in Sources */,
-				A9F4E3671E1D2B14001169BE /* Platform.swift in Sources */,
 				A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */,
-				A9F4E36F1E1D2B41001169BE /* Rating.swift in Sources */,
 				A926BDC91E215E8200F67272 /* ReleaseSelectTableVC.swift in Sources */,
 				A9DEC1AE1E15F5280099A14F /* NSDate+ToString.swift in Sources */,
+				A9512E69200853C80063493C /* HTTPMethod.swift in Sources */,
 				A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */,
-				A9F4E36B1E1D2B29001169BE /* Genre.swift in Sources */,
 				A9DEC1B61E1615DB0099A14F /* GenreCellLayout.swift in Sources */,
+				A9512E65200853C80063493C /* ParseOperation.swift in Sources */,
 				A95D56C61E0DEB72008399B2 /* GameSearchTableVC.swift in Sources */,
 				A9DB11771E15770500B8DA2B /* GameCell.swift in Sources */,
 				A9DEC1B91E161B050099A14F /* GenreCell.swift in Sources */,
 				A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */,
 				A9B40CFC1E29D6D000F473D8 /* AppConstants.swift in Sources */,
+				A9512E67200853C80063493C /* FetchOperation.swift in Sources */,
+				A9512E68200853C80063493C /* BaseOperation.swift in Sources */,
 				A9D3E34E1E228C260036D735 /* FirebaseConstants.swift in Sources */,
-				A9F4E3731E1D2B58001169BE /* Region.swift in Sources */,
 				A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,
-				A926BDC11E214CB100F67272 /* RealmClient.swift in Sources */,
-				A926BDC31E214D0800F67272 /* RealmConstants.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,
 				A9E5F3D81E2A885F00797DFC /* UIViewController+Alert.swift in Sources */,
 			);
@@ -740,7 +753,8 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -767,7 +781,8 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -782,7 +797,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Banjo;
 			};
 			name = Debug;
@@ -797,7 +813,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Banjo;
 			};
 			name = Release;
