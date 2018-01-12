@@ -29,7 +29,6 @@
 		4E12D4882009210F004BC116 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4732009210F004BC116 /* GameMode.swift */; };
 		4E12D4892009210F004BC116 /* ReleaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4742009210F004BC116 /* ReleaseDate.swift */; };
 		4E12D48A2009210F004BC116 /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4752009210F004BC116 /* IGDBRequest.swift */; };
-		4E12D48C2009211A004BC116 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48B2009211A004BC116 /* Reachability.swift */; };
 		4E12D49020092121004BC116 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48D20092121004BC116 /* SimpleCache.swift */; };
 		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
@@ -45,7 +44,6 @@
 		A95D56C81E0DFB6C008399B2 /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95D56C71E0DFB6C008399B2 /* StartVC.swift */; };
 		A998969F1E51033800CF0D67 /* BanjoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A998969E1E51033800CF0D67 /* BanjoUITests.swift */; };
 		A99896A71E51053100CF0D67 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99896A61E51053100CF0D67 /* SnapshotHelper.swift */; };
-		A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A99DF74A1E155100009C3091 /* GoogleService-Info.plist */; };
 		A9ADA11F1E16DE7F004968E1 /* String+ToNSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */; };
 		A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */; };
 		A9ADA1261E16E884004968E1 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */; };
@@ -114,7 +112,6 @@
 		4E12D4732009210F004BC116 /* GameMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		4E12D4742009210F004BC116 /* ReleaseDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseDate.swift; sourceTree = "<group>"; };
 		4E12D4752009210F004BC116 /* IGDBRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGDBRequest.swift; sourceTree = "<group>"; };
-		4E12D48B2009211A004BC116 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4E12D48D20092121004BC116 /* SimpleCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCache.swift; sourceTree = "<group>"; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +132,6 @@
 		A998969E1E51033800CF0D67 /* BanjoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjoUITests.swift; sourceTree = "<group>"; };
 		A99896A01E51033800CF0D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A99896A61E51053100CF0D67 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		A99DF74A1E155100009C3091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9ADA11E1E16DE7F004968E1 /* String+ToNSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ToNSDate.swift"; sourceTree = "<group>"; };
 		A9ADA1221E16E4D3004968E1 /* UIColor+HexAndColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+HexAndColors.swift"; sourceTree = "<group>"; };
 		A9ADA1251E16E884004968E1 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
@@ -204,7 +200,8 @@
 		4E12D45C200920A0004BC116 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A9D7432E2009478900B1269A /* IGDBService.swift */,
+				A9D743392009829700B1269A /* Helpers */,
+				A9D743382009828500B1269A /* API */,
 				4E12D4662009210E004BC116 /* AlternativeName.swift */,
 				4E12D46B2009210E004BC116 /* Cover.swift */,
 				4E12D4672009210E004BC116 /* Developer.swift */,
@@ -216,7 +213,6 @@
 				4E12D4722009210F004BC116 /* GamePartial.swift */,
 				4E12D4702009210F004BC116 /* GameRaw.swift */,
 				4E12D4712009210F004BC116 /* Genre.swift */,
-				4E12D4752009210F004BC116 /* IGDBRequest.swift */,
 				4E12D4612009210E004BC116 /* PEGI.swift */,
 				4E12D4632009210E004BC116 /* PEGIRating.swift */,
 				4E12D46A2009210E004BC116 /* Platform.swift */,
@@ -226,19 +222,8 @@
 				4E12D4742009210F004BC116 /* ReleaseDate.swift */,
 				4E12D46D2009210F004BC116 /* Theme.swift */,
 				4E12D46E2009210F004BC116 /* TimeToBeat.swift */,
-				4E12D45E200920B3004BC116 /* Reachability */,
-				4E12D48D20092121004BC116 /* SimpleCache.swift */,
-				A9D74336200962E900B1269A /* BanjoFormatter.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		4E12D45E200920B3004BC116 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				4E12D48B2009211A004BC116 /* Reachability.swift */,
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		A92C2F471D3DE25A001C6E9C = {
@@ -267,10 +252,9 @@
 				A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */,
 				A9B40CFB1E29D6D000F473D8 /* AppConstants.swift */,
 				4E12D45C200920A0004BC116 /* Models */,
-				A9512E64200853C80063493C /* HTTPMethod.swift */,
-				A9512E5F200853C80063493C /* Operations */,
 				A9ADA11D1E16DD72004968E1 /* Views */,
 				A95D56C91E0E080C008399B2 /* Controllers */,
+				A9512E5F200853C80063493C /* Operations */,
 				A9ADA1201E16DF53004968E1 /* Extensions */,
 				A93F2E5E1D43CF55007BCE7B /* Resources */,
 				A93F2E5F1D43CF60007BCE7B /* Supporting Files */,
@@ -281,8 +265,9 @@
 		A93F2E5E1D43CF55007BCE7B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A9ADA1241E16E854004968E1 /* Fonts */,
 				A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */,
+				A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */,
+				A9ADA1241E16E854004968E1 /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -291,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				A951627F1E0D77690056F9E2 /* Banjo.entitlements */,
-				A99DF74A1E155100009C3091 /* GoogleService-Info.plist */,
 				A92C2F5F1D3DE25A001C6E9C /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -311,6 +295,7 @@
 		A95D56C91E0E080C008399B2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9D743292009433900B1269A /* Nibs */,
 				A95D56C71E0DFB6C008399B2 /* StartVC.swift */,
 				A95D56C51E0DEB72008399B2 /* GameSearchVC.swift */,
 				A9D7432C200946F000B1269A /* GameSearchDataSource.swift */,
@@ -332,12 +317,11 @@
 		A9ADA11D1E16DD72004968E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */,
-				A9D743292009433900B1269A /* Controllers */,
+				A9DEC1B51E1615DB0099A14F /* GenreCellLayout.swift */,
+				A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */,
 				A9D743282009430E00B1269A /* Cells */,
 				A9D743272009430000B1269A /* Nibs */,
 				A9F4E3851E1D32EB001169BE /* Storyboards */,
-				A9F4E3841E1D3078001169BE /* Collections */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -382,23 +366,33 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
-		A9D743292009433900B1269A /* Controllers */ = {
+		A9D743292009433900B1269A /* Nibs */ = {
 			isa = PBXGroup;
 			children = (
 				A9D7432A2009435700B1269A /* StartVC.xib */,
 				A9D7433020094C0600B1269A /* GameSearchVC.xib */,
 				A9D74334200950CE00B1269A /* GameDetailVC.xib */,
 			);
-			name = Controllers;
+			name = Nibs;
 			sourceTree = "<group>";
 		};
-		A9F4E3841E1D3078001169BE /* Collections */ = {
+		A9D743382009828500B1269A /* API */ = {
 			isa = PBXGroup;
 			children = (
-				A9DEC1B51E1615DB0099A14F /* GenreCellLayout.swift */,
-				A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */,
+				A9D7432E2009478900B1269A /* IGDBService.swift */,
+				4E12D4752009210F004BC116 /* IGDBRequest.swift */,
 			);
-			name = Collections;
+			path = API;
+			sourceTree = "<group>";
+		};
+		A9D743392009829700B1269A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4E12D48D20092121004BC116 /* SimpleCache.swift */,
+				A9D74336200962E900B1269A /* BanjoFormatter.swift */,
+				A9512E64200853C80063493C /* HTTPMethod.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		A9F4E3851E1D32EB001169BE /* Storyboards */ = {
@@ -523,7 +517,6 @@
 			files = (
 				A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */,
 				A9D7432B2009435700B1269A /* StartVC.xib in Resources */,
-				A99DF74B1E155100009C3091 /* GoogleService-Info.plist in Resources */,
 				A9D74335200950CE00B1269A /* GameDetailVC.xib in Resources */,
 				A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */,
 				A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */,
@@ -631,7 +624,6 @@
 				4E12D4892009210F004BC116 /* ReleaseDate.swift in Sources */,
 				A9DEC1AE1E15F5280099A14F /* NSDate+ToString.swift in Sources */,
 				4E12D47C2009210F004BC116 /* Developer.swift in Sources */,
-				4E12D48C2009211A004BC116 /* Reachability.swift in Sources */,
 				4E12D4812009210F004BC116 /* Region.swift in Sources */,
 				A9512E69200853C80063493C /* HTTPMethod.swift in Sources */,
 				A9ADA1231E16E4D3004968E1 /* UIColor+HexAndColors.swift in Sources */,
