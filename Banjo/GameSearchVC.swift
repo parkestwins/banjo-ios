@@ -35,6 +35,8 @@ class GameSearchVC: UIViewController, NibLoadable {
         gameSearchDataSource.delegate = self
         gamesSearchBar.delegate = self
         
+        gamesTableView.separatorColor = .clear
+        
         gamesTableView.registerCellWithNib(GameCell.self, bundle: Bundle.main)
     }
     
@@ -102,19 +104,10 @@ extension GameSearchVC: UITableViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
         if let controller = storyboard.instantiateViewController(withIdentifier: "GameDetailVC") as? GameDetailVC {
-            
             let game = gameSearchDataSource.games[indexPath.row]
+            controller.gameID = game.id
             
-            IGDBService.shared.load(IGDBRequest.getGameExpanded(game.id), type: [Game].self) { (parse) in
-                guard !parse.isCancelled else { return }
-                
-                if let results = parse.result as? [Game] {
-                    controller.game = results[0]
-                    self.navigationController?.pushViewController(controller, animated: true)
-                } else {
-                    print(parse.error ?? "error is nil!")
-                }
-            }
+            self.navigationController?.pushViewController(controller, animated: true)            
         }
     }
 }

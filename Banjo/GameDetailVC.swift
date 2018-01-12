@@ -14,6 +14,7 @@ class GameDetailVC: UIViewController, NibLoadable {
     
     // MARK: Properties
     
+    var gameID: Int?
     var game: Game?
     let reuseIdentifier = AppConstants.IDs.genreCell
     var sizingCell: GenreCell?
@@ -40,7 +41,22 @@ class GameDetailVC: UIViewController, NibLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupUI()
+        
+        if let gameID = gameID {
+            IGDBService.shared.load(IGDBRequest.getGameExpanded(gameID), type: [Game].self) { (parse) in
+                guard !parse.isCancelled else { return }
+                
+                if let games = parse.result as? [Game] {
+                    self.game = games[0]
+                    self.updateUIForGame(games[0])
+                    self.genreCollectionView.reloadData()
+                } else {
+                    print(parse.error ?? "error is nil!")
+                }
+            }
+        }
     }
     
     @IBAction func backToSearch(_ sender: Any) {
@@ -57,43 +73,37 @@ class GameDetailVC: UIViewController, NibLoadable {
         genreCollectionView.register(genreCellNib, forCellWithReuseIdentifier: reuseIdentifier)
         sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
         detailScrollView.contentInset.bottom = 30
-        
-        setupUIForGame()
     }
     
-    private func setupUIForGame() {
-        if let game = game {
-            
-            // reset image
-            coverLoadingIndicator.startAnimating()
-            coverLoadingIndicator.isHidden = false
-            debugCoverLabel.isHidden = true
-            coverImageView.image = nil
-            
-            developerLabel.text = game.developersString
-            publisherLabel.text = game.publishersString
-            summaryLabel.text = game.summary
-            titleLabel.text = game.name
-            releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
-                        
-            ratingFieldLabel.text = "ESRB Rating"
-            ratingLabel.text = game.esrb.rating.name
-            
-            // FIXME: currently using last game mode to determine player image
-            playersImage.image = game.gameModes[game.gameModes.count - 1].image
-
-            // cover image
-            // FIXME: check cache for image
-            let filePath = game.cover.url as NSString
-            let fileExtension = filePath.pathExtension
-            
-            if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)") {
-                SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
-                    if let image = image {
-                        self.coverImageView.image = image
-                    } else if let error = error {
-                        print(error)
-                    }
+    private func updateUIForGame(_ game: Game) {
+        // reset image
+        coverLoadingIndicator.startAnimating()
+        coverLoadingIndicator.isHidden = false
+        debugCoverLabel.isHidden = true
+        coverImageView.image = nil
+        
+        developerLabel.text = game.developersString
+        publisherLabel.text = game.publishersString
+        summaryLabel.text = game.summary
+        titleLabel.text = game.name
+        releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
+        
+        ratingFieldLabel.text = "ESRB Rating"
+        ratingLabel.text = game.esrb.rating.name
+        
+        // FIXME: currently using last game mode to determine player image
+        playersImage.image = game.gameModes[game.gameModes.count - 1].image
+        
+        // cover image
+        let filePath = game.cover.url as NSString
+        let fileExtension = filePath.pathExtension
+        
+        if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)") {
+            SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
+                if let image = image {
+                    self.coverImageView.image = image
+                } else if let error = error {
+                    print(error)
                 }
             }
         }
