@@ -32,7 +32,6 @@
 		4E12D48C2009211A004BC116 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48B2009211A004BC116 /* Reachability.swift */; };
 		4E12D49020092121004BC116 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48D20092121004BC116 /* FirebaseClient.swift */; };
 		4E12D49120092121004BC116 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48E20092121004BC116 /* FirebaseConstants.swift */; };
-		4E12D49220092121004BC116 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48F20092121004BC116 /* SearchVC.swift */; };
 		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
 		A926BDC61E215A9000F67272 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A926BDC41E215A9000F67272 /* ReleaseCell.swift */; };
 		A926BDC71E215A9000F67272 /* ReleaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A926BDC51E215A9000F67272 /* ReleaseCell.xib */; };
@@ -122,7 +121,6 @@
 		4E12D48B2009211A004BC116 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		4E12D48D20092121004BC116 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		4E12D48E20092121004BC116 /* FirebaseConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
-		4E12D48F20092121004BC116 /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8DE642080E5D68EFC0AF67C2 /* Pods-Banjo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Banjo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Banjo/Pods-Banjo.release.xcconfig"; sourceTree = "<group>"; };
 		A926BDC41E215A9000F67272 /* ReleaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
 		A926BDC51E215A9000F67272 /* ReleaseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReleaseCell.xib; sourceTree = "<group>"; };
@@ -248,7 +246,6 @@
 			children = (
 				4E12D48D20092121004BC116 /* FirebaseClient.swift */,
 				4E12D48E20092121004BC116 /* FirebaseConstants.swift */,
-				4E12D48F20092121004BC116 /* SearchVC.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -670,7 +667,6 @@
 				A9DEC1B61E1615DB0099A14F /* GenreCellLayout.swift in Sources */,
 				4E12D49120092121004BC116 /* FirebaseConstants.swift in Sources */,
 				A9D7433320094F7200B1269A /* UITableView+RegisterNibs.swift in Sources */,
-				4E12D49220092121004BC116 /* SearchVC.swift in Sources */,
 				4E12D48A2009210F004BC116 /* IGDBRequest.swift in Sources */,
 				4E12D4822009210F004BC116 /* Theme.swift in Sources */,
 				A9512E65200853C80063493C /* ParseOperation.swift in Sources */,
@@ -909,7 +905,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Banjo;
 			};
@@ -925,7 +921,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarrodparkes.BanjoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = Banjo;
 			};

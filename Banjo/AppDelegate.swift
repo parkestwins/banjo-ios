@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         FirebaseClient.shared.configure()
 
+        // set global theme options
+        UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = .banjoOrangeRed
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = .white
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         // set main window
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()

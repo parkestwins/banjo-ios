@@ -26,7 +26,9 @@ class GameSearchVC: UIViewController, NibLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(false, animated: true)        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.title = "Search"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-arrow"), style: .plain, target: self, action: #selector(back))
         
         gamesTableView.delegate = self
         gamesTableView.dataSource = gameSearchDataSource
@@ -34,6 +36,12 @@ class GameSearchVC: UIViewController, NibLoadable {
         gamesSearchBar.delegate = self
         
         gamesTableView.registerCellWithNib(GameCell.self, bundle: Bundle.main)
+    }
+    
+    // MARK: Actions
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
     }
 }
 
