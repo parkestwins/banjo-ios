@@ -1,6 +1,6 @@
 //
 //  IGDBRequest.swift
-//  Banjo
+//  ModelExplorer
 //
 //  Created by Jarrod Parkes on 1/8/18.
 //  Copyright © 2018 ParkesTwins. All rights reserved.
@@ -13,7 +13,7 @@ import Foundation
 public enum IGDBRequest {
     case getGame(Int)
     case getGameExpanded(Int)
-    case searchGames
+    case searchGames(String)
     
     public var method: HTTPMethod {
         switch self {
@@ -27,7 +27,7 @@ public enum IGDBRequest {
         case .getGame(let id), .getGameExpanded(let id):
             return "/games/\(id)"
         case .searchGames:
-            return "/games"
+            return "/games/"
         }
     }
     
@@ -73,10 +73,10 @@ public enum IGDBRequest {
     
     public var queryItems: [URLQueryItem] {
         switch self {
-        case .searchGames:
+        case .searchGames(let query):
             return [
-                URLQueryItem(name: "search", value: "mario"),
-                URLQueryItem(name: "filter[platforms][eq]", value: "4"),
+                URLQueryItem(name: "search", value: query),
+                URLQueryItem(name: "filter[platforms][eq]", value: "\(Platform.n64.rawValue)"),
                 URLQueryItem(name: "limit", value: "50"),
                 URLQueryItem(name: "fields", value: "name")
             ]
