@@ -22,15 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UIApplicationDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Fabric.with([Crashlytics.self])
-        FirebaseClient.shared.configure()
-        setupGlobalAppearances()
-        return true
-    }
-    
-    // MARK: Global UI Settings
-    
-    private func setupGlobalAppearances() {
+        // configure dependencies
+        Fabric.with([Crashlytics.self])        
+
+        // set global theme options
         UIApplication.shared.statusBarStyle = .lightContent
+        UINavigationBar.appearance().barTintColor = .banjoOrangeRed
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = .white
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
+        // set main window
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        let startVC = StartVC.loadFromNib(bundle: Bundle.main)
+        let nvc = UINavigationController(rootViewController: startVC)
+        window?.rootViewController = nvc
+        
+        return true
     }
 }

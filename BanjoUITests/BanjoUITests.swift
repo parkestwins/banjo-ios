@@ -26,9 +26,7 @@ class BanjoUITests: XCTestCase {
         let app = XCUIApplication()
         sleep(4)
         snapshot("StartScreen")
-        app.buttons["Search N64 Database..."].tap()
+        app.buttons["searchButton"].tap()
         snapshot("SearchScreen")
-        app.tables.staticTexts["Eurocom / Electronic Arts"].tap()
-        snapshot("DetailScreen")
     }
 }

@@ -1,73 +1,60 @@
-# Customise this file, documentation can be found here:
-# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
-# All available actions: https://docs.fastlane.tools/actions
-# can also be listed using the `fastlane actions` command
-
-# Change the syntax highlighting to Ruby
-# All lines starting with a # are ignored when running `fastlane`
-
-# If you want to automatically update fastlane if a new version is available:
-# update_fastlane
-
-# This is the minimum version number required.
-# Update this, if you use features of a newer version
-fastlane_version "2.14.2"
+fastlane_version "2.69.3"
 
 default_platform :ios
 
 platform :ios do
-  before_all do
-    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+  desc "Install dependencies"
+  lane :bootstrap do
+    bundle install
+    keys
     cocoapods
-
   end
 
-  desc "Runs all the tests"
+  desc "Run tests"
   lane :test do
-    scan
+    cocoapods
+    run_tests(
+      workspace: "Banjo.xcworkspace",
+      scheme: "Banjo",
+      clean: false
+    )
   end
 
-  desc "Submit a new Beta Build to Apple TestFlight"
-  desc "This will also make sure the profile is up to date"
-  lane :beta do
-    match(type: "appstore") # more information: https://codesigning.guide
-    gym(scheme: "Banjo") # Build your app - more options available
-    pilot
+  desc "Generate new certificates"
+  lane :certs do
+    # set readonly to false, if you need to generate new certs
+    match(type: "development", readonly: false)
+    match(type: "adhoc", readonly: false)
+    match(type: "appstore", readonly: false)
+  end
 
-    # sh "your_script.sh"
-    # You can also use other beta testing services here (run `fastlane actions`)
+  desc "Deploy test build using Crashlytics Beta"
+  lane :beta do
+    match(type: 'adhoc', readonly: true)
+
+    gym(
+      workspace: "Banjo.xcworkspace",
+      scheme: "Banjo",
+      export_method: "ad-hoc",
+      export_options: {
+        provisioningProfiles: {
+          "com.ParkesTwins.Banjo" => "match AdHoc com.ParkesTwins.Banjo"
+        }
+      }
+    )
+
+    crashlytics(
+      api_token: "b987616e1a3e27c4bda7906d4c30b13800145ce8",
+      build_secret: "dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d"
+    )
+
+    upload_symbols_to_crashlytics
   end
 
   desc "Deploy a new version to the App Store"
   lane :release do
     match(type: "appstore")
-    # snapshot
-    gym(scheme: "Banjo") # Build your app - more options available
+    gym(scheme: "Banjo")
     deliver(force: true)
-    # frameit
-  end
-
-  # You can define as many lanes as you want
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
-  end
-
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
   end
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://docs.fastlane.tools/actions
-
-# fastlane reports which actions are used
-# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
