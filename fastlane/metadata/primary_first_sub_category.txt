@@ -1,1 +1,1 @@
-MZGenre.Educational
+MZGenre.Trivia
