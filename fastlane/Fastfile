@@ -23,9 +23,9 @@ platform :ios do
   desc "Generate new certificates"
   lane :certs do
     # set readonly to false, if you need to generate new certs
-    match(type: "development", readonly: false)
-    match(type: "adhoc", readonly: false)
-    match(type: "appstore", readonly: false)
+    match(type: "development", readonly: false, force: true)
+    match(type: "adhoc", readonly: false, force: true)
+    match(type: "appstore", readonly: false, force: true)
   end
 
   desc "Deploy test build using Crashlytics Beta"
