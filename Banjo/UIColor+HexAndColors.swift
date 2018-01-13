@@ -22,7 +22,7 @@ extension UIColor {
             cString.remove(at: cString.startIndex)
         }
         
-        if cString.characters.count != 6 {
+        if cString.count != 6 {
             self.init(red: 128.0/255.0, green: 128.0/255.0, blue: 128.0/255.0, alpha: 1.0)
         } else {
             var rgbHex: UInt32 = 0
@@ -36,6 +36,10 @@ extension UIColor {
 // MARK: - UIColor (Banjo Color Palette)
 
 extension UIColor {
+    
+    @nonobjc class var banjoSlate: UIColor {
+        return UIColor(red: 68.0 / 255.0, green: 68.0 / 255.0, blue: 68.0 / 255.0, alpha: 1.0)
+    }
     
     @nonobjc class var banjoOrangeRed: UIColor {
         return UIColor(red: 254.0 / 255.0, green: 56.0 / 255.0, blue: 36.0 / 255.0, alpha: 1.0)

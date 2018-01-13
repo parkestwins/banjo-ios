@@ -10,37 +10,34 @@ xcode-select --install
 
 ## Choose your installation method:
 
-<table width="100%" >
-<tr>
-<th width="33%"><a href="http://brew.sh">Homebrew</a></td>
-<th width="33%">Installer Script</td>
-<th width="33%">Rubygems</td>
-</tr>
-<tr>
-<td width="33%" align="center">macOS</td>
-<td width="33%" align="center">macOS</td>
-<td width="33%" align="center">macOS or Linux with Ruby 2.0.0 or above</td>
-</tr>
-<tr>
-<td width="33%"><code>brew cask install fastlane</code></td>
-<td width="33%"><a href="https://download.fastlane.tools/fastlane.zip">Download the zip file</a>. Then double click on the <code>install</code> script (or run it in a terminal window).</td>
-<td width="33%"><code>sudo gem install fastlane -NV</code></td>
-</tr>
-</table>
+| Method                     | OS support                              | Description                                                                                                                           |
+|----------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| [Homebrew](http://brew.sh) | macOS                                   | `brew cask install fastlane`                                                                                                          |
+| Installer Script           | macOS                                   | [Download the zip file](https://download.fastlane.tools). Then double click on the `install` script (or run it in a terminal window). |
+| RubyGems                   | macOS or Linux with Ruby 2.0.0 or above | `sudo gem install fastlane -NV`                                                                                                       |
+
 # Available Actions
 ## iOS
+### ios bootstrap
+```
+fastlane ios bootstrap
+```
+Install dependencies
 ### ios test
 ```
 fastlane ios test
 ```
-Runs all the tests
+Run tests
+### ios certs
+```
+fastlane ios certs
+```
+Generate new certificates
 ### ios beta
 ```
 fastlane ios beta
 ```
-Submit a new Beta Build to Apple TestFlight
-
-This will also make sure the profile is up to date
+Deploy test build using Crashlytics Beta
 ### ios release
 ```
 fastlane ios release

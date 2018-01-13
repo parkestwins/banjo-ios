@@ -4,7 +4,7 @@
 
 ![Platform iOS](https://img.shields.io/badge/platform-iOS-blue.svg)
 
-Banjo is a searchable [Nintendo 64 (N64)](https://en.wikipedia.org/wiki/Nintendo_64) game index. Find every title for the N64 console and view its releases across different regions like Japan, Europe, and Australia.
+Banjo is a searchable [Nintendo 64 (N64)](https://en.wikipedia.org/wiki/Nintendo_64) game index.
 
 ## Setup
 
@@ -24,43 +24,32 @@ Banjo is split into 4 major views:
 
 ### 1. Start View
 
-The app begins here. On load, Banjo will sync and initialize the N64 game database so that you can use the application. If the sync is successful, then you can continue forward to the next view by tapping the “Search N64 Database…” button.
+The app begins here. Tap the middle button to begin searching.
 
 ### 2. Game Search View
 
-In this view, you can search the library of N64 games by title. Tapping one of the rows (a game) will transition you to its detail view.
+In this view, you can search the library of N64 games by title. Tapping a row (name of a game) will transition you to its detail view.
 
 ### 3. Game Detail View
 
-This view displays details for a N64 game. By default, the information shown will be for the game’s US release or first release by date, but by tapping on the region code in the upper right-hand corner, you can select other releases of the same game — assuming it had multiple releases.
-
-For any release, the following information is shown if it is present in the database:
+This view displays details for a N64 game. For any game, the following information is shown if it is present in IGDB's database:
 
 - box cover art
 - release title
 - genres
-- number of players supported
-- developer
-- publisher
+- game mode (single, cooperative, multiplayer, split screen, massive multiplayer online)
+- developers
+- publishers
 - rating (ex. [ESRB](http://www.esrb.org))
 - summary
 
-### 4. Release Selection View
-
-Certain N64 games were released multiple times in different regions or with special designations like “Player’s Choice” or “Collector’s Edition”. On this view, you can select between a game’s releases and be automatically re-directed to the **Game Detail View** to see its corresponding information.
-
 ## Dependencies
 
-- [Realm](https://realm.io)
-- [Firebase](https://firebase.google.com)
+See `Podfile`.
 
 ## Credits
 
-- Diep Nguyen Hoang 
+- Diep Nguyen Hoang
   - [`UICollectionViewFlowLayout` “tag flow” layout](https://github.com/luceefer/TagFlowExample)
-- Geppy Parziale
-  - [Swift 3 reachability example](http://www.invasivecode.com/weblog/network-reachability-in-swift)
-- Adam Fish
-  - [Swift 2 Realm search controller](https://github.com/bigfish24/ABFRealmSearchViewController)
 - Arshad Chummun
   - [`UIColor` from hex string example](https://gist.github.com/arshad/de147c42d7b3063ef7bc)
