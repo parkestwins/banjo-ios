@@ -29,8 +29,7 @@ class GameDetailVC: UIViewController, NibLoadable {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var ratingFieldLabel: UILabel!
-    @IBOutlet weak var developerFieldLabel: UILabel!
-    @IBOutlet weak var debugCoverLabel: UILabel!    
+    @IBOutlet weak var developerFieldLabel: UILabel!     
     @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!    
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playersImage: UIImageView!
@@ -79,8 +78,6 @@ class GameDetailVC: UIViewController, NibLoadable {
         // reset image
         coverLoadingIndicator.startAnimating()
         coverLoadingIndicator.isHidden = false
-        debugCoverLabel.isHidden = true
-        coverImageView.image = nil
         
         developerLabel.text = game.developersString
         publisherLabel.text = game.publishersString
@@ -97,15 +94,22 @@ class GameDetailVC: UIViewController, NibLoadable {
         // cover image
         let filePath = game.cover.url as NSString
         let fileExtension = filePath.pathExtension
-        
+                
         if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)") {
             SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
+                self.coverLoadingIndicator.stopAnimating()
+                self.coverLoadingIndicator.isHidden = true
+                
                 if let image = image {
                     self.coverImageView.image = image
-                } else if let error = error {
-                    print(error)
+                } else if let _ = error {
+                    self.coverImageView.image = #imageLiteral(resourceName: "no-cover")
                 }
             }
+        } else {
+            coverLoadingIndicator.stopAnimating()
+            coverLoadingIndicator.isHidden = true
+            self.coverImageView.image = #imageLiteral(resourceName: "no-cover")
         }
     }
 }
