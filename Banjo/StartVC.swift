@@ -15,8 +15,15 @@ class StartVC: UIViewController, NibLoadable {
     // MARK: Outlets
     
     @IBOutlet weak var searchGamesButton: UIButton!
+    @IBOutlet weak var searchImageView: UIImageView!
     
     // MARK: Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchImageView.tintColor = .white
+        searchImageView.alpha = 0.70
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

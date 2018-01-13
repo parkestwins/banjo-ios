@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartVC" customModule="Banjo" customModuleProvider="target">
             <connections>
                 <outlet property="searchGamesButton" destination="98q-08-OQv" id="qgw-xU-fDR"/>
+                <outlet property="searchImageView" destination="hbO-d5-BZx" id="Mex-oe-vDA"/>
                 <outlet property="view" destination="srb-uu-L7t" id="Wof-uc-zRf"/>
             </connections>
         </placeholder>
@@ -51,12 +52,12 @@
                         <action selector="searchTapped:" destination="-1" eventType="touchUpInside" id="azy-YC-uls"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="hbO-d5-BZx">
-                    <rect key="frame" x="289" y="361.5" width="24" height="24"/>
-                    <color key="tintColor" white="1" alpha="0.74732592279999999" colorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="hbO-d5-BZx">
+                    <rect key="frame" x="284" y="357.5" width="32" height="32"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="4rS-rM-mYo"/>
-                        <constraint firstAttribute="height" constant="24" id="jop-PX-Drd"/>
+                        <constraint firstAttribute="width" constant="32" id="4rS-rM-mYo"/>
+                        <constraint firstAttribute="height" constant="32" id="jop-PX-Drd"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App powered by IGDB." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBa-WH-g7k">
@@ -71,7 +72,7 @@
                 <constraint firstItem="oBa-WH-g7k" firstAttribute="top" secondItem="98q-08-OQv" secondAttribute="bottom" constant="30" id="2TN-5W-HcQ"/>
                 <constraint firstItem="98q-08-OQv" firstAttribute="centerY" secondItem="srb-uu-L7t" secondAttribute="centerY" constant="40" id="5hO-yW-S69"/>
                 <constraint firstItem="98q-08-OQv" firstAttribute="centerX" secondItem="srb-uu-L7t" secondAttribute="centerX" id="7Ne-4g-ZrZ"/>
-                <constraint firstItem="hbO-d5-BZx" firstAttribute="leading" secondItem="98q-08-OQv" secondAttribute="trailing" constant="-35" id="NTV-RJ-6jq"/>
+                <constraint firstItem="hbO-d5-BZx" firstAttribute="leading" secondItem="98q-08-OQv" secondAttribute="trailing" constant="-40" id="NTV-RJ-6jq"/>
                 <constraint firstItem="fQC-Wf-J7c" firstAttribute="centerY" secondItem="srb-uu-L7t" secondAttribute="centerY" constant="-80" id="OBB-DZ-eaT"/>
                 <constraint firstItem="hbO-d5-BZx" firstAttribute="centerY" secondItem="98q-08-OQv" secondAttribute="centerY" id="W5k-Ek-vwi"/>
                 <constraint firstItem="oBa-WH-g7k" firstAttribute="centerX" secondItem="98q-08-OQv" secondAttribute="centerX" id="mZh-wC-Jlf"/>
@@ -82,7 +83,7 @@
         </view>
     </objects>
     <resources>
-        <image name="search" width="22" height="22"/>
+        <image name="search" width="24" height="24"/>
         <image name="splash" width="109" height="133"/>
     </resources>
 </document>

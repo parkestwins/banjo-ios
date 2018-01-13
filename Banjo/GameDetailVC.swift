@@ -90,6 +90,7 @@ class GameDetailVC: UIViewController, NibLoadable {
         
         // FIXME: currently using last game mode to determine player image
         playersImage.image = game.gameModes[game.gameModes.count - 1].image
+        playersImage.tintColor = .banjoSlate
         
         // cover image
         let filePath = game.cover.url as NSString
