@@ -30,13 +30,21 @@ struct Game: Codable {
     
     var developersString: String {
         return developers.reduce("") { (result, developer) -> String in
-            return result + (developer.name ?? "")
+            if result == "" {
+                return result + (developer.name ?? "")
+            } else {
+                return result + ", " + (developer.name ?? "")
+            }            
         }
     }
     
     var publishersString: String {
         return publishers.reduce("") { (result, publisher) -> String in
-            return result + (publisher.name ?? "")
+            if result == "" {
+                return result + (publisher.name ?? "")
+            } else {
+                return result + ", " + (publisher.name ?? "")
+            }
         }
     }
     
