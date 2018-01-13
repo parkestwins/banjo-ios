@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49DAE18D907922C548110233 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D108B7DFEA0F6DFA9D54C256 /* CoreVideo.framework */; };
 		4E12D4762009210F004BC116 /* PEGI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4612009210E004BC116 /* PEGI.swift */; };
 		4E12D4772009210F004BC116 /* ESRB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4622009210E004BC116 /* ESRB.swift */; };
 		4E12D4782009210F004BC116 /* PEGIRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4632009210E004BC116 /* PEGIRating.swift */; };
@@ -30,7 +29,6 @@
 		4E12D4892009210F004BC116 /* ReleaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4742009210F004BC116 /* ReleaseDate.swift */; };
 		4E12D48A2009210F004BC116 /* IGDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D4752009210F004BC116 /* IGDBRequest.swift */; };
 		4E12D49020092121004BC116 /* SimpleCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E12D48D20092121004BC116 /* SimpleCache.swift */; };
-		9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F95771E88568428DF7A17C /* AssetsLibrary.framework */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
 		A92C2F591D3DE25A001C6E9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F571D3DE25A001C6E9C /* Main.storyboard */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
@@ -69,13 +67,7 @@
 		A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DEC1B81E161B050099A14F /* GenreCell.xib */; };
 		A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DEC1BB1E161E8D0099A14F /* GenreCollectionView.swift */; };
 		A9E5F3D81E2A885F00797DFC /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E5F3D71E2A885F00797DFC /* UIViewController+Alert.swift */; };
-		AB2ED0299DF82E1D51B3C68F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D47CEC8B50E6FE4A9B8CE10 /* CoreMedia.framework */; };
-		BD19E786F03D6646D7858B81 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC783976688C16D66D56CA4 /* CoreTelephony.framework */; };
-		C87E3E4C98BDFE7D66D5BCB9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3502A90CC5EA3FC53311B96 /* AVFoundation.framework */; };
-		C88931C1ECF1B64B439A2045 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F2C09307D96BFDAF189D80 /* QuartzCore.framework */; };
 		D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31E939D4066D1CF8ACB71EA4 /* Pods_Banjo.framework */; };
-		F60A87111746E5A6F26EA2E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38BF04CF1222D38E89BAED01 /* SystemConfiguration.framework */; };
-		FB2C413DAD5044450039F5DD /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3464AFD716B0CBD0F17489D6 /* CoreText.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,14 +165,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D90BE0F86A5449FFE7486167 /* Pods_Banjo.framework in Frameworks */,
-				9BEDDECDEE247C46A654B292 /* AssetsLibrary.framework in Frameworks */,
-				FB2C413DAD5044450039F5DD /* CoreText.framework in Frameworks */,
-				BD19E786F03D6646D7858B81 /* CoreTelephony.framework in Frameworks */,
-				F60A87111746E5A6F26EA2E0 /* SystemConfiguration.framework in Frameworks */,
-				C88931C1ECF1B64B439A2045 /* QuartzCore.framework in Frameworks */,
-				C87E3E4C98BDFE7D66D5BCB9 /* AVFoundation.framework in Frameworks */,
-				AB2ED0299DF82E1D51B3C68F /* CoreMedia.framework in Frameworks */,
-				49DAE18D907922C548110233 /* CoreVideo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
