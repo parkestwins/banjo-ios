@@ -55,6 +55,6 @@ platform :ios do
   lane :release do
     match(type: "appstore")
     gym(scheme: "Banjo")
-    deliver(force: true)
+    deliver(force: true)    
   end
 end
