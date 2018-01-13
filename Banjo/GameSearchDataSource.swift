@@ -16,16 +16,16 @@ protocol GameSearchDataSourceDelegate {
     func gameSearchDataSource(_ gameSearchDataSource: GameSearchDataSource, didFailWithError error: Error)
 }
 
-// MARK: - GameSearchDataSource: NSObject
+// MARK: - GameSearchDataSource: NSObject, BaseTableDataSource
 
-class GameSearchDataSource: NSObject {
+class GameSearchDataSource: BaseTableDataSource {
     
     // MARK: Properties
     
     var games = [GamePartial]()
     var delegate: GameSearchDataSourceDelegate?
     
-    // MARK: Get
+    // MARK: Fetch List
     
     func fetchList(forQuery query: String) {
         IGDBService.shared.load(IGDBRequest.searchGames(query), type: [GamePartial].self) { (parse) in
@@ -33,6 +33,13 @@ class GameSearchDataSource: NSObject {
             
             if let results = parse.result as? [GamePartial] {
                 self.games = results
+                
+                if self.games.count == 0 {
+                    self.state = .empty
+                } else {
+                    self.state = .normal
+                }
+                
                 self.delegate?.gameSearchDataSourceDidFetchGames(gameSearchDataSource: self)
             } else {
                 if let error = parse.error {
@@ -50,24 +57,37 @@ class GameSearchDataSource: NSObject {
     func cancelSearch() {
         IGDBService.shared.cancelSearch()
     }
-}
-
-// MARK: - GameSearchDataSource: UITableViewDataSource
-
-extension GameSearchDataSource: UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+    // MARK: BaseTableDataSource
+    
+    override func dataSourceNumberOfRowsInSection(in tableView: UITableView) -> Int {
+        switch state {
+        case .normal, .ready:
+            return games.count
+        case .empty:
+            return 1
+        case .error, .loading:
+            return 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func dataSourceTableView(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GameCell = tableView.dequeueReusableCellFromNib(forIndexPath: indexPath)
         
         let game = games[indexPath.row]
         cell.titleLabel.text = game.name
         let dateString = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
         cell.releaseDateLabel.text = dateString
+        cell.nextImageView.image = #imageLiteral(resourceName: "right")
         
+        return cell
+    }
+    
+    override func dataSourceTableView(_ tableView: UITableView, emptyCellForItemAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: EmptyCell = tableView.dequeueReusableCellFromNib(forIndexPath: indexPath)
+        
+        cell.messageLabel.text = "Start by searching for a game..."
+                
         return cell
     }
 }

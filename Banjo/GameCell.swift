@@ -16,4 +16,5 @@ class GameCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!    
+    @IBOutlet weak var nextImageView: UIImageView!
 }

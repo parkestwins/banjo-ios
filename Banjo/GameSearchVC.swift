@@ -32,12 +32,12 @@ class GameSearchVC: UIViewController, NibLoadable {
         
         gamesTableView.delegate = self
         gamesTableView.dataSource = gameSearchDataSource
-        gameSearchDataSource.delegate = self
-        gamesSearchBar.delegate = self
-        
         gamesTableView.separatorColor = .clear
-        
         gamesTableView.registerCellWithNib(GameCell.self, bundle: Bundle.main)
+        gamesTableView.registerCellWithNib(EmptyCell.self, bundle: Bundle.main)
+        gameSearchDataSource.delegate = self
+        gameSearchDataSource.state = .empty
+        gamesSearchBar.delegate = self
     }
     
     // MARK: Actions
@@ -56,6 +56,7 @@ extension GameSearchVC: UISearchBarDelegate {
         // if query is empty, then we are done
         if searchText == "" {
             gameSearchDataSource.games = []
+            gameSearchDataSource.state = .empty
             gamesTableView?.reloadData()
             return
         }
@@ -97,7 +98,12 @@ extension GameSearchVC: UIGestureRecognizerDelegate {
 extension GameSearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65.0
+        switch gameSearchDataSource.state {
+        case .empty:
+            return 45.0
+        default:
+            return 65.0
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
