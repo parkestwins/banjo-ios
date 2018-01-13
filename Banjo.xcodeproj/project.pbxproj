@@ -813,8 +813,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "69266705-ac35-4a1a-81bf-8c57f96cb2f5";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.ParkesTwins.Banjo 1486950964";
+				PROVISIONING_PROFILE = "74d359d9-29b6-4fd3-a225-eac0502132e3";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.ParkesTwins.Banjo";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
@@ -842,8 +842,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ParkesTwins.Banjo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2a1a148d-12b1-41a8-97e1-fdedf7a22e3a";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.ParkesTwins.Banjo";
+				PROVISIONING_PROFILE = "e1ee7c2d-99fc-4654-ae88-24e9cf659c2f";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.ParkesTwins.Banjo";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
