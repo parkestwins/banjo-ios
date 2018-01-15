@@ -23,8 +23,8 @@ enum GameMode: Int, Codable {
         case .single: return #imageLiteral(resourceName: "single")
         case .multi: return #imageLiteral(resourceName: "multi")
         case .coop: return #imageLiteral(resourceName: "coop")
-        case .splitScreen: return #imageLiteral(resourceName: "coop")
-        case .mmo: return #imageLiteral(resourceName: "multi")
+        case .splitScreen: return #imageLiteral(resourceName: "splitscreen")
+        case .mmo: return #imageLiteral(resourceName: "mmo")
         }
     }
 }
