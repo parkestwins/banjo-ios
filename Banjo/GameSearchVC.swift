@@ -39,6 +39,7 @@ class GameSearchVC: UIViewController, NibLoadable {
         gameSearchDataSource.state = .empty
         gamesSearchBar.delegate = self
         gamesSearchBar.autocapitalizationType = .none
+        gamesSearchBar.placeholder = "Search query..."
     }
     
     // MARK: Actions

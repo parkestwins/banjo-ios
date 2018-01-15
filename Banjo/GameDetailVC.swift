@@ -81,37 +81,46 @@ class GameDetailVC: UIViewController, NibLoadable {
         
         developerLabel.text = game.developersString
         publisherLabel.text = game.publishersString
-        summaryLabel.text = game.summary
+        summaryLabel.text = game.summary ?? "Summary does not exist."
         titleLabel.text = game.name
         releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
         
         ratingFieldLabel.text = "ESRB Rating"
-        ratingLabel.text = game.esrb.rating.name
+        ratingLabel.text = game.esrb?.rating.name ?? "N/A"
         
         // FIXME: currently using last game mode to determine player image
-        playersImage.image = game.gameModes[game.gameModes.count - 1].image
+        if let gameModes = game.gameModes {
+            playersImage.image = gameModes[gameModes.count - 1].image
+        } else {
+            playersImage.image = #imageLiteral(resourceName: "single")
+        }
         playersImage.tintColor = .banjoSlate
         
         // cover image
-        let filePath = game.cover.url as NSString
-        let fileExtension = filePath.pathExtension
-                
-        if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(game.cover.cloudinaryID).\(fileExtension)") {
-            SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
-                self.coverLoadingIndicator.stopAnimating()
-                self.coverLoadingIndicator.isHidden = true
-                
-                if let image = image {
-                    self.coverImageView.image = image
-                } else if let _ = error {
-                    self.coverImageView.image = #imageLiteral(resourceName: "no-cover")
+        if let cover = game.cover {
+            let filePath = cover.url as NSString
+            let fileExtension = filePath.pathExtension
+            
+            if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(cover.cloudinaryID).\(fileExtension)") {
+                SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
+                    if let image = image {
+                        self.setCoverImage(image)
+                    } else if let _ = error {
+                        self.setCoverImage(#imageLiteral(resourceName: "no-cover"))
+                    }
                 }
+            } else {
+                setCoverImage(#imageLiteral(resourceName: "no-cover"))
             }
         } else {
-            coverLoadingIndicator.stopAnimating()
-            coverLoadingIndicator.isHidden = true
-            self.coverImageView.image = #imageLiteral(resourceName: "no-cover")
+            setCoverImage(#imageLiteral(resourceName: "no-cover"))
         }
+    }
+    
+    private func setCoverImage(_ image: UIImage) {
+        coverLoadingIndicator.stopAnimating()
+        coverLoadingIndicator.isHidden = true
+        coverImageView.image = image
     }
 }
 
@@ -125,7 +134,7 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let game = game {
-            return game.genres.count
+            return game.genres?.count ?? 0
         } else {
             return 0
         }
@@ -138,8 +147,8 @@ extension GameDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
-        if let game = game {
-            let genre = game.genres[indexPath.row]
+        if let game = game, let genres = game.genres {
+            let genre = genres[indexPath.row]
             switch(indexPath.row) {
             case 0:
                 genreCell.backgroundColor = .banjoFern

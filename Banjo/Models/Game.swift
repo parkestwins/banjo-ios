@@ -13,22 +13,24 @@ import Foundation
 struct Game: Codable {
     let id: Int
     let name: String
-    let summary: String
-    let category: GameCategory
-    //let playerPerspectives: [PlayerPerspective]
-    let gameModes: [GameMode]
-    let developers: [Developer]
-    let publishers: [Publisher]
-    let genres: [Genre]
-    //let themes: [Theme]
+    let summary: String?
+    let category: GameCategory?
+    let playerPerspectives: [PlayerPerspective]?
+    let gameModes: [GameMode]?
+    let developers: [Developer]?
+    let publishers: [Publisher]?
+    let genres: [Genre]?
+    let themes: [Theme]?
     let firstReleaseDate: Int
-    let releaseDates: [ReleaseDate]
-    //let screenshots: [Cover]
-    let cover: Cover
-    let esrb: ESRB
-    //let pegi: PEGI
+    let releaseDates: [ReleaseDate]?
+    let screenshots: [Cover]?
+    let cover: Cover?
+    let esrb: ESRB?
+    let pegi: PEGI?
     
     var developersString: String {
+        guard let developers = developers else { return "N/A" }
+        
         return developers.reduce("") { (result, developer) -> String in
             if result == "" {
                 return result + (developer.name ?? "")
@@ -39,6 +41,8 @@ struct Game: Codable {
     }
     
     var publishersString: String {
+        guard let publishers = publishers else { return "N/A" }
+        
         return publishers.reduce("") { (result, publisher) -> String in
             if result == "" {
                 return result + (publisher.name ?? "")
@@ -53,17 +57,17 @@ struct Game: Codable {
         case name
         case summary
         case category
-        //case playerPerspectives = "player_perspectives"
+        case playerPerspectives = "player_perspectives"
         case gameModes = "game_modes"
         case developers
         case publishers
-        //case themes
+        case themes
         case genres
         case firstReleaseDate = "first_release_date"
         case releaseDates = "release_dates"
-        //case screenshots
+        case screenshots
         case cover
         case esrb
-        //case pegi
+        case pegi
     }        
 }
