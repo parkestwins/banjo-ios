@@ -85,8 +85,8 @@ extension GameDetailCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let game = game else { return 0 }
-        return game.genres?.count ?? 0
+        guard let game = game, let genreCount = game.genres?.count else { return 0 }        
+        return genreCount > 3 ? 3 : genreCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
