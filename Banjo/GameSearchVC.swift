@@ -120,7 +120,7 @@ extension GameSearchVC: UITableViewDelegate {
         
         let game = gameSearchDataSource.games[indexPath.row]
         
-        let gameDetailVC = GameDetailCollectionVC(collectionViewLayout: UICollectionViewFlowLayout.defaultLayout())
+        let gameDetailVC = GameDetailCollectionVC(collectionViewLayout: UICollectionViewFlowLayout.oneColumnStretchLayout())
         gameDetailVC.gameID = game.id
         
         self.navigationController?.pushViewController(gameDetailVC, animated: true)

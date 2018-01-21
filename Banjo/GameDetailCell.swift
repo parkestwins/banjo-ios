@@ -29,7 +29,8 @@ class GameDetailCell: BaseCollectionCell {
     @IBOutlet weak var ratingFieldLabel: UILabel!
     @IBOutlet weak var developerFieldLabel: UILabel!
     @IBOutlet weak var playersImage: UIImageView!
-    @IBOutlet weak var genreCollectionView: UICollectionView!
+    @IBOutlet weak var genreCollectionView: UICollectionView!    
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     // MARK: NSObject
     

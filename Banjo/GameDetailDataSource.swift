@@ -81,6 +81,7 @@ class GameDetailDataSource: BaseCollectionDataSource {
         
         guard let game = game else { return cell }
         
+        cell.widthConstraint.constant = collectionView.bounds.width - 16
         cell.developerLabel.text = game.developersString
         cell.publisherLabel.text = game.publishersString
         cell.summaryLabel.text = game.summary ?? "Summary does not exist."
