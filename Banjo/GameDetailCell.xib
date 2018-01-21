@@ -61,10 +61,10 @@
                                 <edgeInsets key="layoutMargins" top="10" left="28" bottom="10" right="28"/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="x3C-Zl-z7i" customClass="GenreCollectionView" customModule="Banjo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="79" width="273" height="60"/>
+                                <rect key="frame" x="0.0" y="79" width="273" height="80"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="GK0-1I-0ea"/>
+                                    <constraint firstAttribute="height" constant="80" id="GK0-1I-0ea"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="rfG-kQ-TXS">
                                     <size key="itemSize" width="101" height="24"/>
@@ -75,7 +75,7 @@
                                 <cells/>
                             </collectionView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="RuJ-RI-zty">
-                                <rect key="frame" x="0.0" y="151" width="273" height="16"/>
+                                <rect key="frame" x="0.0" y="171" width="273" height="16"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="[Summary]" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhQ-wY-jih">
                                         <rect key="frame" x="28" y="0.0" width="217" height="16"/>
@@ -86,7 +86,7 @@
                                 <edgeInsets key="layoutMargins" top="0.0" left="28" bottom="0.0" right="28"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0w8-Wy-fYG">
-                                <rect key="frame" x="0.0" y="179" width="273" height="135"/>
+                                <rect key="frame" x="0.0" y="199" width="273" height="135"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5sD-gw-dzy">
                                         <rect key="frame" x="28" y="18" width="106" height="94"/>
@@ -156,7 +156,7 @@
                                 <edgeInsets key="layoutMargins" top="18" left="28" bottom="23" right="28"/>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxx-uE-oBy">
-                                <rect key="frame" x="0.0" y="326" width="273" height="26"/>
+                                <rect key="frame" x="0.0" y="346" width="273" height="6"/>
                             </view>
                         </subviews>
                         <constraints>

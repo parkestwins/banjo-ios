@@ -14,7 +14,11 @@ class GameDetailCell: BaseCollectionCell {
     
     // MARK: Properties
     
-    var game: Game?
+    var game: Game? = nil {
+        didSet {
+            genreCollectionView.reloadData()
+        }
+    }
     var sizingCell: GenreCell?
     
     // MARK: Outlets
@@ -34,25 +38,15 @@ class GameDetailCell: BaseCollectionCell {
     
     // MARK: NSObject
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        //contentView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
                         
-//        genreCollectionView.alwaysBounceHorizontal = true
-//        genreCollectionView.dataSource = self
-//        genreCollectionView.delegate = self
-//        genreCollectionView.backgroundColor = UIColor.clear
-        
-//        let genreCellNib = UINib(nibName: AppConstants.Nibs.genreCell, bundle: nil)
-//        let genreCellLayout = GenreCellLayout()
-//        genreCellLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        genreCollectionView.collectionViewLayout = genreCellLayout
-//        genreCollectionView.registerCellWithNib(GenreCell.self, bundle: Bundle.main)
-//        sizingCell = (genreCellNib.instantiate(withOwner: nil, options: nil) as NSArray).firstObject as! GenreCell?
+        genreCollectionView.alwaysBounceHorizontal = true
+        genreCollectionView.dataSource = self
+        genreCollectionView.delegate = self
+        genreCollectionView.backgroundColor = UIColor.clear
+        genreCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        genreCollectionView.registerCellWithNib(GenreCell.self, bundle: Bundle.main)
     }
     
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
@@ -75,35 +69,29 @@ class GameDetailCell: BaseCollectionCell {
     }
 }
 
-//// MARK: - GameDetailCell: UICollectionViewDelegate
-//
-//extension GameDetailCell: UICollectionViewDelegate {}
-//
-//// MARK: - GameDetailCell: UICollectionViewDelegateFlowLayout
-//
-//extension GameDetailCell: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        configureCell(genreCell: sizingCell!, forIndexPath: indexPath)
-//        return sizingCell!.systemLayoutSizeFitting(UILayoutFittingCompressedSize)
-//    }
-//}
-//
-//// MARK: - GameDetailCell: UICollectionViewDataSource
-//
-//extension GameDetailCell: UICollectionViewDataSource {
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 1
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        guard let game = game else { return 0 }
-//        return game.genres?.count ?? 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell: GenreCell = genreCollectionView.dequeueReusableCellFromNib(forIndexPath: indexPath)
-//        configureCell(genreCell: cell, forIndexPath: indexPath)
-//        return cell
-//    }
-//}
+// MARK: - GameDetailCell: UICollectionViewDelegate
 
+extension GameDetailCell: UICollectionViewDelegate {}
+
+// MARK: - GameDetailCell: UICollectionViewDelegateFlowLayout
+
+extension GameDetailCell: UICollectionViewDelegateFlowLayout {}
+
+// MARK: - GameDetailCell: UICollectionViewDataSource
+
+extension GameDetailCell: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let game = game else { return 0 }
+        return game.genres?.count ?? 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: GenreCell = genreCollectionView.dequeueReusableCellFromNib(forIndexPath: indexPath)
+        configureCell(genreCell: cell, forIndexPath: indexPath)
+        return cell
+    }
+}

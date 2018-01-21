@@ -81,6 +81,7 @@ class GameDetailDataSource: BaseCollectionDataSource {
         
         guard let game = game else { return cell }
         
+        cell.game = game
         cell.widthConstraint.constant = collectionView.bounds.width - 16
         cell.developerLabel.text = game.developersString
         cell.publisherLabel.text = game.publishersString
