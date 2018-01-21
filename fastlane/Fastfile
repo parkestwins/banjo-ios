@@ -45,7 +45,9 @@ platform :ios do
 
     crashlytics(
       api_token: "b987616e1a3e27c4bda7906d4c30b13800145ce8",
-      build_secret: "dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d"
+      build_secret: "dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d",
+      groups: ['parkestwins'],      
+      notifications: true
     )
 
     upload_symbols_to_crashlytics
@@ -55,6 +57,6 @@ platform :ios do
   lane :release do
     match(type: "appstore")
     gym(scheme: "Banjo")
-    deliver(force: true)    
+    deliver(force: true)
   end
 end

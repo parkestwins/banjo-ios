@@ -1,11 +1,9 @@
 //
 //  GenreCell.swift
+//  Banjo
 //
-//  Created by Diep Nguyen Hoang on 7/30/15.
-//  Copyright © 2015 CodenTrick. All rights reserved.
-//  github.com/luceefer/TagFlowExample
-//
-//  Modified by Jarrod Parkes on 12/23/16.
+//  Created by Jarrod Parkes on 1/12/18.
+//  Copyright © 2018 ParkesTwins. All rights reserved.
 //
 
 import UIKit

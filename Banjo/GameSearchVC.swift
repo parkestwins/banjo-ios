@@ -109,13 +109,20 @@ extension GameSearchVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//
+//        if let controller = storyboard.instantiateViewController(withIdentifier: "GameDetailVC") as? GameDetailVC {
+//            let game = gameSearchDataSource.games[indexPath.row]
+//            controller.gameID = game.id
+//
+//            self.navigationController?.pushViewController(controller, animated: true)
+//        }
         
-        if let controller = storyboard.instantiateViewController(withIdentifier: "GameDetailVC") as? GameDetailVC {
-            let game = gameSearchDataSource.games[indexPath.row]
-            controller.gameID = game.id
-            
-            self.navigationController?.pushViewController(controller, animated: true)            
-        }
+        let game = gameSearchDataSource.games[indexPath.row]
+        
+        let gameDetailVC = GameDetailCollectionVC(collectionViewLayout: UICollectionViewFlowLayout.defaultLayout())
+        gameDetailVC.gameID = game.id
+        
+        self.navigationController?.pushViewController(gameDetailVC, animated: true)
     }
 }

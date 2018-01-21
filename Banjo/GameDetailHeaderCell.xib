@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cJH-l1-gdh" customClass="GameDetailHeaderCell" customModule="Banjo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="g56-Tl-IAf">
+                        <rect key="frame" x="117" y="95" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-YB-b2y">
+                        <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A19-k5-x3T">
+                                <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="FJz-YB-b2y" firstAttribute="leading" secondItem="cJH-l1-gdh" secondAttribute="leading" id="BQS-Dz-Hyl"/>
+                <constraint firstItem="FJz-YB-b2y" firstAttribute="top" secondItem="cJH-l1-gdh" secondAttribute="top" id="Hnv-Vs-ZIA"/>
+                <constraint firstItem="g56-Tl-IAf" firstAttribute="centerY" secondItem="7TU-9h-8ce" secondAttribute="centerY" id="J1q-Yf-h19"/>
+                <constraint firstAttribute="bottom" secondItem="FJz-YB-b2y" secondAttribute="bottom" id="abr-yy-PFM"/>
+                <constraint firstAttribute="trailing" secondItem="FJz-YB-b2y" secondAttribute="trailing" id="b58-ui-x8W"/>
+                <constraint firstItem="g56-Tl-IAf" firstAttribute="centerX" secondItem="7TU-9h-8ce" secondAttribute="centerX" id="e1I-jz-uQ0"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="7TU-9h-8ce"/>
+            <size key="customSize" width="254" height="210"/>
+            <connections>
+                <outlet property="coverImageView" destination="A19-k5-x3T" id="Ofc-T1-HAg"/>
+                <outlet property="coverLoadingIndicator" destination="g56-Tl-IAf" id="Ecf-ft-OmB"/>
+            </connections>
+            <point key="canvasLocation" x="-20" y="87"/>
+        </collectionViewCell>
+    </objects>
+</document>

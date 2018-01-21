@@ -9,16 +9,6 @@
 import UIKit
 import Foundation
 
-// MARK: - DataSourceState
-
-enum DataSourceState {
-    case ready
-    case empty
-    case normal
-    case loading
-    case error
-}
-
 // MARK: - BaseTableDataSource: NSObject, UITableViewDataSource
 
 class BaseTableDataSource: NSObject, UITableViewDataSource {
