@@ -1,5 +1,5 @@
 //
-//  Cover.swift
+//  IGDBImage.swift
 //  ModelExplorer
 //
 //  Created by James Parkes on 1/12/18.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-// MARK: - Cover: Codable
+// MARK: - IGDBImage: Codable
 
-struct Cover: Codable {
+struct IGDBImage: Codable {
     let url: String
     let cloudinaryID: String
     let width: Int

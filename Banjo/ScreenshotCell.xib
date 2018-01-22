@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ldF-4h-zqb" customClass="ScreenshotCell" customModule="Banjo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7cD-ZI-gDq">
+                        <rect key="frame" x="117" y="95" width="20" height="20"/>
+                    </activityIndicatorView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fk5-dJ-yCT">
+                        <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Usf-fT-ibe">
+                                <rect key="frame" x="0.0" y="0.0" width="254" height="210"/>
+                            </imageView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Fk5-dJ-yCT" secondAttribute="trailing" id="Gcw-AY-RcA"/>
+                <constraint firstItem="7cD-ZI-gDq" firstAttribute="centerX" secondItem="cvn-7w-fqi" secondAttribute="centerX" id="NZQ-tJ-giW"/>
+                <constraint firstAttribute="bottom" secondItem="Fk5-dJ-yCT" secondAttribute="bottom" id="cZC-on-cxU"/>
+                <constraint firstItem="7cD-ZI-gDq" firstAttribute="centerY" secondItem="cvn-7w-fqi" secondAttribute="centerY" id="dXB-wE-2u5"/>
+                <constraint firstItem="Fk5-dJ-yCT" firstAttribute="top" secondItem="ldF-4h-zqb" secondAttribute="top" id="eDe-2h-7pe"/>
+                <constraint firstItem="Fk5-dJ-yCT" firstAttribute="leading" secondItem="ldF-4h-zqb" secondAttribute="leading" id="lkn-Tu-pbc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="cvn-7w-fqi"/>
+            <size key="customSize" width="254" height="210"/>
+            <connections>
+                <outlet property="imageView" destination="Usf-fT-ibe" id="VCA-pK-xMK"/>
+                <outlet property="loadingIndicator" destination="7cD-ZI-gDq" id="pfU-Gn-bhL"/>
+            </connections>
+            <point key="canvasLocation" x="-20" y="87"/>
+        </collectionViewCell>
+    </objects>
+</document>

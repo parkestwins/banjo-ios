@@ -23,8 +23,8 @@ struct Game: Codable {
     let themes: [Theme]?
     let firstReleaseDate: Int
     let releaseDates: [ReleaseDate]?
-    let screenshots: [Cover]?
-    let cover: Cover?
+    let screenshots: [IGDBImage]?
+    let cover: IGDBImage?
     let esrb: ESRB?
     let pegi: PEGI?
     

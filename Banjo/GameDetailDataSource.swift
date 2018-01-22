@@ -51,29 +51,19 @@ class GameDetailDataSource: BaseCollectionDataSource {
         if let cover = game.cover {
             let filePath = cover.url as NSString
             let fileExtension = filePath.pathExtension
-            
-            if let coverURL = URL(string: "https://images.igdb.com/igdb/image/upload/\(cover.cloudinaryID).\(fileExtension)") {
-                SimpleCache.shared.getImage(withURL: coverURL) { (image, error) in
-                    if let image = image {
-                        self.setCoverImageForCell(header, image: image)
-                    } else if let _ = error {
-                        self.setCoverImageForCell(header, image: #imageLiteral(resourceName: "no-cover"))
-                    }
-                }
-            } else {
-                self.setCoverImageForCell(header, image: #imageLiteral(resourceName: "no-cover"))
-            }
+            let urlString = "https://images.igdb.com/igdb/image/upload/t_cover_big_2x/\(cover.cloudinaryID).\(fileExtension)"
+            header.coverImageView.imageFromCache(urlString)
         } else {
-            self.setCoverImageForCell(header, image: #imageLiteral(resourceName: "no-cover"))
-        }        
+            setCoverImageForCell(header, image: #imageLiteral(resourceName: "no-cover"))
+        }
         
         return header
     }
     
-    private func setCoverImageForCell(_ header: GameDetailHeaderCell, image: UIImage) {
+    func setCoverImageForCell(_ header: GameDetailHeaderCell, image: UIImage) {
+        header.coverImageView.image = image
         header.coverLoadingIndicator.stopAnimating()
         header.coverLoadingIndicator.isHidden = true
-        header.coverImageView.image = image
     }
     
     override func dataSourceCollectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

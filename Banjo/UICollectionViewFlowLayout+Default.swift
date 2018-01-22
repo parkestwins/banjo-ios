@@ -28,5 +28,17 @@ extension UICollectionViewFlowLayout {
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 8, 0)
         return flowLayout
     }
+    
+    static func screenshotLayout() -> UICollectionViewFlowLayout {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal        
+        flowLayout.itemSize = CGSize(
+            width: 200,
+            height: 150
+        )
+        
+        flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 8, 0)
+        return flowLayout
+    }
 }
 

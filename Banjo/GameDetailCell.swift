@@ -19,7 +19,7 @@ class GameDetailCell: BaseCollectionCell {
             genreCollectionView.reloadData()
         }
     }
-    var sizingCell: GenreCell?
+    let screenshotDataSource = ScreenshotDataSource()
     
     // MARK: Outlets
     
@@ -35,18 +35,23 @@ class GameDetailCell: BaseCollectionCell {
     @IBOutlet weak var playersImage: UIImageView!
     @IBOutlet weak var genreCollectionView: UICollectionView!    
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var screenshotCollectionView: ScreenshotCollectionView!
+    
+    
     
     // MARK: NSObject
     
     override func layoutSubviews() {
         super.layoutSubviews()
-                        
-        genreCollectionView.alwaysBounceHorizontal = true
+        
         genreCollectionView.dataSource = self
         genreCollectionView.delegate = self
-        genreCollectionView.backgroundColor = UIColor.clear
-        genreCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        genreCollectionView.registerCellWithNib(GenreCell.self, bundle: Bundle.main)
+        screenshotCollectionView.dataSource = screenshotDataSource
+        screenshotCollectionView.collectionViewLayout = UICollectionViewFlowLayout.screenshotLayout()
+        if let game = game {
+            screenshotDataSource.game = game
+            screenshotCollectionView.reloadData()
+        }
     }
     
     func configureCell(genreCell: GenreCell, forIndexPath indexPath: IndexPath) {
@@ -85,7 +90,7 @@ extension GameDetailCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let game = game, let genreCount = game.genres?.count else { return 0 }        
+        guard let game = game, let genreCount = game.genres?.count else { return 0 }
         return genreCount > 3 ? 3 : genreCount
     }
 

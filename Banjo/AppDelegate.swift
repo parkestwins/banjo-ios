@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import Kingfisher
 
 // MARK: - AppDelegate: UIResponder, UIApplicationDelegate
 
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // configure dependencies
         Fabric.with([Crashlytics.self])        
 
+        // setup image cache
+        ImageCache.default.maxCachePeriodInSecond = 60 * 60 * 24 * 3 // 3 days
+        
         // set global theme options
         UIApplication.shared.statusBarStyle = .lightContent
         UINavigationBar.appearance().barTintColor = .banjoOrangeRed

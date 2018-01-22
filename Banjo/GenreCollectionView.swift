@@ -25,5 +25,9 @@ class GenreCollectionView: UICollectionView {
         if bounds.size != intrinsicContentSize {
             invalidateIntrinsicContentSize()
         }
+        alwaysBounceHorizontal = true
+        backgroundColor = UIColor.clear
+        contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        registerCellWithNib(GenreCell.self, bundle: Bundle.main)
     }
 }

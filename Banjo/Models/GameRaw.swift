@@ -45,8 +45,8 @@ struct GameRaw: Codable {
     let platforms: [Platform]
     let releaseDates: [ReleaseDate]
     let alternativeNames: [AlternativeName]
-    let screenshots: [Cover]
-    let cover: Cover
+    let screenshots: [IGDBImage]
+    let cover: IGDBImage
     let esrb: ESRB
     let pegi: PEGI
     
