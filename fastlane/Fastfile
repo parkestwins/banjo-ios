@@ -51,6 +51,7 @@ platform :ios do
       api_token: "b987616e1a3e27c4bda7906d4c30b13800145ce8",
       build_secret: "dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d",
       groups: ['parkestwins'],
+      notes: "Added screenshots to game detail view.",
       notifications: true
     )
 
