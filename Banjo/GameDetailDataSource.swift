@@ -79,10 +79,9 @@ class GameDetailDataSource: BaseCollectionDataSource {
         cell.summaryLabel.numberOfLines = 0
         cell.titleLabel.text = game.name
         cell.releaseDateLabel.text = BanjoFormatter.shared.formatDateFromTimeIntervalSince1970(value: game.firstReleaseDate)
-
         cell.ratingFieldLabel.text = "ESRB Rating"
         cell.ratingLabel.text = game.esrb?.rating.name ?? "N/A"
-
+        
         // FIXME: currently using last game mode to determine player image
         if let gameModes = game.gameModes {
             cell.playersImage.image = gameModes[gameModes.count - 1].image
@@ -90,6 +89,11 @@ class GameDetailDataSource: BaseCollectionDataSource {
             cell.playersImage.image = #imageLiteral(resourceName: "single")
         }
         cell.playersImage.tintColor = .banjoSlate
+        
+        guard let _ = game.screenshots else {
+            cell.screenshotCollectionView.isHidden = true
+            return cell
+        }
         
         return cell
     }

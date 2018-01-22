@@ -37,8 +37,6 @@ class GameDetailCell: BaseCollectionCell {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var screenshotCollectionView: ScreenshotCollectionView!
     
-    
-    
     // MARK: NSObject
     
     override func layoutSubviews() {
@@ -48,9 +46,10 @@ class GameDetailCell: BaseCollectionCell {
         genreCollectionView.delegate = self
         screenshotCollectionView.dataSource = screenshotDataSource
         screenshotCollectionView.collectionViewLayout = UICollectionViewFlowLayout.screenshotLayout()
+        
         if let game = game {
             screenshotDataSource.game = game
-            screenshotCollectionView.reloadData()
+            screenshotCollectionView.reloadData()                        
         }
     }
     
