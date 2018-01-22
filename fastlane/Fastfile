@@ -1,8 +1,12 @@
-fastlane_version "2.69.3"
+fastlane_version "2.77.1"
 
 default_platform :ios
 
 platform :ios do
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+
   desc "Install dependencies"
   lane :bootstrap do
     bundle install
@@ -46,11 +50,13 @@ platform :ios do
     crashlytics(
       api_token: "b987616e1a3e27c4bda7906d4c30b13800145ce8",
       build_secret: "dd6830628db07bc1ae61e1294b337f9b9926d2afe4b1d5c60d72496f8a88629d",
-      groups: ['parkestwins'],      
+      groups: ['parkestwins'],
       notifications: true
     )
 
     upload_symbols_to_crashlytics
+
+    slack(message: "Uploaded new #{bundleID} build to Crashlytics Beta.")
   end
 
   desc "Deploy a new version to the App Store"
