@@ -23,6 +23,7 @@ class StartVC: UIViewController, NibLoadable {
         super.viewDidLoad()
         searchImageView.tintColor = .white
         searchImageView.alpha = 0.70
+        searchGamesButton.accessibilityIdentifier = "searchButton"
     }
     
     override func viewWillAppear(_ animated: Bool) {

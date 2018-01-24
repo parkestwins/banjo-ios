@@ -40,6 +40,7 @@ class GameSearchVC: UIViewController, NibLoadable {
         gamesSearchBar.delegate = self
         gamesSearchBar.autocapitalizationType = .none
         gamesSearchBar.placeholder = "Search query..."
+        gamesSearchBar.accessibilityIdentifier = "searchBar"        
     }
     
     // MARK: Actions

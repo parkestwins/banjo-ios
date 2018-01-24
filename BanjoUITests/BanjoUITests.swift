@@ -24,9 +24,22 @@ class BanjoUITests: XCTestCase {
     
     func testTakeScreens() {
         let app = XCUIApplication()
-        sleep(4)
+        sleep(1)
+        
+        // start screen
         snapshot("StartScreen")
-        app.buttons["searchButton"].tap()
+        let searchButton = app.buttons["searchButton"]
+        searchButton.tap()
+        
+        // search screen
         snapshot("SearchScreen")
+        let searchBar = app.otherElements["searchBar"]
+        searchBar.tap()
+        searchBar.typeText("Mario")
+        
+        sleep(2)
+        
+        // search query
+        snapshot("SearchQuery")
     }
 }
