@@ -68,7 +68,18 @@ platform :ios do
   desc "Deploy a new version to the App Store"
   lane :release do
     match(type: "appstore")
-    gym(scheme: "Banjo")
+
+    gym(
+      workspace: "Banjo.xcworkspace",
+      scheme: "Banjo",
+      export_method: "appstore",
+      export_options: {
+        provisioningProfiles: {
+          "com.ParkesTwins.Banjo" => "match AppStore com.ParkesTwins.Banjo"
+        }
+      }
+    )
+
     deliver(force: true)
   end
 end
