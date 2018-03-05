@@ -9,14 +9,8 @@ platform :ios do
 
   desc "Install dependencies"
   lane :bootstrap do
-    bundle install
-    keys
-    cocoapods
-  end
-
-  desc "Test lane for Spur demonstration"
-  lane :spur do
-    snapshot
+    bundle_install
+    cocoapods(clean: true)
   end
 
   desc "Run tests"

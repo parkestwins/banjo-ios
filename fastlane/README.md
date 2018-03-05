@@ -21,11 +21,6 @@ or alternatively using `brew cask install fastlane`
 fastlane ios bootstrap
 ```
 Install dependencies
-### ios spur
-```
-fastlane ios spur
-```
-Test lane for Spur demonstration
 ### ios test
 ```
 fastlane ios test
