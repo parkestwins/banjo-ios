@@ -1,5 +1,5 @@
 //
-//  ScreenshotDataSource.swift
+//  ScreenshotDS.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/21/18.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-// MARK: - ScreenshotDataSource: BaseCollectionDataSource
+// MARK: - ScreenshotDS: BaseCollectionDS
 
-class ScreenshotDataSource: BaseCollectionDataSource {
+class ScreenshotDS: BaseCollectionDS {
     
     // MARK: Properties
     
     var game: Game?
     
-    // MARK: BaseCollectionDataSource
+    // MARK: BaseCollectionDS
     
     override func reload(completion: @escaping (AnyObject?) -> (), error: @escaping (Error?) -> ()) {}
     

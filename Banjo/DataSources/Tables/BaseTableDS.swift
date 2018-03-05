@@ -1,5 +1,5 @@
 //
-//  BaseTableDataSource.swift
+//  BaseTableDS.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/12/18.
@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-// MARK: - BaseTableDataSource: NSObject, UITableViewDataSource
+// MARK: - BaseTableDS: NSObject, UITableViewDataSource
 
-class BaseTableDataSource: NSObject, UITableViewDataSource {
+class BaseTableDS: NSObject, UITableViewDataSource {
     
     // MARK: Properties
     

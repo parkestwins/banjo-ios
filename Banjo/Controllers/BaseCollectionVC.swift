@@ -14,7 +14,7 @@ public class BaseCollectionVC: UICollectionViewController {
     
     // MARK: Properties
     
-    var dataSource = BaseCollectionDataSource() {
+    var dataSource = BaseCollectionDS() {
         didSet {
             setupCollectionView()
         }

@@ -17,4 +17,3 @@ class GameDetailHeaderCell: BaseCollectionCell {
     @IBOutlet weak var coverLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var coverImageView: UIImageView!
 }
-

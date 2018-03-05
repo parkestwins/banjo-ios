@@ -14,7 +14,7 @@ class GameSearchVC: UIViewController, NibLoadable {
     
     // MARK: Properties
     
-    let gameSearchDataSource = GameSearchDataSource()
+    let gameSearchDataSource = GameSearchDS()
     
     // MARK: Outlets
     
@@ -76,14 +76,14 @@ extension GameSearchVC: UISearchBarDelegate {
     }
 }
 
-// MARK: - GameSearchVC: GameSearchDataSourceDelegate
+// MARK: - GameSearchVC: GameSearchDSDelegate
 
-extension GameSearchVC: GameSearchDataSourceDelegate {
-    func gameSearchDataSourceDidFetchGames(gameSearchDataSource: GameSearchDataSource) {
+extension GameSearchVC: GameSearchDSDelegate {
+    func gameSearchDataSourceDidFetchGames(gameSearchDataSource: GameSearchDS) {
         gamesTableView.reloadData()
     }
     
-    func gameSearchDataSource(_ gameSearchDataSource: GameSearchDataSource, didFailWithError error: Error) {
+    func gameSearchDataSource(_ gameSearchDataSource: GameSearchDS, didFailWithError error: Error) {
         displayAlert(title: "Error", message: error.localizedDescription, dismissHandler: nil)
     }
 }

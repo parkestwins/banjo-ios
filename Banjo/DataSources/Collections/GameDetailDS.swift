@@ -1,5 +1,5 @@
 //
-//  GameDetailDataSource.swift
+//  GameDetailDS.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/21/18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-// MARK: - GameDetailDataSource: BaseCollectionDataSource
+// MARK: - GameDetailDS: BaseCollectionDS
 
-class GameDetailDataSource: BaseCollectionDataSource {
+class GameDetailDS: BaseCollectionDS {
     
     // MARK: Properties
     
@@ -18,7 +18,7 @@ class GameDetailDataSource: BaseCollectionDataSource {
     var game: Game?
     var gameDetailCell: GameDetailCell?
     
-    // MARK: BaseCollectionDataSource
+    // MARK: BaseCollectionDS
     
     override func reload(completion: @escaping (AnyObject?) -> (), error: @escaping (Error?) -> ()) {
         guard let gameID = gameID else { return }

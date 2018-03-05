@@ -21,7 +21,7 @@ class GameDetailCollectionVC: BaseCollectionVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let gameDetailDataSource = GameDetailDataSource()        
+        let gameDetailDataSource = GameDetailDS()        
         if let gameID = gameID {
             gameDetailDataSource.gameID = gameID            
         }

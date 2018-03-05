@@ -19,7 +19,7 @@ class GameDetailCell: BaseCollectionCell {
             genreCollectionView.reloadData()
         }
     }
-    let screenshotDataSource = ScreenshotDataSource()
+    let screenshotDataSource = ScreenshotDS()
     
     // MARK: Outlets
     

@@ -1,5 +1,5 @@
 //
-//  GameSearchDataSource.swift
+//  GameSearchDS.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/12/18.
@@ -9,21 +9,21 @@
 import Foundation
 import UIKit
 
-// MARK: - GameSearchDataSourceDelegate
+// MARK: - GameSearchDSDelegate
 
-protocol GameSearchDataSourceDelegate {
-    func gameSearchDataSourceDidFetchGames(gameSearchDataSource: GameSearchDataSource)
-    func gameSearchDataSource(_ gameSearchDataSource: GameSearchDataSource, didFailWithError error: Error)
+protocol GameSearchDSDelegate {
+    func gameSearchDataSourceDidFetchGames(gameSearchDataSource: GameSearchDS)
+    func gameSearchDataSource(_ gameSearchDataSource: GameSearchDS, didFailWithError error: Error)
 }
 
-// MARK: - GameSearchDataSource: NSObject, BaseTableDataSource
+// MARK: - GameSearchDS: NSObject, BaseTableDS
 
-class GameSearchDataSource: BaseTableDataSource {
+class GameSearchDS: BaseTableDS {
     
     // MARK: Properties
     
     var games = [GamePartial]()
-    var delegate: GameSearchDataSourceDelegate?
+    var delegate: GameSearchDSDelegate?
     
     // MARK: Fetch List
     
@@ -58,7 +58,7 @@ class GameSearchDataSource: BaseTableDataSource {
         IGDBService.shared.cancelSearch()
     }
     
-    // MARK: BaseTableDataSource
+    // MARK: BaseTableDS
     
     override func dataSourceNumberOfRowsInSection(in tableView: UITableView) -> Int {
         switch state {

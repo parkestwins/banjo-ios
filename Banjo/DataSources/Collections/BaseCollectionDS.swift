@@ -1,5 +1,5 @@
 //
-//  BaseCollectionDataSource.swift
+//  BaseCollectionDS.swift
 //  Banjo
 //
 //  Created by Jarrod Parkes on 1/21/18.
@@ -19,9 +19,9 @@ enum DataSourceState {
     case error
 }
 
-// MARK: - BaseCollectionDataSource: NSObject, UICollectionViewDataSource
+// MARK: - BaseCollectionDS: NSObject, UICollectionViewDataSource
 
-class BaseCollectionDataSource: NSObject, UICollectionViewDataSource {
+class BaseCollectionDS: NSObject, UICollectionViewDataSource {
     
     // MARK: Properties
     
