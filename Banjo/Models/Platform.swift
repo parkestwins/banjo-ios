@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Platform: Int, Codable
 
-enum Platform: Int, Codable {
+public enum Platform: Int, Codable {
     case linux = 3
     case n64
     case wii

@@ -13,7 +13,7 @@ import Foundation
 public enum IGDBRequest {
     case getGame(Int)
     case getGameExpanded(Int)
-    case searchGames(String)
+    case searchGames(String, Platform, Region)
     
     public var method: HTTPMethod {
         switch self {
@@ -73,11 +73,11 @@ public enum IGDBRequest {
     
     public var queryItems: [URLQueryItem] {
         switch self {
-        case .searchGames(let query):
+        case .searchGames(let query, let platform, let region):
             return [
                 URLQueryItem(name: "search", value: query),
-                URLQueryItem(name: "filter[platforms][eq]", value: "\(Platform.n64.rawValue)"),
-                URLQueryItem(name: "filter[release_dates.region][anyi]", value: "\(Region.northAmerica.rawValue)"),
+                URLQueryItem(name: "filter[platforms][eq]", value: "\(platform.rawValue)"),
+                URLQueryItem(name: "filter[release_dates.region][anyi]", value: "\(region.rawValue)"),
                 URLQueryItem(name: "filter[esrb][exists]", value: ""),
                 URLQueryItem(name: "limit", value: "50"),
                 URLQueryItem(name: "fields", value: "name,first_release_date")

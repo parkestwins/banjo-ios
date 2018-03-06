@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Region: Int, Codable
 
-enum Region: Int, Codable {
+public enum Region: Int, Codable {
     case europe = 1
     case northAmerica
     case australia

@@ -24,7 +24,7 @@ class ContentFC: RootViewFC {
     let services: Services
     var childFCs: [FlowCoordinator] = []
     var rootViewController: UIViewController { return navigationController }
-    weak var delegate: ContentFCDelegate?
+    var delegate: ContentFCDelegate?
     
     private lazy var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -43,6 +43,7 @@ class ContentFC: RootViewFC {
     func start() {
         let gameSearchVC = GameSearchVC.loadFromNib(bundle: Bundle.main)
         gameSearchVC.delegate = self
+        gameSearchVC.dataSource = GameSearchDS(platform: .n64)
         navigationController.viewControllers = [gameSearchVC]
     }
 }

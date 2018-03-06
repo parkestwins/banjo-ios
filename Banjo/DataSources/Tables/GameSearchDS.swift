@@ -24,11 +24,18 @@ class GameSearchDS: BaseTableDS {
     
     var games = [GamePartial]()
     var delegate: GameSearchDSDelegate?
+    let platform: Platform
+    
+    // MARK: Initializer
+    
+    init(platform: Platform) {
+        self.platform = platform
+    }
     
     // MARK: Fetch List
     
     func fetchList(forQuery query: String) {
-        IGDBService.shared.load(IGDBRequest.searchGames(query), type: [GamePartial].self) { (parse) in
+        IGDBService.shared.load(IGDBRequest.searchGames(query, platform, .northAmerica), type: [GamePartial].self) { (parse) in
             guard !parse.isCancelled else { return }
             
             if let results = parse.result as? [GamePartial] {

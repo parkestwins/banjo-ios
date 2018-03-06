@@ -22,7 +22,7 @@ class GameSearchVC: UIViewController, NibLoadable {
     // MARK: Properties
     
     var delegate: GameSearchVCDelegate?
-    let gameSearchDataSource = GameSearchDS()
+    var dataSource: GameSearchDS! = nil
     
     // MARK: Outlets
     
@@ -39,12 +39,12 @@ class GameSearchVC: UIViewController, NibLoadable {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-arrow"), style: .plain, target: self, action: #selector(back))
         
         gamesTableView.delegate = self
-        gamesTableView.dataSource = gameSearchDataSource
+        gamesTableView.dataSource = dataSource
         gamesTableView.separatorColor = .clear
         gamesTableView.registerCellWithNib(GameCell.self, bundle: Bundle.main)
         gamesTableView.registerCellWithNib(EmptyCell.self, bundle: Bundle.main)
-        gameSearchDataSource.delegate = self
-        gameSearchDataSource.state = .empty
+        dataSource.delegate = self
+        dataSource.state = .empty
         gamesSearchBar.delegate = self
         gamesSearchBar.autocapitalizationType = .none
         gamesSearchBar.placeholder = "Search query..."
@@ -66,17 +66,17 @@ extension GameSearchVC: UISearchBarDelegate {
         
         // if query is empty, then we are done
         if searchText == "" {
-            gameSearchDataSource.games = []
-            gameSearchDataSource.state = .empty
+            dataSource.games = []
+            dataSource.state = .empty
             gamesTableView?.reloadData()
             return
         }
         
         // if the search is still running, then cancel all the operations on the queue
-        gameSearchDataSource.cancelSearch()
+        dataSource.cancelSearch()
         
         // start new search
-        gameSearchDataSource.fetchList(forQuery: searchText)
+        dataSource.fetchList(forQuery: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -109,7 +109,7 @@ extension GameSearchVC: UIGestureRecognizerDelegate {
 extension GameSearchVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch gameSearchDataSource.state {
+        switch dataSource.state {
         case .empty:
             return 45.0
         default:
@@ -118,7 +118,7 @@ extension GameSearchVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let game = gameSearchDataSource.games[indexPath.row]        
+        let game = dataSource.games[indexPath.row]        
         delegate?.gameSearchVCDidSelectGame(gameSearchVC: self, game: game)
     }
 }
