@@ -13,11 +13,11 @@ import Foundation
 struct ReleaseDate: Codable {
     let category: GameCategory
     let platform: Platform
-    let date: Int
+    let date: Int?
     let region: Region?
     let human: String
-    let year: Int
-    let month: Int
+    let year: Int?
+    let month: Int?
     
     enum CodingKeys: String, CodingKey {
         case category

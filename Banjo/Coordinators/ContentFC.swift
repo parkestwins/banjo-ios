@@ -41,10 +41,28 @@ class ContentFC: RootViewFC {
     // MARK: FlowCoordinator
     
     func start() {
+        let platformVC = PlatformVC(style: .plain)
+        platformVC.delegate = self
+        navigationController.viewControllers = [platformVC]
+    }
+    
+    func showGameSearchVCWithPlatform(_ platform: Platform) {
         let gameSearchVC = GameSearchVC.loadFromNib(bundle: Bundle.main)
         gameSearchVC.delegate = self
-        gameSearchVC.dataSource = GameSearchDS(platform: .n64)
-        navigationController.viewControllers = [gameSearchVC]
+        gameSearchVC.dataSource = GameSearchDS(platform: platform)
+        navigationController.pushViewController(gameSearchVC, animated: true)
+    }
+}
+
+// MARK: - ContentFC: PlatformVCDelegate
+
+extension ContentFC: PlatformVCDelegate {
+    func platformVCDidTapDismiss(platformVC: PlatformVC) {
+        delegate?.contentFCDidTapDismiss(contentFC: self)
+    }
+    
+    func platformVCDidSelectPlatform(platformVC: PlatformVC, platform: Platform) {
+        showGameSearchVCWithPlatform(platform)
     }
 }
 
@@ -52,7 +70,7 @@ class ContentFC: RootViewFC {
 
 extension ContentFC: GameSearchVCDelegate {
     func gameSearchVCDidTapDismiss(gameSearchVC: GameSearchVC) {
-        delegate?.contentFCDidTapDismiss(contentFC: self)
+        navigationController.popViewController(animated: true)
     }
     
     func gameSearchVCDidSelectGame(gameSearchVC: GameSearchVC, game: GamePartial) {

@@ -54,6 +54,10 @@
 		A9208AB2204E0DBA007435F7 /* AppFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208AAF204E0DBA007435F7 /* AppFC.swift */; };
 		A9208AB3204E0DBA007435F7 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208AB0204E0DBA007435F7 /* FlowCoordinator.swift */; };
 		A9208AB5204E0E6D007435F7 /* ContentFC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208AB4204E0E6D007435F7 /* ContentFC.swift */; };
+		A9208AB7204E1B1F007435F7 /* PlatformVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208AB6204E1B1F007435F7 /* PlatformVC.swift */; };
+		A9208AB9204E1B65007435F7 /* PlatformDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208AB8204E1B65007435F7 /* PlatformDS.swift */; };
+		A9208ABB204E1C11007435F7 /* PlatformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9208ABA204E1C11007435F7 /* PlatformCell.swift */; };
+		A9208ABD204E1C4B007435F7 /* PlatformCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9208ABC204E1C4A007435F7 /* PlatformCell.xib */; };
 		A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */; };
 		A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */; };
 		A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */; };
@@ -157,6 +161,10 @@
 		A9208AAF204E0DBA007435F7 /* AppFC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFC.swift; sourceTree = "<group>"; };
 		A9208AB0204E0DBA007435F7 /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		A9208AB4204E0E6D007435F7 /* ContentFC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFC.swift; sourceTree = "<group>"; };
+		A9208AB6204E1B1F007435F7 /* PlatformVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformVC.swift; sourceTree = "<group>"; };
+		A9208AB8204E1B65007435F7 /* PlatformDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformDS.swift; sourceTree = "<group>"; };
+		A9208ABA204E1C11007435F7 /* PlatformCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCell.swift; sourceTree = "<group>"; };
+		A9208ABC204E1C4A007435F7 /* PlatformCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlatformCell.xib; sourceTree = "<group>"; };
 		A92C2F501D3DE25A001C6E9C /* Banjo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banjo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92C2F531D3DE25A001C6E9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -342,6 +350,7 @@
 				A95D56C71E0DFB6C008399B2 /* StartVC.swift */,
 				A95D56C51E0DEB72008399B2 /* GameSearchVC.swift */,
 				A9014BA12014FCCE00387268 /* GameDetailVC.swift */,
+				A9208AB6204E1B1F007435F7 /* PlatformVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 			children = (
 				A9D7433A2009865900B1269A /* BaseTableDS.swift */,
 				A9D7432C200946F000B1269A /* GameSearchDS.swift */,
+				A9208AB8204E1B65007435F7 /* PlatformDS.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -419,6 +429,7 @@
 			children = (
 				A9DB11751E15770500B8DA2B /* GameCell.swift */,
 				A9D7433C2009899600B1269A /* EmptyCell.swift */,
+				A9208ABA204E1C11007435F7 /* PlatformCell.swift */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -443,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				A94709A7204CE156009E625B /* Fonts */,
+				A9208ABC204E1C4A007435F7 /* PlatformCell.xib */,
 				A9DEC1B81E161B050099A14F /* GenreCell.xib */,
 				A9DB11761E15770500B8DA2B /* GameCell.xib */,
 				A9D7433E2009899E00B1269A /* EmptyCell.xib */,
@@ -624,6 +636,7 @@
 				A9D7432B2009435700B1269A /* StartVC.xib in Resources */,
 				A9D74335200950CE00B1269A /* GameDetailVC.xib in Resources */,
 				A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */,
+				A9208ABD204E1C4B007435F7 /* PlatformCell.xib in Resources */,
 				A9014B972014FA7D00387268 /* ErrorCollectionCell.xib in Resources */,
 				A9DB11781E15770500B8DA2B /* GameCell.xib in Resources */,
 				A9DEC1BA1E161B050099A14F /* GenreCell.xib in Resources */,
@@ -739,6 +752,7 @@
 				A9512E66200853C80063493C /* OperationState.swift in Sources */,
 				A9014B9D2014FB8C00387268 /* UICollectionView+RegisterNibs.swift in Sources */,
 				4E12D4852009210F004BC116 /* GameRaw.swift in Sources */,
+				A9208ABB204E1C11007435F7 /* PlatformCell.swift in Sources */,
 				4E12D4882009210F004BC116 /* GameMode.swift in Sources */,
 				A918A8A6201559930064630E /* ScreenshotCollectionView.swift in Sources */,
 				A9D74326200942E900B1269A /* UIViewController+NibLoadable.swift in Sources */,
@@ -768,6 +782,7 @@
 				A9014B912014F97500387268 /* BaseCollectionDS.swift in Sources */,
 				A9014B9F2014FBCB00387268 /* EmptyCollectionCell.swift in Sources */,
 				A9208AB2204E0DBA007435F7 /* AppFC.swift in Sources */,
+				A9208AB7204E1B1F007435F7 /* PlatformVC.swift in Sources */,
 				A9D74337200962E900B1269A /* BanjoFormatter.swift in Sources */,
 				A9014B992014FB2800387268 /* EmptySupplementaryCell.swift in Sources */,
 				A95D56C61E0DEB72008399B2 /* GameSearchVC.swift in Sources */,
@@ -789,6 +804,7 @@
 				4E12D4832009210F004BC116 /* TimeToBeat.swift in Sources */,
 				A9208AB3204E0DBA007435F7 /* FlowCoordinator.swift in Sources */,
 				A92C2F541D3DE25A001C6E9C /* AppDelegate.swift in Sources */,
+				A9208AB9204E1B65007435F7 /* PlatformDS.swift in Sources */,
 				A918A8A8201559C20064630E /* ScreenshotCell.swift in Sources */,
 				4E12D4762009210F004BC116 /* PEGI.swift in Sources */,
 				A9DEC1BC1E161E8D0099A14F /* GenreCollectionView.swift in Sources */,

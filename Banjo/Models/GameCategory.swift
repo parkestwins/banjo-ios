@@ -16,4 +16,7 @@ enum GameCategory: Int, Codable {
     case expansion
     case bundle
     case standaloneExpansion
+    case unknown5
+    case unknown6
+    case unknown7
 }

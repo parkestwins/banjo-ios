@@ -157,4 +157,13 @@ public enum Platform: Int, Codable {
     case thomsonM05
     case necPC6000Series
     case commodoreCDTV
+    
+    var name: String {
+        switch self {
+        case .nes: return "Nintendo"
+        case .n64: return "Nintendo 64"
+        case .snes: return "Super Nintendo"
+        default: return "[name not implemented]"
+        }
+    }
 }
