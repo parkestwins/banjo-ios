@@ -8,9 +8,19 @@
 
 import UIKit
 
+// MARK: - StartVCDelegate
+
+protocol StartVCDelegate: class {
+    func startVCDidTapSearch(startVC: StartVC)
+}
+
 // MARK: - StartVC: UIViewController, NibLoadable
 
 class StartVC: UIViewController, NibLoadable {
+    
+    // MARK: Properties
+    
+    var delegate: StartVCDelegate?
     
     // MARK: Outlets
     
@@ -34,7 +44,6 @@ class StartVC: UIViewController, NibLoadable {
     // MARK: Actions
     
     @IBAction func searchTapped(_ sender: Any) {
-        let gameSearchVC = GameSearchVC.loadFromNib(bundle: Bundle.main)
-        navigationController?.pushViewController(gameSearchVC, animated: true)
+        delegate?.startVCDidTapSearch(startVC: self)        
     }
 }

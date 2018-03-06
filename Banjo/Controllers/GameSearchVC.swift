@@ -8,12 +8,20 @@
 
 import UIKit
 
+// MARK: - GameSearchVCDelegate
+
+protocol GameSearchVCDelegate: class {
+    func gameSearchVCDidTapDismiss(gameSearchVC: GameSearchVC)
+    func gameSearchVCDidSelectGame(gameSearchVC: GameSearchVC, game: GamePartial)
+}
+
 // MARK: - GameSearchVC: UIViewController, NibLoadable
 
 class GameSearchVC: UIViewController, NibLoadable {
     
     // MARK: Properties
     
+    var delegate: GameSearchVCDelegate?
     let gameSearchDataSource = GameSearchDS()
     
     // MARK: Outlets
@@ -46,7 +54,7 @@ class GameSearchVC: UIViewController, NibLoadable {
     // MARK: Actions
     
     @objc func back() {
-        navigationController?.popViewController(animated: true)
+        delegate?.gameSearchVCDidTapDismiss(gameSearchVC: self)
     }
 }
 
@@ -110,11 +118,7 @@ extension GameSearchVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let game = gameSearchDataSource.games[indexPath.row]
-        
-        let gameDetailVC = GameDetailCollectionVC(collectionViewLayout: UICollectionViewFlowLayout.oneColumnStretchLayout())
-        gameDetailVC.gameID = game.id        
-        
-        self.navigationController?.pushViewController(gameDetailVC, animated: true)
+        let game = gameSearchDataSource.games[indexPath.row]        
+        delegate?.gameSearchVCDidSelectGame(gameSearchVC: self, game: game)
     }
 }

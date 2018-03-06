@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
     
     var window: UIWindow?
+    var appFC: AppFC!
     
     // MARK: UIApplicationDelegate
     
@@ -40,10 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set main window
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
-        let startVC = StartVC.loadFromNib(bundle: Bundle.main)
-        let nvc = UINavigationController(rootViewController: startVC)
-        window?.rootViewController = nvc
+                
+        // create app coordinator and start!
+        appFC = AppFC(window: window!, services: Services(igdbService: IGDBService.shared))
+        appFC.start()
         
         return true
     }

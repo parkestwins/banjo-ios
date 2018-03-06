@@ -21,6 +21,8 @@ public class IGDBService {
     
     private init() {}
     
+    // FIXME: remove shared service
+    
     static let shared = IGDBService()
     
     // MARK: Search
