@@ -64,7 +64,7 @@ public enum IGDBRequest {
     public var components: URLComponents {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "api-2445582011268.apicast.io"
+        components.host = "api-endpoint.igdb.com"
         components.path = path
         components.queryItems = queryItems
         
