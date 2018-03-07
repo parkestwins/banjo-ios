@@ -118,6 +118,8 @@ extension GameSearchVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard dataSource.state != .empty else { return }
+        
         let game = dataSource.games[indexPath.row]        
         delegate?.gameSearchVCDidSelectGame(gameSearchVC: self, game: game)
     }
