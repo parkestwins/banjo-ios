@@ -1,1 +1,2 @@
-
+- added support for all Nintendo consoles
+- bug fixes

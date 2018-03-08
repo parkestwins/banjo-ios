@@ -1,1 +1,1 @@
-Banjo is a searchable Nintendo 64 (N64) game index. Use it to find any title for the N64 console and view releases across different regions like Japan, Europe, and Australia.
+The Nintendo Index is a searchable game index for all Nintendo consoles. Use it to find any title for a Nintendo console and view associated data like release date and screenshots.

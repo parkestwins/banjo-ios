@@ -35,7 +35,7 @@ class PlatformVC: UITableViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.title = "Pick Platform"
+        navigationItem.title = "Pick Nintendo Console"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-arrow"), style: .plain, target: self, action: #selector(back))
         
         dataSource.state = .normal

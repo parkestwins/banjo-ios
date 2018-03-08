@@ -49,7 +49,7 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="leadingMargin" secondItem="ggB-Dc-kxb" secondAttribute="leading" id="4iq-X0-CQU"/>
+                    <constraint firstAttribute="leading" secondItem="ggB-Dc-kxb" secondAttribute="leading" constant="-16" id="4iq-X0-CQU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ggB-Dc-kxb" secondAttribute="trailing" id="MC8-sD-6xx"/>
                     <constraint firstItem="ggB-Dc-kxb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OGU-sk-mrm"/>
                     <constraint firstAttribute="bottom" secondItem="zgZ-IN-fua" secondAttribute="bottom" id="Tud-dt-a3x"/>

@@ -22,7 +22,7 @@ class GameSearchVC: UIViewController, NibLoadable {
     // MARK: Properties
     
     var delegate: GameSearchVCDelegate?
-    var dataSource: GameSearchDS! = nil
+    var dataSource: GameSearchDS!
     
     // MARK: Outlets
     
@@ -35,7 +35,7 @@ class GameSearchVC: UIViewController, NibLoadable {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.title = "Search"
+        navigationItem.title = "Search \(dataSource.platform.name) Games"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "back-arrow"), style: .plain, target: self, action: #selector(back))
         
         gamesTableView.delegate = self

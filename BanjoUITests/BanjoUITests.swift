@@ -12,14 +12,12 @@ class BanjoUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
+        
         continueAfterFailure = false
+        
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
     }
     
     func testTakeScreens() {
@@ -28,18 +26,22 @@ class BanjoUITests: XCTestCase {
         
         // start screen
         snapshot("StartScreen")
-        let searchButton = app.buttons["searchButton"]
-        searchButton.tap()
+        app.buttons["searchButton"].tap()
+        
+        // platform select screen
+        snapshot("PlatformSelectScreen")
+        let tablesQuery = app.tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["N64"]/*[[".cells.staticTexts[\"N64\"]",".staticTexts[\"N64\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         // search screen
-        snapshot("SearchScreen")
-        let searchBar = app.otherElements["searchBar"]
-        searchBar.tap()
-        searchBar.typeText("Mario")
-        
+        let searchQuerySearchField = app/*@START_MENU_TOKEN@*/.searchFields["Search query..."]/*[[".otherElements[\"searchBar\"].searchFields[\"Search query...\"]",".searchFields[\"Search query...\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        searchQuerySearchField.tap()
+        searchQuerySearchField.typeText("harvest")
         sleep(2)
+        snapshot("SearchScreen")
         
-        // search query
-        snapshot("SearchQuery")
+        // game detail screen
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["February 05, 1999"]/*[[".cells.staticTexts[\"February 05, 1999\"]",".staticTexts[\"February 05, 1999\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("GameDetailScreen")
     }
 }

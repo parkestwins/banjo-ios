@@ -2,6 +2,15 @@ fastlane_version "2.84.0"
 
 default_platform :ios
 
+ENV["WORKSPACE"] = "Banjo.xcworkspace"
+ENV["UI_TEST_SCHEME"] = "BanjoUITests"
+ENV["APPLE_ID_EMAIL"] = "parkesfjarrod@gmail.com"
+ENV["APPLE_DEV_TEAM_ID"] = "3Y3M3A69VC"
+ENV["BUNDLE_ID"] = "com.ParkesTwins.Banjo"
+ENV["ITC_TEAM_ID"] = "963498"
+ENV["MATCH_GIT_URL"] = "https://github.com/parkestwins/iOS-Certificates"
+ENV["ITC_PROVIDER"] = "JarrodParkes1336547729"
+
 platform :ios do
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
@@ -11,6 +20,32 @@ platform :ios do
   lane :bootstrap do
     bundle_install
     cocoapods(clean: true)
+  end
+
+  desc "Capture screenshots"
+  lane :screens do
+    capture_ios_screenshots(
+      workspace: ENV["WORKSPACE"],
+      scheme: ENV["UI_TEST_SCHEME"],
+      devices: ["iPhone 6 Plus", "iPad Pro (12.9-inch)"],
+      languages: ["en-US"],
+      number_of_retries: 1,
+      skip_helper_version_check: false,
+      clean: true
+    )
+  end
+
+  desc "Upload screenshots"
+  lane :upscreens do
+    deliver(
+      skip_metadata: true,
+      skip_app_version_update: true,
+      skip_binary_upload: true,
+      username: ENV["APPLE_ID_EMAIL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      team_id: ENV["ITC_TEAM_ID"],
+      overwrite_screenshots: true
+    )
   end
 
   desc "Run tests"
@@ -25,10 +60,35 @@ platform :ios do
 
   desc "Generate new certificates"
   lane :certs do
-    # set readonly to false, if you need to generate new certs
-    match(type: "development", readonly: false, force: true)
-    match(type: "adhoc", readonly: false, force: true)
-    match(type: "appstore", readonly: false, force: true)
+    # set readonly to true to fetch existing certificates and profiles
+    # set readonly to false and force to true, if you need to generate new certs
+    match(
+      type: "development",
+      git_url: ENV["MATCH_GIT_URL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      username: ENV["APPLE_ID_EMAIL"],
+      team_id: ENV["APPLE_DEV_TEAM_ID"],
+      readonly: false,
+      force: true
+    )
+    match(
+      type: "adhoc",
+      git_url: ENV["MATCH_GIT_URL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      username: ENV["APPLE_ID_EMAIL"],
+      team_id: ENV["APPLE_DEV_TEAM_ID"],
+      readonly: false,
+      force: true
+    )
+    match(
+      type: "appstore",
+      git_url: ENV["MATCH_GIT_URL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      username: ENV["APPLE_ID_EMAIL"],
+      team_id: ENV["APPLE_DEV_TEAM_ID"],
+      readonly: false,
+      force: true
+    )
   end
 
   desc "Deploy test build using Crashlytics Beta"
@@ -36,12 +96,12 @@ platform :ios do
     match(type: 'adhoc', readonly: true)
 
     gym(
-      workspace: "Banjo.xcworkspace",
+      workspace: ENV["WORKSPACE"],
       scheme: "Banjo",
       export_method: "ad-hoc",
       export_options: {
         provisioningProfiles: {
-          "com.ParkesTwins.Banjo" => "match AdHoc com.ParkesTwins.Banjo"
+          ENV["BUNDLE_ID"] => "match AdHoc #{ENV["BUNDLE_ID"]}"
         }
       }
     )
@@ -61,19 +121,35 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    match(type: "appstore")
+    match(
+      type: 'appstore',
+      git_url: ENV["MATCH_GIT_URL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      username: ENV["APPLE_ID_EMAIL"],
+      team_id: ENV["APPLE_DEV_TEAM_ID"],
+      readonly: true
+    )
 
     gym(
-      workspace: "Banjo.xcworkspace",
+      workspace: ENV["WORKSPACE"],
       scheme: "Banjo",
-      export_method: "appstore",
+      export_method: "app-store",
       export_options: {
+        method: "app-store",
         provisioningProfiles: {
-          "com.ParkesTwins.Banjo" => "match AppStore com.ParkesTwins.Banjo"
+          ENV["BUNDLE_ID"] => "match AppStore #{ENV["BUNDLE_ID"]}"
         }
       }
     )
 
-    deliver(force: true)
+    deliver(
+      username: ENV["APPLE_ID_EMAIL"],
+      app_identifier: ENV["BUNDLE_ID"],
+      team_id: ENV["ITC_TEAM_ID"],
+      dev_portal_team_id: ENV["APPLE_DEV_TEAM_ID"],
+      itc_provider: ENV["ITC_PROVIDER"],
+      force: true,
+      skip_screenshots: true
+    )
   end
 end

@@ -16,8 +16,13 @@ class PlatformDS: BaseTableDS {
     // MARK: Properties
     
     var platforms: [Platform] = [
+        .nes,
+        .snes,
         .n64,
-        .snes
+        .gc,        
+        .wii,
+        .wiiU,
+        .nintendoSwitch
     ]
     
     // MARK: BaseTableDS

@@ -21,6 +21,16 @@ or alternatively using `brew cask install fastlane`
 fastlane ios bootstrap
 ```
 Install dependencies
+### ios screens
+```
+fastlane ios screens
+```
+Capture screenshots
+### ios upscreens
+```
+fastlane ios upscreens
+```
+Upload screenshots
 ### ios test
 ```
 fastlane ios test

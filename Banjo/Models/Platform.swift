@@ -160,10 +160,14 @@ public enum Platform: Int, Codable {
     
     var name: String {
         switch self {
-        case .nes: return "Nintendo"
-        case .n64: return "Nintendo 64"
-        case .snes: return "Super Nintendo"
-        default: return "[name not implemented]"
+        case .nes: return "NES"
+        case .snes: return "SNES"
+        case .n64: return "N64"
+        case .gc: return "Gamecube"
+        case .wii: return "Wii"
+        case .wiiU: return "Wii U"
+        case .nintendoSwitch: return "Switch"
+        default: return "[platform name not implemented]"
         }
     }
 }
