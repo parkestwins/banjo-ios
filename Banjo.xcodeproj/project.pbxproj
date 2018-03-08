@@ -81,7 +81,6 @@
 		A9D7432F2009478900B1269A /* IGDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7432E2009478900B1269A /* IGDBService.swift */; };
 		A9D7433120094C0600B1269A /* GameSearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D7433020094C0600B1269A /* GameSearchVC.xib */; };
 		A9D7433320094F7200B1269A /* UITableView+RegisterNibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7433220094F7200B1269A /* UITableView+RegisterNibs.swift */; };
-		A9D74335200950CE00B1269A /* GameDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9D74334200950CE00B1269A /* GameDetailVC.xib */; };
 		A9D74337200962E900B1269A /* BanjoFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D74336200962E900B1269A /* BanjoFormatter.swift */; };
 		A9D7433B2009865900B1269A /* BaseTableDS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7433A2009865900B1269A /* BaseTableDS.swift */; };
 		A9D7433D2009899600B1269A /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D7433C2009899600B1269A /* EmptyCell.swift */; };
@@ -193,7 +192,6 @@
 		A9D7432E2009478900B1269A /* IGDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBService.swift; sourceTree = "<group>"; };
 		A9D7433020094C0600B1269A /* GameSearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameSearchVC.xib; sourceTree = "<group>"; };
 		A9D7433220094F7200B1269A /* UITableView+RegisterNibs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+RegisterNibs.swift"; sourceTree = "<group>"; };
-		A9D74334200950CE00B1269A /* GameDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameDetailVC.xib; sourceTree = "<group>"; };
 		A9D74336200962E900B1269A /* BanjoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanjoFormatter.swift; sourceTree = "<group>"; };
 		A9D7433A2009865900B1269A /* BaseTableDS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableDS.swift; sourceTree = "<group>"; };
 		A9D7433C2009899600B1269A /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
@@ -465,7 +463,6 @@
 				A9014BA72014FE6500387268 /* GameDetailHeaderCell.xib */,
 				A9D7432A2009435700B1269A /* StartVC.xib */,
 				A9D7433020094C0600B1269A /* GameSearchVC.xib */,
-				A9D74334200950CE00B1269A /* GameDetailVC.xib */,
 				A92C2F5A1D3DE25A001C6E9C /* Assets.xcassets */,
 				A92C2F5C1D3DE25A001C6E9C /* LaunchScreen.storyboard */,
 			);
@@ -634,7 +631,6 @@
 				A918A8AA201559DE0064630E /* ScreenshotCell.xib in Resources */,
 				A92C2F5E1D3DE25A001C6E9C /* LaunchScreen.storyboard in Resources */,
 				A9D7432B2009435700B1269A /* StartVC.xib in Resources */,
-				A9D74335200950CE00B1269A /* GameDetailVC.xib in Resources */,
 				A92C2F5B1D3DE25A001C6E9C /* Assets.xcassets in Resources */,
 				A9208ABD204E1C4B007435F7 /* PlatformCell.xib in Resources */,
 				A9014B972014FA7D00387268 /* ErrorCollectionCell.xib in Resources */,

@@ -1,1 +1,1 @@
-nintendo,nintendo64,game,index
+game,index,consoles

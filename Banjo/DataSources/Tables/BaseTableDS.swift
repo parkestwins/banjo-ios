@@ -20,6 +20,10 @@ class BaseTableDS: NSObject, UITableViewDataSource {
     
     // MARK: UICollectionViewDataSource
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSourceNumberOfSections(in: tableView)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch state {
         case .loading:
@@ -27,7 +31,7 @@ class BaseTableDS: NSObject, UITableViewDataSource {
         case .error, .empty:
             return 1
         default:
-            return dataSourceNumberOfRowsInSection(in: tableView)
+            return dataSourceNumberOfRowsInSection(in: tableView, section: section)
         }
     }
     
@@ -44,7 +48,11 @@ class BaseTableDS: NSObject, UITableViewDataSource {
     
     // MARK: Default Behaviors
     
-    func dataSourceNumberOfRowsInSection(in tableView: UITableView) -> Int {
+    func dataSourceNumberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func dataSourceNumberOfRowsInSection(in tableView: UITableView, section: Int) -> Int {
         return 1
     }
     

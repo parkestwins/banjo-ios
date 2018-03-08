@@ -160,6 +160,12 @@ public enum Platform: Int, Codable {
     
     var name: String {
         switch self {
+        case .segaMasterSystem: return "Master System"
+        case .megaDrive: return "Genesis"
+        case .segaCD: return "Sega CD"
+        case .sega32x: return "Sega 32x"
+        case .segaSaturn: return "Saturn"
+        case .dc: return "Dreamcast"
         case .nes: return "NES"
         case .snes: return "SNES"
         case .n64: return "N64"

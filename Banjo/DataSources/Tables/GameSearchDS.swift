@@ -67,7 +67,7 @@ class GameSearchDS: BaseTableDS {
     
     // MARK: BaseTableDS
     
-    override func dataSourceNumberOfRowsInSection(in tableView: UITableView) -> Int {
+    override func dataSourceNumberOfRowsInSection(in tableView: UITableView, section: Int) -> Int {
         switch state {
         case .normal, .ready:
             return games.count

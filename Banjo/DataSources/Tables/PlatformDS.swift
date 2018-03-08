@@ -15,22 +15,36 @@ class PlatformDS: BaseTableDS {
     
     // MARK: Properties
     
-    var platforms: [Platform] = [
-        .nes,
-        .snes,
-        .n64,
-        .gc,        
-        .wii,
-        .wiiU,
-        .nintendoSwitch
+    var platforms: [[Platform]] = [
+        [
+            .segaMasterSystem,
+            .megaDrive,
+            .segaCD,
+            .sega32x,
+            .segaSaturn,
+            .dc
+        ],
+        [
+            .nes,
+            .snes,
+            .n64,
+            .gc,
+            .wii,
+            .wiiU,
+            .nintendoSwitch
+        ]
     ]
     
     // MARK: BaseTableDS
     
-    override func dataSourceNumberOfRowsInSection(in tableView: UITableView) -> Int {
+    override func dataSourceNumberOfSections(in tableView: UITableView) -> Int {
+        return platforms.count
+    }
+    
+    override func dataSourceNumberOfRowsInSection(in tableView: UITableView, section: Int) -> Int {
         switch state {
         case .normal, .ready:
-            return platforms.count
+            return platforms[section].count
         case .empty:
             return 1
         case .error, .loading:
@@ -41,7 +55,7 @@ class PlatformDS: BaseTableDS {
     override func dataSourceTableView(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PlatformCell = tableView.dequeueReusableCellFromNib(forIndexPath: indexPath)
         
-        let platform = platforms[indexPath.row]
+        let platform = platforms[indexPath.section][indexPath.row]
         cell.platformLabel.text = platform.name
         cell.nextImageView.image = #imageLiteral(resourceName: "right")
         
